@@ -3,7 +3,9 @@
 <head> 
 	<meta charset="UTF-8" />
     <title>When Pig Flies 2</title>
+    
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+    <script src = "js/garlic.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -22,8 +24,8 @@ function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
-    game.load.image('cloud', 'images/cloud1.png');
-    //game.load.image('garlic', 'assets/garlic.png');
+    game.load.image('cloud', 'images/cloud1flipped.png');
+    game.load.image('garlic', 'assets/garlic.png');
 
     game.load.image ('pigR1', 'images/pigSprites/walkFeathersRight1.png');
     game.load.image ('pigR2', 'images/pigSprites/walkFeathersRight2.png');
@@ -43,8 +45,11 @@ var stars;
 var health = 100;
 var stamina;
 var scoreText;
+var space;
+var garlics;
 
 function create() {
+    
 
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -116,6 +121,8 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys(); 
+    space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    garlics = game.add.group();
 }
 
 var anim = 0;
@@ -163,8 +170,11 @@ function update() {
         player.body.velocity.y += 10;
     }
 
-    healthBar.width = health;
+    if (space.isDown) {
+        dropGarlic();
+    }
 
+    healthBar.width = health;
 
     //Add space for bomb  drop
 
@@ -185,8 +195,18 @@ function collectStar (player, star) {
     {
         healthText.text = 'Health: YOU DEAD';
     }
-
 }
+
+
+function dropGarlic() {
+    var garlic = garlics.create(player.x, player.y, 'garlic');
+    //var garlic = game.add.sprite(player.x, player.y, 'garlic');
+    game.physics.arcade.enable(garlic);
+    garlic.enableBody = true;
+    garlic.body.gravity.y = 200;
+    garlic.body.bounce.y = 1;
+}
+
 
 </script>
 
