@@ -1,0 +1,7 @@
+var enemy;
+
+
+function insertEnemy() {
+
+
+}
