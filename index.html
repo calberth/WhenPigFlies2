@@ -3,7 +3,10 @@
 <head> 
 	<meta charset="UTF-8" />
     <title>When Pig Flies 2</title>
+    
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+    <script src = "js/garlic.js"></script>
+    <script src = "js/bars.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -21,6 +24,10 @@ function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
+    game.load.image('cloud', 'images/cloud1flipped.png');
+    game.load.image('garlic', 'assets/garlic.png');
+    game.load.image('bat', 'assets/bat.png');
+    game.load.image('soundwave', 'assets/soundwave.png');
 
     game.load.image ('pigR1', 'images/pigSprites/walkFeathersRight1.png');
     game.load.image ('pigR2', 'images/pigSprites/walkFeathersRight2.png');
@@ -36,17 +43,30 @@ var platforms;
 var cursors;
 var enemy;
 
+var bats;
+var soundwaves;
+
 var stars;
-var health = 5;
-var stamina;
-var scoreText;
+var health = 100;
+var stamina = 100;
+var space;
+var garlics;
+var bars;
 
 function create() {
+    
 
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
+    //game.add.sprite(-5, -5, 'garlic');
+    bars = game.add.group();
+
+    createHealthBar();
+    
+    createStaminaBar();
+
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
     //  We will enable physics for any object that is created in this group
@@ -54,16 +74,18 @@ function create() {
     // Here we create the ground.
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-    ground.scale.setTo(2, 2);
+    ground.scale.setTo(2, 5);
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
     //  Now let's create two ledges
-    var ledge = platforms.create(400, 400, 'ground');
+    var ledge = platforms.create(400, 400, 'cloud');
+
     ledge.body.immovable = true;
 
-    ledge = platforms.create(-150, 250, 'ground');
+    ledge = platforms.create(-150, 250, 'cloud');
     ledge.body.immovable = true;
+
 
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'pigR1');
@@ -75,37 +97,54 @@ function create() {
     player.body.bounce.y = 0.2;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
+   // garlic.body.gravity.y = 300;
 
     //  Finally some stars to collect
-    stars = game.add.group();
+    // stars = game.add.group();
 
-    //  We will enable physics for any star that is created in this group
-    stars.enableBody = true;
+    // //  We will enable physics for any star that is created in this group
+    // stars.enableBody = true;
 
-    //  Here we'll create 12 of them evenly spaced apart
-    for (var i = 0; i < 12; i++)
-    {
-        //  Create a star inside of the 'stars' group
-        var star = stars.create(i * 70, 0, 'star');
+    // //  Here we'll create 12 of them evenly spaced apart
+    // for (var i = 0; i < 12; i++)
+    // {
+    //     //  Create a star inside of the 'stars' group
+    //     var star = stars.create(i * 70, 0, 'star');
 
-        //  Let gravity do its thing
-        star.body.gravity.y = 300;
+    //     //  Let gravity do its thing
+    //     star.body.gravity.y = 400;
 
-        //  This just gives each star a slightly random bounce value
-        star.body.bounce.y = 0.7 + Math.random() * 0.2;
+    //     //  This just gives each star a slightly random bounce value
+    //     star.body.bounce.y = 0.7 + Math.random() * 0.2;
+    // }
+
+    //ENEMIES
+    bats = game.add.group();
+    bats.enableBody = true;
+    soundwaves = game.add.group();
+    soundwaves.enableBody = true;
+    for (var j = 3; j < 12; j++) {
+        var bat = bats.create(j * 90, game.world.height - 100, 'bat');
+        bat.body.gravity.y = 0;
+        bat.body.bounce.y = 0;
+
+        var soundwave = soundwaves.create(j * 90 - 10, game.world.height - 150, 'soundwave');
+        soundwave.body.gravity.y = Math.floor(Math.random() * (0 + 100)) - 100;
+        soundwave.body.bounce.y = 0;
     }
-
-    //  The score
-    healthText = game.add.text(16, 16, 'Health: 5', { fontSize: '32px', fill: '#000' });
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys(); 
+    space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    garlics = game.add.group();
 }
 
 var anim = 0;
 var animL = 0;
+var garlicTime = 0;
 
 function update() {
+
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
 
@@ -115,6 +154,8 @@ function update() {
 
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     game.physics.arcade.overlap(player, stars, collectStar, null, this); 
+    game.physics.arcade.overlap(garlics, bats, collectBat, null, this); 
+    game.physics.arcade.overlap(player, soundwaves, collectWave, null, this); 
 
     if (cursors.left.isDown) {
         player.body.velocity.x = -150;
@@ -137,13 +178,40 @@ function update() {
         anim++;
     }
 
-    //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown)//.isDown)//&& player.body.touching.down && hitPlatform)
+    //  Allow the player to fly!
+    if (cursors.up.isDown)
     {
-        player.body.velocity.y += -10;
+        
+        if (stamina > 0)
+        {
+            player.body.velocity.y += -10;
+            stamina -= 0.5;
+        }
+        
+    }
+    else
+    {
+        if (stamina < 100)
+        {
+            stamina += 0.25;
+        }
     }
 
-    //if (cursors.space.isDown)
+    if (cursors.down.isDown) {
+        player.body.velocity.y += 10;
+    }
+
+    if (space.isDown) {
+        if (garlicTime % 20 == 0)
+            dropGarlic();
+        garlicTime++;
+    }
+
+    updateHealthBar();
+
+    updateStaminaBar();
+
+    //Add space for bomb  drop
 
     
 }
@@ -154,9 +222,32 @@ function collectStar (player, star) {
     star.kill();
 
     //  Add and update the score
-    health -= 1;
-    healthText.text = 'Health: ' + health;
+    if (health > 0)
+    {
+        health -= healthDec;
+    }
+    else
+    {
+        healthText.text = 'Health: YOU DEAD';
+    }
 }
+
+function collectBat(garlics, bat) {
+    bat.kill();
+}
+
+function collectWave(player, soundwaves) {
+    if (health > 0) 
+    {
+        health -= .5;
+    }
+    else 
+    {
+        healthText.text = 'Health: YOU DEAD';
+    }
+}
+
+
 
 </script>
 
