@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
     <title>When Pig Flies 2</title>
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+    
     <style type="text/css">
         body {
             margin: 0;
@@ -21,6 +22,7 @@ function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
+    game.load.image('garlic', 'assets/garlic.png');
 
     game.load.image ('pigR1', 'images/pigSprites/walkFeathersRight1.png');
     game.load.image ('pigR2', 'images/pigSprites/walkFeathersRight2.png');
@@ -44,6 +46,8 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
+    game.add.sprite(-5, -5, 'garlic');
+
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
     //  We will enable physics for any object that is created in this group
@@ -72,6 +76,7 @@ function create() {
     player.body.bounce.y = 0.2;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
+    garlic.body.gravity.y = 300;
 
     //  Finally some stars to collect
     stars = game.add.group();
