@@ -127,8 +127,10 @@ function create() {
 
 var anim = 0;
 var animL = 0;
+var garlicTime = 0;
 
 function update() {
+    
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
 
@@ -171,7 +173,9 @@ function update() {
     }
 
     if (space.isDown) {
-        dropGarlic();
+        if (garlicTime % 20 == 0)
+            dropGarlic();
+        garlicTime++;
     }
 
     healthBar.width = health;
@@ -197,15 +201,6 @@ function collectStar (player, star) {
     }
 }
 
-
-function dropGarlic() {
-    var garlic = garlics.create(player.x, player.y, 'garlic');
-    //var garlic = game.add.sprite(player.x, player.y, 'garlic');
-    game.physics.arcade.enable(garlic);
-    garlic.enableBody = true;
-    garlic.body.gravity.y = 200;
-    garlic.body.bounce.y = 1;
-}
 
 
 </script>
