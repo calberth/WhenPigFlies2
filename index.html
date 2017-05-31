@@ -29,11 +29,11 @@ function preload() {
     game.load.image('bat', 'assets/bat.png');
     game.load.image('soundwave', 'assets/soundwave.png');
 
-    game.load.image ('pigR1', 'images/pigSprites/walkFeathersRight1.png');
-    game.load.image ('pigR2', 'images/pigSprites/walkFeathersRight2.png');
+    game.load.image ('pigR1', 'images/pigSprites/flying-up.png');
+    game.load.image ('pigR2', 'images/pigSprites/flying-down.png');
 
-    game.load.image ('pigL1', 'images/pigSprites/walkFeathersLeft1.png');
-    game.load.image ('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
+    game.load.image ('pigL1', 'images/pigSprites/flying-up-mirrored.png');
+    game.load.image ('pigL2', 'images/pigSprites/flying-down-mirrored.png');
 
     game.load.image ('batR', 'images/right-facing-bat.png');
 }
@@ -89,6 +89,9 @@ function create() {
 
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'pigR1');
+    //player.scale.setTo(84, 70);
+    player.scale.x = 0.5;
+    player.scale.y = 0.5;
 
     //  We need to enable physics on the player
     game.physics.arcade.enable(player);
