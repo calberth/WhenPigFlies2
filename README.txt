@@ -1,0 +1,1 @@
+Put these files where your localhost operates. In XAMPP it's C/xampp/htdocs.
