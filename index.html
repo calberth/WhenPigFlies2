@@ -7,6 +7,7 @@
     <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
     <script src = "js/garlic.js"></script>
     <script src = "js/bars.js"></script>
+    <script src = "js/soundwaves.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -21,7 +22,7 @@ var game = new Phaser.Game(1200, 675, Phaser.AUTO, '', { preload: preload, creat
 
 function preload() {
 
-    game.load.image('sky', 'assets/sky.png');
+    game.load.image('sky', 'images/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');
     game.load.image('cloud', 'images/cloud1flipped.png');
@@ -40,8 +41,6 @@ function preload() {
 
     game.load.image ('pigL1', 'images/pigSprites/walkFeathersLeft1.png');
     game.load.image ('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
-
-    //game.load.image ('batR', 'images/right-facing-bat.png');
 }
 
 var player;
@@ -75,8 +74,7 @@ function create() {
     //game.add.sprite(-5, -5, 'garlic');
     bars = game.add.group();
 
-    createHealthBar();
-    
+    createHealthBar(); 
     createStaminaBar();
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
@@ -101,10 +99,6 @@ function create() {
 
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'pigFR1');
-    player.direction = Direction.right;
-    //player.scale.setTo(84, 70);
-    //player.scale.x = 0.5;
-    //player.scale.y = 0.5;
 
     //  We need to enable physics on the player
     game.physics.arcade.enable(player);
@@ -113,26 +107,6 @@ function create() {
     player.body.bounce.y = 0.2;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
-   // garlic.body.gravity.y = 300;
-
-    //  Finally some stars to collect
-    // stars = game.add.group();
-
-    // //  We will enable physics for any star that is created in this group
-    // stars.enableBody = true;
-
-    // //  Here we'll create 12 of them evenly spaced apart
-    // for (var i = 0; i < 12; i++)
-    // {
-    //     //  Create a star inside of the 'stars' group
-    //     var star = stars.create(i * 70, 0, 'star');
-
-    //     //  Let gravity do its thing
-    //     star.body.gravity.y = 400;
-
-    //     //  This just gives each star a slightly random bounce value
-    //     star.body.bounce.y = 0.7 + Math.random() * 0.2;
-    // }
 
     //ENEMIES
     bats = game.add.group();
@@ -256,11 +230,10 @@ function update() {
     }
 
     updateHealthBar();
-
     updateStaminaBar();
 
-    //Add space for bomb  drop
-
+    if (waveTimer++ % 100 == 0)
+        createSoundwaves(bats);
     
 }
 
@@ -282,6 +255,7 @@ function collectStar (player, star) {
 
 function collectBat(garlics, bat) {
     bat.kill();
+    bats.remove(bat);
 }
 
 function collectWave(player, soundwaves) {
