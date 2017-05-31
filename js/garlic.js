@@ -7,4 +7,6 @@ function dropGarlic() {
     garlic.body.gravity.y = 200;
     garlic.body.bounce.y = 1;
     garlic.body.velocity.x = player.body.velocity.x;
+
+    
 }
