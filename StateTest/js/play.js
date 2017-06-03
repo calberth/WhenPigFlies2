@@ -1,6 +1,7 @@
 var playState = {
-    
-    create: function() {				
+
+    create: function() {
+
 		
 		// Prepare the keyboard so that the human player can move the
 		// player sprite around

@@ -6,7 +6,7 @@ var staminaText;
 
 
 
-function createHealthBar()
+function createHealthBar(health)
 {
     var bar = game.add.bitmapData(health, 40);
     bar.ctx.beginPath();
@@ -18,12 +18,12 @@ function createHealthBar()
     healthText = game.add.text(16, 16, 'Health:', { fontSize: '32px', fill: '#000' });
 }
 
-function updateHealthBar()
+function updateHealthBar(health)
 {
     healthBar.width = health;
 }
 
-function createStaminaBar()
+function createStaminaBar(stamina)
 {
     var bar = game.add.bitmapData(stamina, 40);
     bar.ctx.beginPath();
@@ -35,7 +35,7 @@ function createStaminaBar()
     staminaText = game.add.text(16, 50, 'Stamina:', { fontSize: '32px', fill: '#000' });
 }
 
-function updateStaminaBar()
+function updateStaminaBar(stamina)
 {
     staminaBar.width = stamina;
 }
