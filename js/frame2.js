@@ -1,45 +1,13 @@
-		//Since these are global, they should persist between levels
-		var player;
-		var platforms;
-		var cursors;
-		var enemy;
-
-		var bats;
-		var soundwaves;
-
-		var stars;
-		var health;
-		var stamina;
-		var space;
-		var garlics;
-		var bars;
-		var direction;
-
-		var Direction = {
-		  left : 0, 
-		  right: 1
-		};
-
-		var anim = 0;
-		var animL = 0;
-		var garlicTime = 0;
-		var boundaries;
-
-var playState = {
-
-	//doesn't let you put globals here
+var frame2State = {
 
 	create: function() {
-
-		health = stamina = 100;
 	    
 	    //  A simple background for our game
 	    game.add.sprite(0, 0, 'sky');
-	    //game.add.sprite(-5, -5, 'garlic');
 	    bars = game.add.group();
 
-	    createHealthBar(100); //there's a glitch on variables on second load
-	    createStaminaBar(100);
+	    createHealthBar(health); 
+	    createStaminaBar(stamina);
 
 	    //  The platforms group contains the ground and the 2 ledges we can jump on
 	    platforms = game.add.group();
@@ -52,14 +20,6 @@ var playState = {
 	    //  This stops it from falling away when you jump on it
 	    ground.body.immovable = true;
 
-
-	    //For travel between levels; some of these boundaries will need to be rotated
-	    boundaries = game.add.group();
-	    boundaries.enableBody = true;
-	    var rightBound = boundaries.create(1100, 100, 'levelBound');
-	    rightBound.scale.setTo(1, 5);
-
-
 	    //  Now let's create two ledges
 	    var ledge = platforms.create(400, 400, 'cloud');
 
@@ -69,7 +29,7 @@ var playState = {
 	    ledge.body.immovable = true;
 
 	    // The player and its settings
-	    player = game.add.sprite(32, game.world.height - 150, 'pigFR1');
+	    player = game.add.sprite(32, game.world.height - 150, 'pigFR1'); //ADDED THIS
 
 	    //  We need to enable physics on the player
 	    game.physics.arcade.enable(player);
@@ -99,7 +59,6 @@ var playState = {
 	    cursors = game.input.keyboard.createCursorKeys(); 
 	    space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	    garlics = game.add.group();
-
 	},
 
 	
@@ -113,13 +72,9 @@ var playState = {
 	    var hitPlatform = game.physics.arcade.collide(player, platforms);
 	    game.physics.arcade.collide(stars, platforms);
 
-	    //var hitBoundary = game.physics.arcade.collide(player, boundaries);
-
 	    //Checks garlic & Soundwave overlap
 	    game.physics.arcade.overlap(garlics, bats, collectBat, null, this); 
 	    game.physics.arcade.overlap(player, soundwaves, collectWave, null, this); 
-
-	    game.physics.arcade.overlap(player, boundaries, this.NextLevel); 
 
 	    if (cursors.left.isDown) {
 	        player.body.velocity.x = -150;
@@ -196,6 +151,8 @@ var playState = {
 	        garlicTime++;
 	    }
 
+
+	    console.log("Velocity is " + player.body.velocity.y);
 	    // If pig is in the air, flap wings
 	    /*if(player.body.velocity.y < -1 ) {
 	        
@@ -242,25 +199,6 @@ var playState = {
 	Lose: function() {
 		// We start the win state
 		game.state.start('lose');
-	},
-
-	NextLevel: function() {
-		game.state.start('frame2')
 	}
-}
 
-function collectBat(garlics, bat) {
-	bat.kill();
-	bats.remove(bat);
-}
-
-function collectWave(player, soundwaves) {
-    if (health > 0) 
-    {
-        health -= .5;
-    }
-    else 
-    {
-        healthText.text = 'Health: YOU DEAD';
-    }
 }

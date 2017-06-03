@@ -15,18 +15,20 @@ var loadState = {
         game.load.image('bat', 'assets/bat.png');
         game.load.image('soundwave', 'assets/soundwave.png');
 
-        game.load.image ('pigFR1', 'assets/flying-up.png');
-        game.load.image ('pigFR2', 'assets/flying-down.png');
+        game.load.image('pigFR1', 'assets/flying-up.png');
+        game.load.image('pigFR2', 'assets/flying-down.png');
 
-        game.load.image ('pigFL1', 'assets/flying-up-mirrored.png');
-        game.load.image ('pigFL2', 'assets/flying-down-mirrored.png');
+        game.load.image('pigFL1', 'assets/flying-up-mirrored.png');
+        game.load.image('pigFL2', 'assets/flying-down-mirrored.png');
 
-        game.load.image ('pigR1', 'images/pigSprites/walkFeathersRight1.png');
-        game.load.image ('pigR2', 'images/pigSprites/walkFeathersRight2.png');
+        game.load.image('pigR1', 'images/pigSprites/walkFeathersRight1.png');
+        game.load.image('pigR2', 'images/pigSprites/walkFeathersRight2.png');
 
-        game.load.image ('pigL1', 'images/pigSprites/walkFeathersLeft1.png');
-        game.load.image ('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
-        
+        game.load.image('pigL1', 'images/pigSprites/walkFeathersLeft1.png');
+        game.load.image('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
+
+        game.load.image('levelBound', 'images/brown.png');
+
     },
     
     create: function() {
