@@ -59,11 +59,18 @@ var frame2State = {
 	    cursors = game.input.keyboard.createCursorKeys(); 
 	    space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	    garlics = game.add.group();
+
+
+	    //make Dive bats
+	    diveBatsInit();
+	    makeDiveBat(500, 300);
 	},
 
 	
 
 	update: function() {
+
+		updateDiveBats();
 
 	    //  Reset the players velocity (movement)
 	    player.body.velocity.x = 0;
@@ -74,6 +81,7 @@ var frame2State = {
 
 	    //Checks garlic & Soundwave overlap
 	    game.physics.arcade.overlap(garlics, bats, collectBat, null, this); 
+	    game.physics.arcade.overlap(garlics, diveBats, killDBat, null, this);
 	    game.physics.arcade.overlap(player, soundwaves, collectWave, null, this); 
 
 	    if (cursors.left.isDown) {
@@ -129,7 +137,6 @@ var frame2State = {
 	            player.body.velocity.y += -10;
 	            stamina -= 0.5;
 	        }
-	        //animL++;
 	        
 	    }
 	    else
@@ -150,40 +157,6 @@ var frame2State = {
 	            dropGarlic();
 	        garlicTime++;
 	    }
-
-
-	    console.log("Velocity is " + player.body.velocity.y);
-	    // If pig is in the air, flap wings
-	    /*if(player.body.velocity.y < -1 ) {
-	        
-	        //animL++;
-	        if(player.direction == Direction.left) {
-	            if (animL % 10 == 0)
-	                player.loadTexture('pigFL1');
-	            else if (animL % 5 == 0)
-	                player.loadTexture('pigFL2');
-	        }
-	        else {
-	            if (anim % 10 == 0)
-	                player.loadTexture('pigFR1');
-	            else if (anim % 5 == 0)
-	                player.loadTexture('pigFR2');
-	        }
-	    }
-	    else if(player.body.velocity.y > -1  && hitPlatform){//player.body.velocity.y < 0 ){
-	        if(player.direction == Direction.left) {
-	            if (animL % 10 == 0)
-	                player.loadTexture('pigL1');
-	            else if (animL % 5 == 0)
-	                player.loadTexture('pigL2');
-	        }
-	        else {
-	            if (anim % 10 == 0)
-	                player.loadTexture('pigR1');
-	            else if (anim % 5 == 0)
-	                player.loadTexture('pigR2');
-	        }
-	    }*/
 
 	    updateHealthBar(health);
 	    updateStaminaBar(stamina);
