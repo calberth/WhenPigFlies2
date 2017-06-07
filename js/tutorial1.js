@@ -1,13 +1,14 @@
 
 
-var frame2State = {
+var frame1State = {
+
     create: function() {
+        //health = stamina = 100;
         initializeLevel();
-        addtutorial2Objects();
+        addtutorial1Objects();
     },
 
     update: function() {
-
         checkCollisions();
         movePlayer();
         checkBattle();
@@ -15,15 +16,16 @@ var frame2State = {
         updateStaminaBar(stamina);
         checkLose();
 
-        tutorial2Update();
+        tutorial1Update();
     }
+
 }
 
-function addtutorial2Objects()
+function addtutorial1Objects()
 {
     var scene = background.create(0,0,'sky');
 
-    var text = game.add.text(425, 16, 'Tutorial2', { fontSize: '32px', fill: '#000' });
+    var text = game.add.text(425, 16, 'Tutorial1', { fontSize: '32px', fill: '#000' });
 
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
@@ -31,12 +33,10 @@ function addtutorial2Objects()
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    var ledge = platforms.create(400, 400, 'cloud');
-
-    ledge.body.immovable = true;
+    
 }
 
-function tutorial2Update()
+function tutorial1Update()
 {
     
 }

@@ -1,14 +1,12 @@
 
-
-var tutorialState = {
-
+var frame3State = {
     create: function() {
-        health = stamina = 100;
         initializeLevel();
-        addtutorialObjects();
+        addtutorial3Objects();
     },
 
     update: function() {
+
         checkCollisions();
         movePlayer();
         checkBattle();
@@ -16,25 +14,24 @@ var tutorialState = {
         updateStaminaBar(stamina);
         checkLose();
 
-        tutorialUpdate();
+        tutorial3Update();
     }
-
 }
 
-function addtutorialObjects()
+function addtutorial3Objects()
 {
     var scene = background.create(0,0,'sky');
+
+        var text = game.add.text(425, 16, 'Tutorial3', { fontSize: '32px', fill: '#000' });
 
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     ground.scale.setTo(3,2);
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
-
-    
 }
 
-function tutorialUpdate()
+function tutorial3Update()
 {
     
 }

@@ -72,13 +72,8 @@ function NextLevel()
     positionx = 32;
     positiony = player.world.y;
     texture = player.texture;
-    if (game.state.getCurrentState() == tutorialState)
-    {
-        game.state.start('tutorial2');
-    }
-    else if (game.state.getCurrentState() == tutorial2State) {
-        game.state.start('bossLevel');
-    }
+    state++;
+    game.state.start('frame'+ state); 
 }
 
 function previousLevel()
@@ -86,14 +81,8 @@ function previousLevel()
     positionx = 1100;
     positiony = player.position.y;
     texture = player.texture;
-    if (game.state.getCurrentState() == tutorialState)
-    {
-        game.state.start('menu');
-    }
-    else if (game.state.getCurrentState() == tutorial2State)
-    {
-        game.state.start('tutorial');
-    }
+    state--;
+    game.state.start('frame'+ state); 
 }
 
 function collectBat(garlics, bat)
