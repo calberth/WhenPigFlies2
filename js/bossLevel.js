@@ -30,6 +30,7 @@ function addBossLevelObjects()
     ground.body.immovable = true;
 
     var ledge = platforms.create(400, 400, 'cloud');
+    var ledge = platforms.create(500, 400, 'cloud');
 
     ledge.body.immovable = true;
 }
