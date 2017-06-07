@@ -8,17 +8,6 @@
     <script src = "js/garlic.js"></script>
     <script src = "js/bars.js"></script>
     <script src = "js/soundwaves.js"></script>
-    <script src = "js/level.js"></script>
-    <script src = "js/player.js"></script>
-
-    <script src = "js/boot.js"></script>
-    <script src = "js/load.js"></script>
-    <script src = "js/menu.js"></script>
-    <script src = "js/tutorial.js"></script>
-    <script src = "js/tutorial2.js"></script>
-    <script src = "js/lose.js"></script>
-    <script src = "js/game.js"></script>
-    <script src ="js/diveBats.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -26,8 +15,263 @@
     </style>
 </head>
 <body>
-<div id = "gameDiv"> </div>
 
+<script type="text/javascript">
+
+var game = new Phaser.Game(1200, 675, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    game.load.image('sky', 'images/sky.png');
+    game.load.image('ground', 'assets/platform.png');
+    game.load.image('star', 'assets/star.png');
+    game.load.image('cloud', 'images/cloud1flipped.png');
+    game.load.image('garlic', 'assets/garlic.png');
+    game.load.image('bat', 'assets/bat.png');
+    game.load.image('soundwave', 'assets/soundwave.png');
+
+    game.load.image ('pigFR1', 'assets/flying-up.png');
+    game.load.image ('pigFR2', 'assets/flying-down.png');
+
+    game.load.image ('pigFL1', 'assets/flying-up-mirrored.png');
+    game.load.image ('pigFL2', 'assets/flying-down-mirrored.png');
+
+    game.load.image ('pigR1', 'images/pigSprites/walkFeathersRight1.png');
+    game.load.image ('pigR2', 'images/pigSprites/walkFeathersRight2.png');
+
+    game.load.image ('pigL1', 'images/pigSprites/walkFeathersLeft1.png');
+    game.load.image ('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
+}
+
+var player;
+var platforms;
+var cursors;
+var enemy;
+
+var bats;
+var soundwaves;
+
+var stars;
+var health = 100;
+var stamina = 100;
+var space;
+var garlics;
+var bars;
+var direction;
+
+var Direction = {
+  left : 0, 
+  right: 1
+};
+
+function create() {
+    
+
+    //  We're going to be using physics, so enable the Arcade Physics system
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    //  A simple background for our game
+    game.add.sprite(0, 0, 'sky');
+    //game.add.sprite(-5, -5, 'garlic');
+    bars = game.add.group();
+
+    createHealthBar(); 
+    createStaminaBar();
+
+    //  The platforms group contains the ground and the 2 ledges we can jump on
+    platforms = game.add.group();
+    //  We will enable physics for any object that is created in this group
+    platforms.enableBody = true;
+    // Here we create the ground.
+    var ground = platforms.create(0, game.world.height - 64, 'ground');
+    //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
+    ground.scale.setTo(2, 5);
+    //  This stops it from falling away when you jump on it
+    ground.body.immovable = true;
+
+    //  Now let's create two ledges
+    var ledge = platforms.create(400, 400, 'cloud');
+
+    ledge.body.immovable = true;
+
+    ledge = platforms.create(-150, 250, 'cloud');
+    ledge.body.immovable = true;
+
+
+    // The player and its settings
+    player = game.add.sprite(32, game.world.height - 150, 'pigFR1');
+
+    //  We need to enable physics on the player
+    game.physics.arcade.enable(player);
+
+    //  Player physics properties. Give the little guy a slight bounce.
+    player.body.bounce.y = 0.2;
+    player.body.gravity.y = 300;
+    player.body.collideWorldBounds = true;
+
+    //ENEMIES
+    bats = game.add.group();
+    bats.enableBody = true;
+    soundwaves = game.add.group();
+    soundwaves.enableBody = true;
+    for (var j = 3; j < 12; j++) {
+        var bat = bats.create(j * 90, game.world.height - 100, 'bat');
+        bat.body.gravity.y = 0;
+        bat.body.bounce.y = 0;
+
+        var soundwave = soundwaves.create(j * 90 - 10, game.world.height - 150, 'soundwave');
+        soundwave.body.gravity.y = Math.floor(Math.random() * (0 + 100)) - 100;
+        soundwave.body.bounce.y = 0;
+    }
+
+    //  Our controls.
+    cursors = game.input.keyboard.createCursorKeys(); 
+    space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    garlics = game.add.group();
+}
+
+var anim = 0;
+var animL = 0;
+var garlicTime = 0;
+
+function update() {
+
+    //  Reset the players velocity (movement)
+    player.body.velocity.x = 0;
+
+    //  Collide the player and the stars with the platforms
+    var hitPlatform = game.physics.arcade.collide(player, platforms);
+    game.physics.arcade.collide(stars, platforms);
+
+    //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
+    game.physics.arcade.overlap(player, stars, collectStar, null, this); 
+    game.physics.arcade.overlap(garlics, bats, collectBat, null, this); 
+    game.physics.arcade.overlap(player, soundwaves, collectWave, null, this); 
+
+
+
+    if (cursors.left.isDown) {
+        player.body.velocity.x = -150;
+        player.direction = Direction.left;
+        animL++;
+        
+    }
+
+    if (cursors.right.isDown) {
+        //  Move to the right
+        player.body.velocity.x = 150;
+        player.direction = Direction.right;
+        animL++;
+        
+    }
+
+    //  Allow the player to fly!
+    if (cursors.up.isDown)
+    {
+        
+        if (stamina > 0)
+        {
+            player.body.velocity.y += -10;
+            stamina -= 0.5;
+        }
+        animL++;
+        
+    }
+    else
+    {
+        if (stamina < 100)
+        {
+            stamina += 0.25;
+        }
+    }
+
+    if (cursors.down.isDown) {
+        player.body.velocity.y += 10;
+
+    }
+
+    if (space.isDown) {
+        if (garlicTime % 20 == 0)
+            dropGarlic();
+        garlicTime++;
+    }
+
+
+    console.log("Velocity is " + player.body.velocity.y);
+    // If pig is in the air, flap wings
+    if(player.body.velocity.y < -1 ) {
+        
+        animL++;
+        if(player.direction == Direction.left) {
+            if (animL % 10 == 0)
+                player.loadTexture('pigFL1');
+            else if (animL % 5 == 0)
+                player.loadTexture('pigFL2');
+        }
+        else {
+            if (animL % 10 == 0)
+                player.loadTexture('pigFR1');
+            else if (animL % 5 == 0)
+                player.loadTexture('pigFR2');
+        }
+    }
+    else if(player.body.velocity.y > -1  && player.body.velocity.y < 0 ){
+        if(player.direction == Direction.left) {
+            if (animL % 10 == 0)
+                player.loadTexture('pigL1');
+            else if (animL % 5 == 0)
+                player.loadTexture('pigL2');
+        }
+        else {
+            if (animL % 10 == 0)
+                player.loadTexture('pigR1');
+            else if (animL % 5 == 0)
+                player.loadTexture('pigR2');
+        }
+    }
+
+    updateHealthBar();
+    updateStaminaBar();
+
+    if (waveTimer++ % 100 == 0)
+        createSoundwaves(bats);
+    
+}
+
+function collectStar (player, star) {
+    
+    // Removes the star from the screen
+    star.kill();
+
+    //  Add and update the score
+    if (health > 0)
+    {
+        health -= healthDec;
+    }
+    else
+    {
+        healthText.text = 'Health: YOU DEAD';
+    }
+}
+
+function collectBat(garlics, bat) {
+    bat.kill();
+    bats.remove(bat);
+}
+
+function collectWave(player, soundwaves) {
+    if (health > 0) 
+    {
+        health -= .5;
+    }
+    else 
+    {
+        healthText.text = 'Health: YOU DEAD';
+    }
+}
+
+
+
+</script>
 
 </body>
 </html>
