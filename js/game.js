@@ -9,5 +9,6 @@ game.state.add('tutorial2', tutorial2State);
 //game.state.add('play', playState);
 game.state.add('lose', loseState);
 //game.state.add('frame2', frame2State);
+game.state.add('bossLevel', bossLevelState);
 
 game.state.start('boot');

@@ -76,6 +76,9 @@ function NextLevel()
     {
         game.state.start('tutorial2');
     }
+    else if (game.state.getCurrentState() == tutorial2State) {
+        game.state.start('bossLevel');
+    }
 }
 
 function previousLevel()
