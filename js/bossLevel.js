@@ -1,9 +1,9 @@
 
 
-var tutorial2State = {
+var bossLevelState = {
     create: function() {
         initializeLevel();
-        addtutorial2Objects();
+        addBossLevelObjects();
     },
 
     update: function() {
@@ -19,7 +19,7 @@ var tutorial2State = {
     }
 }
 
-function addtutorial2Objects()
+function addBossLevelObjects()
 {
     var scene = background.create(0,0,'sky');
 
