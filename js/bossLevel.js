@@ -1,9 +1,9 @@
 
 
-var tutorial2State = {
+var bossLevelState = {
     create: function() {
         initializeLevel();
-        addtutorial2Objects();
+        addBossLevelObjects();
     },
 
     update: function() {
@@ -19,7 +19,7 @@ var tutorial2State = {
     }
 }
 
-function addtutorial2Objects()
+function addBossLevelObjects()
 {
     var scene = background.create(0,0,'sky');
 
@@ -30,6 +30,7 @@ function addtutorial2Objects()
     ground.body.immovable = true;
 
     var ledge = platforms.create(400, 400, 'cloud');
+    var ledge = platforms.create(500, 400, 'cloud');
 
     ledge.body.immovable = true;
 }
