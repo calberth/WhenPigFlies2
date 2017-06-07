@@ -2,7 +2,6 @@
 
 var tutorial2State = {
     create: function() {
-        health = stamina = 100;
         initializeLevel();
         addtutorial2Objects();
     },
