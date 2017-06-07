@@ -15,7 +15,7 @@ var tutorial2State = {
         updateStaminaBar(stamina);
         checkLose();
 
-        tutorialUpdate();
+        tutorial2Update();
     }
 
 }
