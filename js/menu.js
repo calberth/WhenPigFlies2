@@ -1,3 +1,42 @@
+        //Since these are global, they should persist between levels
+        var player;
+
+        var background;
+        var platforms;
+        var boundaries;
+        var rightBound;
+        var leftBound;
+
+        var cursors;
+        var space;
+
+        var enemy;
+        var bats;
+        var soundwaves;
+
+        var stars;
+        var health;
+        var stamina;
+
+        var garlics;
+        var garlicTime = 0;
+
+        var direction;
+
+        var positionx;
+        var positiony; 
+
+        var Direction = {
+          left : 0, 
+          right: 1
+        };
+
+        var anim = 0;
+        var animL = 0;
+
+        var texture;
+
+
 var menuState = {
   
     create: function () {
@@ -24,6 +63,10 @@ var menuState = {
     
     // The start function calls the play state    
     start: function () {
-        game.state.start('play');    
+        //game.state.start('play');
+        positionx = 32;
+        positiony = 540; 
+        texture = 'pigR1';  
+        game.state.start('tutorial');   
     },    
 };

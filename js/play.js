@@ -12,7 +12,6 @@
 		var stamina;
 		var space;
 		var garlics;
-		var bars;
 		var direction;
 
 		var Direction = {
