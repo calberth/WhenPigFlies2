@@ -1,7 +1,7 @@
 
 var frame4State = {
     create: function() {
-        initializeLevel();
+        initializeLevel(true, false, false);
         addtutorial4Objects();
     },
 
@@ -22,7 +22,7 @@ function addtutorial4Objects()
 {
     var scene = background.create(0,0,'sky');
 
-        var text = game.add.text(425, 16, 'Tutorial4', { fontSize: '32px', fill: '#000' });
+    var text = game.add.text(425, 16, 'Tutorial4', { fontSize: '32px', fill: '#000' });
 
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)

@@ -1,5 +1,5 @@
 
-function initializeLevel()
+function initializeLevel(left, right, up)
 {
     background = game.add.group();
 
@@ -8,11 +8,24 @@ function initializeLevel()
 
     boundaries = game.add.group();
     boundaries.enableBody = true;
-    rightBound = boundaries.create(1199, 0, 'levelBound');
-    rightBound.scale.setTo(1,5); 
+    if (left)
+    {
+        leftBound = boundaries.create(-5, 0, 'levelBound');
+        leftBound.scale.setTo(1,5);
+    }
 
-    leftBound = boundaries.create(-5, 0, 'levelBound');
-    leftBound.scale.setTo(1,5);
+    if (right)
+    {
+        rightBound = boundaries.create(1199, 0, 'levelBound');
+        rightBound.scale.setTo(1,5); 
+    }
+
+    if (up)
+    {
+        upperBound = boundaries.create(0, -5, 'upBound');
+        upperBound.scale.setTo(9,1);
+    }
+    
 
     bats = game.add.group();
     bats.enableBody = true;
@@ -50,8 +63,9 @@ function checkCollisions()
     game.physics.arcade.overlap(player, soundwaves, collectWave, null, this);
 
     // check boundaries and advance player if necessary
-    game.physics.arcade.overlap(player, rightBound, NextLevel);
-    game.physics.arcade.overlap(player, leftBound, previousLevel);
+    game.physics.arcade.overlap(player, rightBound, nextScreen);
+    game.physics.arcade.overlap(player, leftBound, previousScreen);
+    game.physics.arcade.overlap(player, upperBound, upScreen);
 }
 
 function checkLose()
@@ -67,7 +81,7 @@ function Lose()
     game.state.start('lose');
 }
 
-function NextLevel()
+function nextScreen()
 {
     positionx = 32;
     positiony = player.world.y;
@@ -76,13 +90,26 @@ function NextLevel()
     game.state.start('frame'+ state); 
 }
 
-function previousLevel()
+function previousScreen()
 {
     positionx = 1100;
     positiony = player.position.y;
     texture = player.texture;
     state--;
     game.state.start('frame'+ state); 
+}
+
+function upScreen()
+{
+    
+    positionx = player.position.x;
+    positiony = player.position.y;
+    texture = player.texture;
+    if (state == 2)
+    {
+        game.state.start('menu'); 
+        state = 5;
+    }
 }
 
 function collectBat(garlics, bat)

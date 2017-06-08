@@ -3,8 +3,7 @@
 var frame1State = {
 
     create: function() {
-        //health = stamina = 100;
-        initializeLevel();
+        initializeLevel(false, true, false);
         addtutorial1Objects();
     },
 

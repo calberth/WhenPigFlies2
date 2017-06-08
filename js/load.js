@@ -28,6 +28,7 @@ var loadState = {
         game.load.image('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
 
         game.load.image('levelBound', 'images/brown.png');
+        game.load.image('upBound', 'images/brownhorz.png');
 
     },
     

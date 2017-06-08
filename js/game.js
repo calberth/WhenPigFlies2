@@ -9,7 +9,6 @@ game.state.add('frame2', frame2State);
 game.state.add('frame3', frame3State);
 game.state.add('frame4', frame4State);
 game.state.add('lose', loseState);
-game.state.add('frame2', frame2State);
 game.state.add('bossLevel', bossLevelState);
 
 game.state.start('boot');

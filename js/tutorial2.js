@@ -2,7 +2,7 @@
 
 var frame2State = {
     create: function() {
-        initializeLevel();
+        initializeLevel(true, true, true);
         addtutorial2Objects();
     },
 
