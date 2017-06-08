@@ -2,7 +2,7 @@ var truck;
 
 var frame2State = {
     create: function() {
-        initializeLevel(true, true, true);
+        initializeLevel(true, true, true, false);
         addtutorial2Objects();
     },
 

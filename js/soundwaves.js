@@ -9,3 +9,10 @@ function createSoundwaves(bats) {
     	}
 	}
 }
+
+//TODO use velocity values to determine rotation
+function createOneSoundwave(xPos, yPos, xVel, yVel) {
+	var soundwave = soundwaves.create(xPos, yPos, 'soundwave');
+	soundwave.body.velocity.y = yVel;
+	soundwave.body.velocity.x = xVel;
+}
