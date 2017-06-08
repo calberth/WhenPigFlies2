@@ -33,6 +33,7 @@ var loadState = {
 
         game.load.image('levelBound', 'images/brown.png');
         game.load.image('upBound', 'images/brownhorz.png');
+        game.load.image('boss', 'images/boss/batcula_standin.png');
 
     },
     

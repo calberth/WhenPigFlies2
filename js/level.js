@@ -68,6 +68,10 @@ function checkCollisions()
 
     // checks soundwave collision with player
     game.physics.arcade.overlap(player, soundwaves, collectWave, null, this);
+    game.physics.arcade.overlap(player, bats, hitBat, null, this);
+
+    game.physics.arcade.overlap(player, diveBats, hitDiveBat, null, this); //Divebat and bat are difference groups
+    game.physics.arcade.overlap(garlics, diveBats, killDBat, null, this);
 
     // check boundaries and advance player if necessary
     game.physics.arcade.overlap(player, rightBound, nextScreen);
@@ -154,5 +158,17 @@ function collectWave(player, soundwaves)
     {
         health -= 0.5;
     }
-    // else Lose();?
+}
+
+function hitBat(player, bat) {
+    if (health > 0)
+    {
+        health -= 0.5;
+    }
+} 
+function hitDiveBat(player, bat) {
+    if (health > 0)
+    {
+        health -= 0.5;
+    }
 }
