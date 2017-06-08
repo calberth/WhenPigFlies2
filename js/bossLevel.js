@@ -15,7 +15,7 @@ var bossLevelState = {
         updateStaminaBar(stamina);
         checkLose();
 
-        tutorialUpdate();
+        bossLevelUpdate();
     }
 }
 
@@ -35,7 +35,7 @@ function addBossLevelObjects()
     ledge.body.immovable = true;
 }
 
-function tutorial2Update()
+function bossLevelUpdate()
 {
     
 }
