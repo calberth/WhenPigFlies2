@@ -112,6 +112,13 @@ function upScreen()
         state = 5;
         game.state.start('frame5'); 
     }
+    else
+    {
+        state++;
+        game.state.start('frame'+state);
+    }
+
+    /*
     else if (state == 5)
     {
         state = 6;
@@ -127,6 +134,11 @@ function upScreen()
         state = 11;
         game.state.start('frame11');
     }
+    else if (state == 12)
+    {
+        state = 12;
+        game.state.start('frame13');
+    } */
 }
 
 function collectBat(garlics, bat)
