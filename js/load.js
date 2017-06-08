@@ -34,6 +34,13 @@ var loadState = {
         game.load.image('levelBound', 'images/brown.png');
         game.load.image('upBound', 'images/brownhorz.png');
 
+        // Tutorial
+        game.load.image('garlicField', 'assets/garlicfield.png');
+        game.load.image('truck', 'assets/truck.png');
+        // game.load.image('building', 'assets/scratchBarn.jpg');
+        // game.load.image('hay', 'assets/hay.png');
+        game.load.image('barn', 'assets/barn.png');
+
     },
     
     create: function() {

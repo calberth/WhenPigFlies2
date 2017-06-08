@@ -31,11 +31,17 @@ function addtutorial1Objects()
     ground.scale.setTo(3,2);
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
-
     
+    var field = platforms.create(0, 519, 'garlicField');
+    field.body.immovable = true;
+
+    var barn = game.add.sprite(0, 250, 'barn');
+    barn.scale.setTo(1.2, 1.2);
+    player.bringToTop();
 }
 
 function tutorial1Update()
 {
+
     
 }

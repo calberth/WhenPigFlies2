@@ -7,6 +7,7 @@ function movePlayer()
 
     if (cursors.left.isDown) {
             player.body.velocity.x = -150;
+
             //player.direction = Direction.left;
             
             if (player.body.velocity.y < -1) {

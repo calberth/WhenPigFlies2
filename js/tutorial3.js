@@ -29,6 +29,13 @@ function addtutorial3Objects()
     ground.scale.setTo(3,2);
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
+
+    var field2 = platforms.create(0, 519, 'garlicField');
+    field2.body.immovable = true;
+
+    var truck = game.add.sprite(200, 395, 'truck');
+    truck.scale.setTo(.65, .65);
+    game.physics.arcade.enable(truck);
 }
 
 function tutorial3Update()
