@@ -2,7 +2,7 @@
 
 var bossLevelState = {
     create: function() {
-        initializeLevel();
+        initializeLevel(false, false, false, false);
         addBossLevelObjects();
     },
 

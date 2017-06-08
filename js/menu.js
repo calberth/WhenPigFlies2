@@ -6,6 +6,8 @@
         var boundaries;
         var rightBound;
         var leftBound;
+        var upperBound;
+        var lowerBound;
 
         var cursors;
         var space;

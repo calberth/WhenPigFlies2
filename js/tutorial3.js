@@ -1,7 +1,7 @@
 
 var frame3State = {
     create: function() {
-        initializeLevel(true, true, false);
+        initializeLevel(true, true, false, false);
         addtutorial3Objects();
     },
 

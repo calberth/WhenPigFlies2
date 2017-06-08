@@ -1,7 +1,7 @@
 
 var frame4State = {
     create: function() {
-        initializeLevel(true, false, false);
+        initializeLevel(true, false, false, false);
         addtutorial4Objects();
     },
 

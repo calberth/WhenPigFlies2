@@ -1,5 +1,5 @@
 
-function initializeLevel(left, right, up)
+function initializeLevel(left, right, up, down)
 {
     background = game.add.group();
 
@@ -8,6 +8,7 @@ function initializeLevel(left, right, up)
 
     boundaries = game.add.group();
     boundaries.enableBody = true;
+
     if (left)
     {
         leftBound = boundaries.create(-5, 0, 'levelBound');
@@ -24,6 +25,12 @@ function initializeLevel(left, right, up)
     {
         upperBound = boundaries.create(0, -5, 'upBound');
         upperBound.scale.setTo(9,1);
+    }
+
+    if (down)
+    {
+        lowerBound = boundaries.create(0, 674, 'upBound');
+        lowerBound.scale.setTo(9,1);
     }
     
 
@@ -66,6 +73,7 @@ function checkCollisions()
     game.physics.arcade.overlap(player, rightBound, nextScreen);
     game.physics.arcade.overlap(player, leftBound, previousScreen);
     game.physics.arcade.overlap(player, upperBound, upScreen);
+    game.physics.arcade.overlap(player, lowerBound, downScreen);
 }
 
 function checkLose()
@@ -101,11 +109,8 @@ function previousScreen()
 
 function upScreen()
 {
-    
     positionx = player.position.x;
-    //positiony = 540;
-    //positionx = 100;
-    positiony = 675;
+    positiony = 575;
     texture = player.texture;
     if (state == 2)
     {
@@ -117,28 +122,24 @@ function upScreen()
         state++;
         game.state.start('frame'+state);
     }
+}
 
-    /*
-    else if (state == 5)
+function downScreen()
+{
+    positionx = player.position.x;
+    positiony = 50;
+
+    texture = player.texture;
+    if (state == 5)
     {
-        state = 6;
-        game.state.start('frame6');
+        state = 2;
+        game.state.start('frame2'); 
     }
-    else if (state == 8)
+    else
     {
-        state = 9;
-        game.state.start('frame9');
+        state--;
+        game.state.start('frame'+state);
     }
-    else if (state == 10)
-    {
-        state = 11;
-        game.state.start('frame11');
-    }
-    else if (state == 12)
-    {
-        state = 12;
-        game.state.start('frame13');
-    } */
 }
 
 function collectBat(garlics, bat)

@@ -1,7 +1,7 @@
 
 var frame6State = {
     create: function() {
-        initializeLevel(false, true, false);
+        initializeLevel(false, true, false, true);
         addlevel1S2Objects();
     },
 

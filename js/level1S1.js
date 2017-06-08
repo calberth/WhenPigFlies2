@@ -1,7 +1,7 @@
 
 var frame5State = {
     create: function() {
-        initializeLevel(false, false, true);
+        initializeLevel(false, false, true, true);
         addlevel1S1Objects();
     },
 
@@ -24,7 +24,7 @@ function addlevel1S1Objects()
 
     var text = game.add.text(425, 16, 'Level1 S1', { fontSize: '32px', fill: '#000' });
 
-    var ledge = platforms.create(400, 400, 'cloud');
+    var ledge = platforms.create(100, 500, 'cloud');
 
     ledge.body.immovable = true;
 
