@@ -9,6 +9,8 @@ var loadState = {
         
         game.load.image('sky', 'images/sky.png');
         game.load.image('L1background', 'assets/level1background.png');
+        game.load.image('L2background', 'assets/level2background.png');
+        game.load.image('L3background', 'assets/level3background.png');
 
         game.load.image('ground', 'assets/platform.png');
         game.load.image('star', 'assets/star.png');

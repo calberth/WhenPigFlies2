@@ -12,6 +12,10 @@ game.state.add('frame5', frame5State);
 game.state.add('frame6', frame6State);
 game.state.add('frame7', frame7State);
 game.state.add('frame8', frame8State);
+game.state.add('frame9', frame9State);
+game.state.add('frame10', frame10State);
+game.state.add('frame11', frame11State);
+game.state.add('frame12', frame12State);
 
 game.state.add('lose', loseState);
 game.state.add('bossLevel', bossLevelState);
