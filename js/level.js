@@ -103,12 +103,19 @@ function upScreen()
 {
     
     positionx = player.position.x;
-    positiony = player.position.y;
+    //positiony = 540;
+    //positionx = 100;
+    positiony = 675;
     texture = player.texture;
     if (state == 2)
     {
-        game.state.start('menu'); 
         state = 5;
+        game.state.start('frame5'); 
+    }
+    else if (state == 5)
+    {
+        state = 6;
+        game.state.start('frame6');
     }
 }
 

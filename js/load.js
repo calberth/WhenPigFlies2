@@ -8,6 +8,8 @@ var loadState = {
                                          {font: '30px Courier', fill: '#ffffff'});   
         
         game.load.image('sky', 'images/sky.png');
+        game.load.image('L1background', 'assets/level1background.png');
+
         game.load.image('ground', 'assets/platform.png');
         game.load.image('star', 'assets/star.png');
         game.load.image('cloud', 'images/cloud1flipped.png');
