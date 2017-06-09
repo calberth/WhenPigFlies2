@@ -1,5 +1,6 @@
 var collectibles;
 var sack;
+var singleGarlic;
 
 var frame1State = {
 
@@ -47,13 +48,23 @@ function addtutorial1Objects()
     sack.enableBody = true;
     sack.scale.setTo(.05, .05);
 
-    var garlic = garlics.create(500, 180, 'garlic');
-    garlic.body.collideWorldBounds = true;
+    singleGarlic = game.add.group();
+    singleGarlic.enableBody = true;
+    var garlic = singleGarlic.create(500, 180, 'garlic');
+
+
+    //var garlic = garlics.create(500, 180, 'garlic');
+    //garlic.body.collideWorldBounds = true;
 
     player.bringToTop();
 }
 
 function tutorial1Update()
 {
+    game.physics.arcade.overlap(player, singleGarlic, colSingleGarlic, null, this);
+}
 
+function colSingleGarlic(player, singleGarlic)
+{
+    singleGarlic.kill();
 }
