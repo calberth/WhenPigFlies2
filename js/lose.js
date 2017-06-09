@@ -20,6 +20,7 @@ var loseState = {
     
     // The restart function calls the menu state    
     restart: function () {
+        health = stamina = 100;
         game.state.start('menu');    
     }, 	
 }
