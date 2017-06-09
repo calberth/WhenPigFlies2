@@ -39,6 +39,9 @@
         var texture;
         var state;
 
+        var hasGarlic = false;
+        var accessories = '';
+
 
 var menuState = {
   

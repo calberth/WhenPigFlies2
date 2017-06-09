@@ -1,3 +1,5 @@
+var truck;
+var t3truckpass = false;
 
 var frame3State = {
     create: function() {
@@ -30,15 +32,29 @@ function addtutorial3Objects()
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    var field2 = platforms.create(0, 519, 'garlicField');
-    field2.body.immovable = true;
+    var field2 = game.add.sprite(0, 519, 'garlicField');
+    //field2.body.immovable = true;
 
-    var truck = game.add.sprite(200, 395, 'truck');
-    truck.scale.setTo(.65, .65);
-    game.physics.arcade.enable(truck);
+    if (!t3truckpass) {
+        truck = game.add.sprite(200, 395, 'truck');
+        truck.scale.setTo(.65, .65);
+        game.physics.arcade.enable(truck);
+        truck.body.velocity.x = 0;
+    }
+
+    player.bringToTop();
 }
 
 function tutorial3Update()
 {
-    
+    if (!t3truckpass) {
+        if (truck.body.x > 0) {
+            truck.body.velocity.x -= 5;
+        }
+        else {
+            t3truckpass = true;
+        }
+    }
+
+
 }

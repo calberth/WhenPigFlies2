@@ -1,4 +1,4 @@
-var truck;
+var returningt2 = false;
 
 var frame2State = {
     create: function() {
@@ -37,21 +37,34 @@ function addtutorial2Objects()
 
     // ledge.body.immovable = true;
 
-    var field = platforms.create(0, 519, 'garlicField');
-    field.body.immovable = true;
+    var field = game.add.sprite(0, 519, 'garlicField');
+    //field.body.immovable = true;
 
-    truck = game.add.sprite(200, 395, 'truck');
+    if (!returningt2) {
+        truck = game.add.sprite(game.world.width - 500, 395, 'truck');
+    }
+    else {
+        truck = game.add.sprite(100, 395, 'truck');
+    }
     truck.scale.setTo(.65, .65);
     game.physics.arcade.enable(truck);
     truck.body.velocity.x = 0;
 
     var barn = game.add.sprite(0, 250, 'barn');
     barn.scale.setTo(1.2, 1.2);
-    player.bringToTop();
 
+    player.bringToTop();
+    returningt2 = true;
 }
 
 function tutorial2Update()
 {
-    truck.body.velocity.x -= 500;
+    t3truckpass = true; // t3truckpass initiliazed in tutorial3.js, 
+    if (truck.body.x > 100){
+        truck.body.velocity.x -= 7;
+    }
+    else {
+        truck.body.velocity.x = 0;
+    }
+    
 }

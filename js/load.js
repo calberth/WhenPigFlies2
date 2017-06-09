@@ -31,6 +31,19 @@ var loadState = {
         game.load.image('pigL1', 'images/pigSprites/walkFeathersLeft1.png');
         game.load.image('pigL2', 'images/pigSprites/walkFeathersLeft2.png');
 
+        // with garlic belt
+        game.load.image('pigGFR1', 'assets/garlicPigSprites/GARLICflying-up.png');
+        game.load.image('pigGFR2', 'assets/garlicPigSprites/GARLICflying-down.png');
+
+        game.load.image('pigGFL1', 'assets/garlicPigSprites/GARLICflying-up-mirrored.png');
+        game.load.image('pigGFL2', 'assets/garlicPigSprites/GARLICflying-down-mirrored.png');
+
+        game.load.image('pigGR1', 'assets/garlicPigSprites/GARLICwalkFeathersRight1.png');
+        game.load.image('pigGR2', 'assets/garlicPigSprites/GARLICwalkFeathersRight2.png');
+
+        game.load.image('pigGL1', 'assets/garlicPigSprites/GARLICwalkFeathersLeft1.png');
+        game.load.image('pigGL2', 'assets/garlicPigSprites/GARLICwalkFeathersLeft2.png');
+
         game.load.image('levelBound', 'images/brown.png');
         game.load.image('upBound', 'images/brownhorz.png');
         game.load.image('boss', 'images/boss/batcula_standin.png');
@@ -38,9 +51,14 @@ var loadState = {
         // Tutorial
         game.load.image('garlicField', 'assets/garlicfield.png');
         game.load.image('truck', 'assets/truck.png');
-        // game.load.image('building', 'assets/scratchBarn.jpg');
-        // game.load.image('hay', 'assets/hay.png');
         game.load.image('barn', 'assets/barn.png');
+        game.load.image('barnInterior', 'assets/barninterior.png');
+        game.load.image('barnGround', 'assets/barnplatform.png');
+        game.load.image('sack', 'assets/sack.png');
+
+        // clouds
+        game.load.image('sinkingCloud', 'assets/pinkcloud.png');
+        game.load.image('solidCloud', 'assets/bluecloud.png');
 
     },
     

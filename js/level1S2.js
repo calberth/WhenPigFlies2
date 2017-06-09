@@ -31,5 +31,10 @@ function addlevel1S2Objects()
 
 function level1S2Update()
 {
-    
+    if (cloudTimer % 300 == 0) { // upper level
+        initNewSinkingCloud(game.world.height - 400);
+    }
+    if (cloudTimer % 200 == 0) { // lower level
+        initNewSolidCloud(game.world.width - 50, game.world.height - 100, -150);
+    }
 }
