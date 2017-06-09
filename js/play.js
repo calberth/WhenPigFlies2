@@ -31,6 +31,7 @@ var playState = {
 	create: function() {
 
 		health = stamina = 100;
+	
 	    
 	    //  A simple background for our game
 	    game.add.sprite(0, 0, 'sky');

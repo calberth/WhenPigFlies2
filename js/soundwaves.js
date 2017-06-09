@@ -11,8 +11,12 @@ function createSoundwaves(bats) {
 }
 
 //TODO use velocity values to determine rotation
-function createOneSoundwave(xPos, yPos, xVel, yVel) {
-	var soundwave = soundwaves.create(xPos, yPos, 'soundwave');
+function createOneSoundwave(xPos, yPos, xVel, yVel, rotation) {
+	//use left rotation
+	if (rotation == 0)
+		var soundwave = soundwaves.create(xPos, yPos, 'soundwaveL');
+	else 
+		var soundwave = soundwaves.create(xPos, yPos, 'soundwave');
 	soundwave.body.velocity.y = yVel;
 	soundwave.body.velocity.x = xVel;
 }
