@@ -7,12 +7,15 @@ var loadState = {
         var loadingLabel = game.add.text(80, 150, 'loading assets...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
+        //Backgrounds
         game.load.image('sky', 'images/sky.png');
         game.load.image('L1background', 'assets/level1background.png');
         game.load.image('L2background', 'assets/level2background.png');
         game.load.image('L3background', 'assets/level3background.png');
+        game.load.image('stone', 'assets/stoneBackground.png');
 
         game.load.image('ground', 'assets/platform.png');
+        game.load.image('stone-ground', 'assets/stoneplatform.png');
         game.load.image('star', 'assets/star.png');
         game.load.image('cloud', 'images/cloud1flipped.png');
         game.load.image('garlic', 'assets/garlic.png');
@@ -62,6 +65,7 @@ var loadState = {
         game.load.image('solidCloud', 'assets/bluecloud.png');
         game.load.image('stormCloud', 'assets/graycloud.png');
         game.load.image('lightning', 'assets/lightning.png');
+        
 
     },
     
