@@ -72,6 +72,6 @@ var loadState = {
     create: function() {
         // Call the menu state
         game.state.start('menu');
-        game.state.start('frame16');
+        //game.state.start('frame16');
     }    
 };
