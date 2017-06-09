@@ -45,15 +45,15 @@ function level1S2Update()
 {
     // upper level
     if (cloudTimer % 250 == 0) {
-        initNewStormCloud(0, game.world.height - 670, 50);
+        initNewStormCloud(0, game.world.height - 670, 50); // upper
     }
     // middle level
     if (cloudTimer % 150 == 0) { 
-        initNewSolidCloud(0, game.world.height - 400, 80);
+        initNewSolidCloud(0, game.world.height - 400, 80); // middle
     }
     // lower level
     if (cloudTimer % 200 == 0) { 
-        initNewSolidCloud(game.world.width, game.world.height - 100, -180);
+        initNewSolidCloud(game.world.width, game.world.height - 100, -180); // lower
     }
     if (cloudTimer % 25 == 0) {
         shootLightning();

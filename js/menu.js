@@ -72,7 +72,7 @@ var menuState = {
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';  
-        state = 1;
-        game.state.start('frame1'); 
+        state = 12;
+        game.state.start('frame12'); 
     },    
 };
