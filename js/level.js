@@ -51,7 +51,7 @@ function initializeLevel(left, right, up, down)
 
     createHealthBar(health);
     createStaminaBar(health);
-    createGarlicGrenadesBar();
+    //createGarlicGrenadesBar();
 
     player = game.add.sprite(positionx, positiony, texture);
 
@@ -89,7 +89,7 @@ function checkCollisions()
 
     game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
 
-    updateGGBar();
+    //updateGGBar();
 }
 
 function checkLose()

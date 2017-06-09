@@ -15,7 +15,6 @@ var frame2State = {
         updateStaminaBar(stamina);
         checkLose();
 
-
         tutorial2Update();
     }
 }
@@ -55,6 +54,12 @@ function addtutorial2Objects()
 
     player.bringToTop();
     returningt2 = true;
+
+    if (hasGarlic) {
+        initNewSolidCloud(290, game.world.height - 450, 0);
+
+        initNewSolidCloud(590, game.world.height - 250, 0);
+    }
 }
 
 function tutorial2Update()
