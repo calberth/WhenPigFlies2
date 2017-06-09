@@ -32,18 +32,18 @@ function addlevel1S4Objects()
 
 function level1S4Update()
 {
-    if (cloudTimer % 200 == 0) { // middle level
-        initNewSinkingCloud(0, game.world.height - 350, 150);
+    if (cloudTimer % 350 == 0) {
+        initNewSolidCloud(0, game.world.height - 550, 50); // upper level>>>>
     }
 
-    if (cloudTimer % 350 == 0) {
-        initNewSolidCloud(0, game.world.height - 600, 50);  // upper
+    if (cloudTimer % 200 == 0) { 
+        initNewSinkingCloud(0, game.world.height - 300, 150); // middle level >>>>>
     }
 
     if (cloudTimer % 100 == 0) { 
-        initNewSolidCloud(game.world.width, game.world.height - 100, -180);
+        initNewSolidCloud(game.world.width, game.world.height - 50, -180); // <<<< lower level with bats 
         if (cloudTimer % 200 == 0) {
-            bat = bats.create(game.world.width + 50, game.world.height - 125, 'bat');
+            bat = bats.create(game.world.width + 50, game.world.height - 75, 'bat'); // +25 y-offset from cloud
             bat.body.velocity.x = -180;
         }
     }
