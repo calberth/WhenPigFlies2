@@ -43,7 +43,7 @@ function addBossLevelObjects()
 
     diveBatsInit();
     makeDiveBat(300, 600);
-    boss = game.add.sprite(1000, 200, 'boss');
+    boss = game.add.sprite(800, 200, 'boss');
     game.physics.arcade.enable(boss);
     boss.body.velocity.y = -100;
     bossAnim = 0;
