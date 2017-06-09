@@ -1,3 +1,4 @@
+var collectibles;
 var sack;
 
 var frame1State = {
@@ -37,14 +38,15 @@ function addtutorial1Objects()
     loftGround.scale.setTo(1.7, .5);
     loftGround.body.immovable = true;
 
-    sack = game.add.sprite(400, 160, 'sack');
-    sack.scale.setTo(.05, .05);
-    sack.enableBody = true;
-    sack.collideWorldBounds = true;
+    collectibles = game.add.group();
+    collectibles.enableBody = true;
 
-    // for (int i = 0; i < 3; i++) {
-    //     var garlic = garlics.create(700 + i, 160, 'garlic');
-    // }
+    sack = collectibles.create(400, 160, 'sack');
+    sack.body.collideWorldBounds = true;
+    game.physics.arcade.enable(sack);
+    sack.enableBody = true;
+    sack.scale.setTo(.05, .05);
+
     var garlic = garlics.create(500, 180, 'garlic');
     garlic.body.collideWorldBounds = true;
 
