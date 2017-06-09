@@ -40,10 +40,12 @@ function level1S4Update()
         initNewSolidCloud(0, game.world.height - 600, 50);  // upper
     }
 
-    if (cloudTimer % 200 == 0) { 
+    if (cloudTimer % 100 == 0) { 
         initNewSolidCloud(game.world.width, game.world.height - 100, -180);
-        bat = bats.create(game.world.width + 50, game.world.height - 125, 'bat');
-        bat.body.velocity.x = -180;
+        if (cloudTimer % 200 == 0) {
+            bat = bats.create(game.world.width + 50, game.world.height - 125, 'bat');
+            bat.body.velocity.x = -180;
+        }
     }
 
     for (var i = 0; i < bats.children.length; i++) {
