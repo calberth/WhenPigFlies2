@@ -27,9 +27,32 @@ function addlevel3S1Objects()
     var ledge = platforms.create(400, 400, 'cloud');
 
     ledge.body.immovable = true;
+
+    diveBatsInit();
+
+    for (var i = 0; i < 4; i++){
+        i
+        if (i == 1 || i == 3) {
+            bat = bats.create(i * 290 + 130, game.world.height - 125, 'bat');
+            makeDiveBat(i * 290 + 30, game.world.height - 225)
+            initNewSinkingCloud(i * 290 + 30, game.world.height - 450, 0, 100); // upper
+        }
+        else {
+            initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
+        }
+    }
 }
 
 function level3S1Update()
 {
+    if (cloudTimer % 200 == 0) { // middle level
+        initNewSolidCloud(game.world.width - 50, game.world.height - 100, -150);
+    }
+    cloudTimer++;
     
+    if (cloudTimer % 110 == 0)
+    createSoundwaves(bats);
+
+	updateDiveBats();
+
 }

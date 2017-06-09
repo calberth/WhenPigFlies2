@@ -38,8 +38,12 @@ function addlevel3S4Objects()
 
     ledge.body.immovable = true;
 
+    diveBatsInit();
+
     var enterLabel = game.add.text(80, game.world.height-80, 'press the "e" key to enter',
                                        {font: '25px Arial', fill: '#ffffff' });
+    for (i = 0; i < 20; i++)
+        makeDiveBat(i * 290 + 30, game.world.height - 225);
 }
 
 function level3S4Update()
