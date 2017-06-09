@@ -18,6 +18,7 @@ var loadState = {
         game.load.image('garlic', 'assets/garlic.png');
         game.load.image('bat', 'assets/bat.png');
         game.load.image('soundwave', 'assets/soundwave.png');
+        game.load.image('soundwaveL', 'assets/soundwaveL.png');
 
         game.load.image('pigFR1', 'assets/flying-up.png');
         game.load.image('pigFR2', 'assets/flying-down.png');
@@ -67,5 +68,6 @@ var loadState = {
     create: function() {
         // Call the menu state
         game.state.start('menu');
+        game.state.start('frame16');
     }    
 };
