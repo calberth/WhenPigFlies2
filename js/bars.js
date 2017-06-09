@@ -11,7 +11,7 @@ var grenadesLeft;
 var grenadesText;
 
 function createGarlicGrenadesBar() {
-	grenadesText = game.add.text(16, 100, 'Grenades: 0', { fontSize: '32px', fill: '#000' });
+	grenadesText = game.add.text(16, 100, 'Grenades: 0', { fontSize: '32px', fill: '#F00' });
 	grenadesLeft = 0;
 
 }
@@ -42,7 +42,7 @@ function createHealthBar(health)
     bar.ctx.fill();
 
     healthBar = game.add.sprite(150,16, bar);
-    healthText = game.add.text(16, 16, 'Health:', { fontSize: '32px', fill: '#000' });
+    healthText = game.add.text(16, 16, 'Health:', { fontSize: '32px', fill: '#F00' });
 }
 
 function updateHealthBar(health)
@@ -59,7 +59,7 @@ function createStaminaBar(stamina)
     bar.ctx.fill();
 
     staminaBar = game.add.sprite(150,50, bar);
-    staminaText = game.add.text(16, 50, 'Stamina:', { fontSize: '32px', fill: '#000' });
+    staminaText = game.add.text(16, 50, 'Stamina:', { fontSize: '32px', fill: '#F00' });
 }
 
 function updateStaminaBar(stamina)
