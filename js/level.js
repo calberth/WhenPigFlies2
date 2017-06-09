@@ -173,13 +173,14 @@ function collectWave(player, soundwaves)
 }
 
 function collectGarlic(player, garlic) {
-    hasGarlic = true;
+    //hasGarlic = true;
     garlic.kill();
     //garlics.remove(garlic);
 }
 
 function collectSack(player, sack) {
     sack.kill();
+    hasGarlic = true;
 }
 
 function collectLightning(player, lightning) {

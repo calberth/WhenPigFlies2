@@ -67,4 +67,6 @@ function tutorial1Update()
 function colSingleGarlic(player, singleGarlic)
 {
     singleGarlic.kill();
+    var text = game.add.text(460, 100, 'To drop a garlic bomb press [space]', { fontSize: '32px', fill: '#fff' });
+
 }
