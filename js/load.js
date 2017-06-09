@@ -19,6 +19,7 @@ var loadState = {
         game.load.image('star', 'assets/star.png');
         game.load.image('cloud', 'images/cloud1flipped.png');
         game.load.image('garlic', 'assets/garlic.png');
+        game.load.image('garlicGrenade', 'assets/garlic_bomb.png');
         game.load.image('bat', 'assets/bat.png');
         game.load.image('soundwave', 'assets/soundwave.png');
         game.load.image('soundwaveL', 'assets/soundwaveL.png');
@@ -65,6 +66,7 @@ var loadState = {
         game.load.image('solidCloud', 'assets/bluecloud.png');
         game.load.image('stormCloud', 'assets/graycloud.png');
         game.load.image('lightning', 'assets/lightning.png');
+
         
 
     },

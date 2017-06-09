@@ -1,6 +1,7 @@
 
 function initializeLevel(left, right, up, down)
 {
+
     background = game.add.group();
 
     platforms = game.add.group();
@@ -36,12 +37,14 @@ function initializeLevel(left, right, up, down)
 
     bats = game.add.group();
     bats.enableBody = true;
+    diveBatsInit();
 
     soundwaves = game.add.group();
     soundwaves.enableBody = true;
 
     cursors = game.input.keyboard.createCursorKeys();
     space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    control = game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
 
     garlics = game.add.group();
     garlics.enableBody = true;
@@ -85,6 +88,8 @@ function checkCollisions()
     game.physics.arcade.overlap(player, sack, collectSack, null, this);
 
     game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
+
+    updateGGBar();
 }
 
 function checkLose()

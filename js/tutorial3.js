@@ -20,8 +20,7 @@ var frame3State = {
     }
 }
 
-function addtutorial3Objects()
-{
+function addtutorial3Objects() {
     var scene = background.create(0,0,'sky');
 
         var text = game.add.text(425, 16, 'Tutorial3', { fontSize: '32px', fill: '#000' });
@@ -43,6 +42,7 @@ function addtutorial3Objects()
     }
 
     player.bringToTop();
+    grenadesLeft++;
 }
 
 function tutorial3Update()
@@ -51,10 +51,9 @@ function tutorial3Update()
         if (truck.body.x > 0) {
             truck.body.velocity.x -= 5;
         }
+
         else {
             t3truckpass = true;
         }
     }
-
-
 }

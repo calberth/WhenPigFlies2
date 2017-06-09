@@ -111,10 +111,5 @@ function movePlayer()
 function checkBattle()
 {
     space.onDown.add(dropGarlic, this);
-    /*if (space.isDown)
-    {
-        if (garlicTime % 20 == 0) //change these mechanics
-            dropGarlic();
-        garlicTime++;
-    }*/
+    control.onDown.add(throwGrenade, this);
 }
