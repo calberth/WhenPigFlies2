@@ -59,6 +59,8 @@ var loadState = {
         // clouds
         game.load.image('sinkingCloud', 'assets/pinkcloud.png');
         game.load.image('solidCloud', 'assets/bluecloud.png');
+        game.load.image('stormCloud', 'assets/graycloud.png');
+        game.load.image('lightning', 'assets/lightning.png');
 
     },
     

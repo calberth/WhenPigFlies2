@@ -83,6 +83,8 @@ function checkCollisions()
 
     game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
     game.physics.arcade.overlap(player, sack, collectSack, null, this);
+
+    game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
 }
 
 function checkLose()
@@ -173,6 +175,12 @@ function collectGarlic(player, garlic) {
 
 function collectSack(player, sack) {
     sack.kill();
+}
+
+function collectLightning(player, lightning) {
+    if (health > 0) {
+        health -= 0.5;
+    }
 }
 
 

@@ -1,5 +1,7 @@
 var bats;
 var waveTimer = 0;
+
+
 function createSoundwaves(bats) {
 	for (var i = 0; i < bats.children.length; i++) {
 		var rand = Math.random() * 10;

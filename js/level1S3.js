@@ -24,12 +24,28 @@ function addlevel1S3Objects()
 
     var text = game.add.text(425, 16, 'Level1 S3', { fontSize: '32px', fill: '#000' });
 
-    var ledge = platforms.create(400, 400, 'cloud');
-
-    ledge.body.immovable = true;
+    for (var i = 0; i < 4; i++){
+        initNewSolidCloud(i * 290 + 30, game.world.height - 100, 0); // lower
+        if (i == 1 || i == 3) {
+            bat = bats.create(i * 290 + 130, game.world.height - 125, 'bat');
+            initNewSinkingCloud(i * 290 + 30, game.world.height - 450, 0, 100); // upper
+        }
+        else {
+            initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
+        }
+    }
+    cloudTimer = 0;
 }
 
 function level1S3Update()
 {
+    for (var i = 0; i < bats.children.length; i++) {
+        if (player.body.x >= bats.children[i].x - 100 && player.body.x <= bats.children[i].x + 100) {
+            if (cloudTimer % 25 == 0) {
+                createSoundwaves(bats);
+            }
+        }
+    }
+    cloudTimer++;
     
 }
