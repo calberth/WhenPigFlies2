@@ -54,7 +54,7 @@ var menuState = {
         var nameLabel = game.add.text(80, 80, 'When Pig Flies: The Squeakquel',
                                     { font: '50px Arial', fill: '#ffffff' });
 
-        var backstoryText = game.add.text(80, 220, 'Four score and many weeks ago, Bird taught a little pig named, Pig to fly. \n\nAngered by his actions, the evil Count Batcula from high up in the sky came down \nto kidnap and imprison Bird for his unorthodox ways. Traumatized by the hasty \nkidnapping of his dear old friend, Pig immediately took it upon himself to put his flying \nto the test and go save him. But first he must search the farm \nfor a weapon suitable to defeat a fleet of vampire bats…',
+        var backstoryText = game.add.text(80, 220, 'Four score and many weeks ago, Bird taught a little pig named, Pig to fly. \n\nAngered by his actions, the evil Count Batcula from high up in the sky came down \nto kidnap and imprison Bird for the flying stunts he had Pig try. Traumatized by the hasty \nkidnapping of his dear old friend, Pig immediately took it upon himself to put his flying \nto the test and Birds kidnapping to and end. But before he can do anything rash, \nhe must first search the farm for a weapon suitable to defeat a vicious fleet of vampire bats…',
                                     { font: '25px Arial', fill: '#ffffff' });
         
         // We give the player instructions on how to start the game
