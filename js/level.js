@@ -44,9 +44,11 @@ function initializeLevel(left, right, up, down)
     space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     garlics = game.add.group();
+    garlics.enableBody = true;
 
     createHealthBar(health);
     createStaminaBar(health);
+    createGarlicGrenadesBar();
 
     player = game.add.sprite(positionx, positiony, texture);
 
@@ -78,6 +80,11 @@ function checkCollisions()
     game.physics.arcade.overlap(player, leftBound, previousScreen);
     game.physics.arcade.overlap(player, upperBound, upScreen);
     game.physics.arcade.overlap(player, lowerBound, downScreen);
+
+    game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
+    game.physics.arcade.overlap(player, sack, collectSack, null, this);
+
+    game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
 }
 
 function checkLose()
@@ -159,6 +166,23 @@ function collectWave(player, soundwaves)
         health -= 0.5;
     }
 }
+
+function collectGarlic(player, garlic) {
+    hasGarlic = true;
+    garlic.kill();
+    garlics.remove(garlic);
+}
+
+function collectSack(player, sack) {
+    sack.kill();
+}
+
+function collectLightning(player, lightning) {
+    if (health > 0) {
+        health -= 0.5;
+    }
+}
+
 
 function hitBat(player, bat) {
     if (health > 0)

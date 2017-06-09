@@ -10,17 +10,33 @@ function movePlayer()
 
             //player.direction = Direction.left;
             
-            if (player.body.velocity.y < -1) {
-                if (animL % 10 == 0)
-                    player.loadTexture('pigFL1');
-                else if (animL % 5 == 0)
-                    player.loadTexture('pigFL2');
+            if (hasGarlic == false) {
+                if (player.body.velocity.y < -1) {
+                    if (animL % 10 == 0)
+                        player.loadTexture('pigFL1');
+                    else if (animL % 5 == 0)
+                        player.loadTexture('pigFL2');
+                }
+                else {//if (hitPlatform) {
+                    if (animL % 10 == 0)
+                        player.loadTexture('pigL1');
+                    else if (animL % 5 == 0)
+                        player.loadTexture('pigL2');
+                }
             }
-            else {//if (hitPlatform) {
-                if (animL % 10 == 0)
-                    player.loadTexture('pigL1');
-                else if (animL % 5 == 0)
-                    player.loadTexture('pigL2');
+            else {
+                if (player.body.velocity.y < -1) {
+                    if (animL % 10 == 0)
+                        player.loadTexture('pigGFL1');
+                    else if (animL % 5 == 0)
+                        player.loadTexture('pigGFL2');
+                }
+                else {//if (hitPlatform) {
+                    if (animL % 10 == 0)
+                        player.loadTexture('pigGL1');
+                    else if (animL % 5 == 0)
+                        player.loadTexture('pigGL2');
+                }
             }
             anim = 10;
             animL++;
@@ -32,18 +48,33 @@ function movePlayer()
             player.body.velocity.x = 150;
             //player.direction = Direction.right;
             
-
-            if (player.body.velocity.y < -1) {
-                if (anim % 10 == 0)
-                    player.loadTexture('pigFR1');
-                else if (anim % 5 == 0)
-                    player.loadTexture('pigFR2');
+            if (hasGarlic == false) {
+                if (player.body.velocity.y < -1) {
+                    if (anim % 10 == 0)
+                        player.loadTexture('pigFR1');
+                    else if (anim % 5 == 0)
+                        player.loadTexture('pigFR2');
+                }
+                else {//if (hitPlatform) {
+                    if (anim % 10 == 0)
+                        player.loadTexture('pigR1');
+                    else if (anim % 5 == 0)
+                        player.loadTexture('pigR2');
+                }
             }
-            else {//if (hitPlatform) {
-                if (anim % 10 == 0)
-                    player.loadTexture('pigR1');
-                else if (anim % 5 == 0)
-                    player.loadTexture('pigR2');
+            else {
+                if (player.body.velocity.y < -1) {
+                    if (anim % 10 == 0)
+                        player.loadTexture('pigGFR1');
+                    else if (anim % 5 == 0)
+                        player.loadTexture('pigGFR2');
+                }
+                else {//if (hitPlatform) {
+                    if (anim % 10 == 0)
+                        player.loadTexture('pigGR1');
+                    else if (anim % 5 == 0)
+                        player.loadTexture('pigGR2');
+                }
             }
             animL = 10;
             anim++;
