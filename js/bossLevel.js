@@ -1,5 +1,7 @@
 var boss;
 var bossAnim;
+var bossHealth;
+var bossIsDead;
 
 var bossLevelState = {
     create: function() {
@@ -14,6 +16,7 @@ var bossLevelState = {
         checkBattle();
         updateHealthBar(health);
         updateStaminaBar(stamina);
+        updateGGBar(grenadesLeft);
         checkLose();
 
         bossLevelUpdate();
@@ -22,6 +25,9 @@ var bossLevelState = {
 
 function addBossLevelObjects()
 {
+	bossIsDead = false;
+	bossHealth = 200;
+	createBossBar(bossHealth);
     var scene = background.create(0,0,'sky');
 
     var ground = platforms.create(0, game.world.height - 64, 'ground');
@@ -54,10 +60,31 @@ function updateBoss() {
         boss.body.velocity.y = -100;
     if (boss.y < 50)
         boss.body.velocity.y = 100;
-    if (bossAnim % 50 == 0) {
-        createOneSoundwave(boss.x, boss.y, -400, 0);
+    if (bossAnim % 50 == 0 && !bossIsDead) {
+        createOneSoundwave(boss.x, boss.y, -400, 0, 0);
     }
+
+    game.physics.arcade.overlap(garlics, boss, hitBoss, null, this);
+    updateBossBar(bossHealth);
+    //checkBossHealth();
 }
+
+function checkBossHealth() {
+	if (bossHealth <= 0) {
+		boss.kill();
+		bossIsDead = true;
+	}
+}
+
+function hitBoss(garlic, boss) {
+	//garlic.kill();
+	//garlics.remove(garlic);
+
+	//This occurs due to constant overlap calls over many frames. 
+	if (bossHealth > 0)
+		bossHealth -= .5;
+}
+
 
 
 function bossLevelUpdate()

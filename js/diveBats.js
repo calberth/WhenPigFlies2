@@ -22,7 +22,8 @@ function findDiveX(batX) {
 
 }
 
-function killDBat(garlics, bat) {
+function killDBat(garlic, bat) {
+	garlic.kill();
 	bat.kill();
 	diveBats.remove(bat);
 }

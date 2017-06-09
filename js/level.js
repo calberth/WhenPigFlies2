@@ -48,6 +48,7 @@ function initializeLevel(left, right, up, down)
 
     createHealthBar(health);
     createStaminaBar(health);
+    createGarlicGrenadesBar();
 
     player = game.add.sprite(positionx, positiony, texture);
 
