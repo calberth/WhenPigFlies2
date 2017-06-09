@@ -130,8 +130,12 @@ function upScreen()
     texture = player.texture;
     if (state == 2)
     {
-        state = 5;
-        game.state.start('frame5'); 
+        if (hasGarlic)
+        {
+            state = 5;
+            game.state.start('frame5'); 
+        }
+        
     }
     else
     {
