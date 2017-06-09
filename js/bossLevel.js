@@ -1,8 +1,9 @@
-
+var boss;
+var bossAnim;
 
 var bossLevelState = {
     create: function() {
-        initializeLevel();
+        initializeLevel(false, false, false, false);
         addBossLevelObjects();
     },
 
@@ -15,7 +16,7 @@ var bossLevelState = {
         updateStaminaBar(stamina);
         checkLose();
 
-        tutorialUpdate();
+        bossLevelUpdate();
     }
 }
 
@@ -30,12 +31,38 @@ function addBossLevelObjects()
     ground.body.immovable = true;
 
     var ledge = platforms.create(400, 400, 'cloud');
-    var ledge = platforms.create(500, 400, 'cloud');
+    var ledge2 = platforms.create(500, 400, 'cloud');
 
     ledge.body.immovable = true;
+
+    diveBatsInit();
+    makeDiveBat(300, 600);
+    boss = game.add.sprite(1000, 200, 'boss');
+    game.physics.arcade.enable(boss);
+    boss.body.velocity.y = -100;
+    bossAnim = 0;
+
 }
 
-function tutorial2Update()
+function updateBoss() {
+    bossAnim++;
+    if (bossAnim % 100 == 0) {
+        makeDiveBat(boss.x, boss.y);
+    }
+
+    if (boss.y >= 500) // if low, go high
+        boss.body.velocity.y = -100;
+    if (boss.y < 50)
+        boss.body.velocity.y = 100;
+    if (bossAnim % 50 == 0) {
+        createOneSoundwave(boss.x, boss.y, -400, 0);
+    }
+}
+
+
+function bossLevelUpdate()
 {
-    
+    updateDiveBats();
+    updateBoss();
+
 }

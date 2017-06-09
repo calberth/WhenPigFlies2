@@ -6,6 +6,8 @@
         var boundaries;
         var rightBound;
         var leftBound;
+        var upperBound;
+        var lowerBound;
 
         var cursors;
         var space;
@@ -15,8 +17,8 @@
         var soundwaves;
 
         var stars;
-        var health;
-        var stamina;
+        var health = 100;
+        var stamina = 100;
 
         var garlics;
         var garlicTime = 0;
@@ -35,6 +37,7 @@
         var animL = 0;
 
         var texture;
+        var state;
 
 
 var menuState = {
@@ -63,10 +66,10 @@ var menuState = {
     
     // The start function calls the play state    
     start: function () {
-        //game.state.start('play');
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';  
-        game.state.start('tutorial');   
+        state = 3;
+        game.state.start('frame3'); 
     },    
 };
