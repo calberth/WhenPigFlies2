@@ -51,7 +51,7 @@ var menuState = {
 		// first two parameters are x and y positional values, then the
 		// actual text, and then the 'font' defines the font (of course)
 		// and 'fill' refers to the font color.
-        var nameLabel = game.add.text(80, 80, 'When Pig Flies: The Squeakquel',
+        var nameLabel = game.add.text(80, 80, 'When Pig Flies: Rise of Count Batcula',
                                     { font: '50px Arial', fill: '#ffffff' });
 
         var backstoryText = game.add.text(80, 220, 'Four score and many weeks ago, Bird taught a little pig named, Pig to fly. \n\nAngered by his actions, the evil Count Batcula from high up in the sky came down \nto kidnap and imprison Bird for the flying stunts he had Pig try. Traumatized by the hasty \nkidnapping of his dear old friend, Pig immediately took it upon himself to put his flying \nto the test and Birds kidnapping to and end. But before he can do anything rash, \nhe must first search the farm for a weapon suitable to defeat a vicious fleet of vampire bats…',
@@ -75,7 +75,8 @@ var menuState = {
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';  
-        state = 3;
-        game.state.start('frame3'); 
+        state = -1;
+        //game.state.start('frame3'); 
+        game.state.start('scene1'); 
     },    
 };

@@ -9,6 +9,7 @@ var loadState = {
         
         //Backgrounds
         game.load.image('sky', 'images/sky.png');
+        game.load.image('sky-morning', 'assets/sky-morning.png');
         game.load.image('L1background', 'assets/level1background.png');
         game.load.image('L2background', 'assets/level2background.png');
         game.load.image('L3background', 'assets/level3background.png');
@@ -23,7 +24,7 @@ var loadState = {
         game.load.image('bat', 'assets/bat.png');
         game.load.image('soundwave', 'assets/soundwave.png');
         game.load.image('soundwaveL', 'assets/soundwaveL.png');
-
+        
         game.load.image('pigFR1', 'assets/flying-up.png');
         game.load.image('pigFR2', 'assets/flying-down.png');
 
@@ -67,8 +68,17 @@ var loadState = {
         game.load.image('stormCloud', 'assets/graycloud.png');
         game.load.image('lightning', 'assets/lightning.png');
 
-        
-
+        // Cut scene
+        game.load.image('rooster', 'assets/rooster.png');
+        game.load.image('fade-black', 'assets/fade.png');
+        game.load.audio('scene1sfx', ['assets/audio/rooster.wav', 'assets/audio/happy-music.wav']);
+        game.load.audio('rooster-crow', 'assets/audio/rooster.wav');
+        game.load.audio('happy-music', 'assets/audio/happy-music.wav');
+        //game.load.image('bird', 'assets/bird/flying1.png');
+        game.load.spritesheet('bird', 'assets/bird/birdSpriteSheet.png', 190, 232, 2);
+        game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
+        game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
+    
     },
     
     create: function() {
