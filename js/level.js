@@ -197,12 +197,6 @@ function hitWave(player, wave) {
     hitEnemy(player, wave);
 }
 
-function collectLightning(player, lightning) {
-    if (health > 0) {
-        health -= 0.5;
-    }
-}
-
 
 function hitEnemy(player, enemy) {
     decreaseHealth(10);

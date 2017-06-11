@@ -79,6 +79,7 @@ var loadState = {
         game.load.image('solidCloud', 'assets/bluecloud.png');
         game.load.image('stormCloud', 'assets/graycloud.png');
         game.load.image('lightning', 'assets/lightning.png');
+        game.load.image('blast', 'assets/blast.png');
 
         // Cut scene
         game.load.image('rooster', 'assets/rooster.png');
@@ -86,6 +87,7 @@ var loadState = {
         game.load.audio('scene1sfx', ['assets/audio/rooster.wav', 'assets/audio/happy-music.wav']);
         game.load.audio('rooster-crow', 'assets/audio/rooster.wav');
         game.load.audio('happy-music', 'assets/audio/happy-music.wav');
+        game.load.audio('explosion', 'assets/audio/blast.mp3');
         //game.load.image('bird', 'assets/bird/flying1.png');
         game.load.spritesheet('bird', 'assets/bird/birdSpriteSheet.png', 190, 232, 2);
         game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
@@ -96,6 +98,5 @@ var loadState = {
     create: function() {
         // Call the menu state
         game.state.start('menu');
-        //game.state.start('frame16');
     }    
 };
