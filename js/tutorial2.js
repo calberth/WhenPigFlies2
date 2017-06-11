@@ -57,7 +57,6 @@ function addtutorial2Objects()
 
     if (hasGarlic) {
         initNewSolidCloud(290, game.world.height - 450, 0);
-
         initNewSolidCloud(590, game.world.height - 250, 0);
     }
 }

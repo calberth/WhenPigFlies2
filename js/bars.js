@@ -6,6 +6,7 @@ var staminaText;
 
 var bossHealthbar;
 var bossHealthText;
+var bossHealth;
 
 var grenadesLeft;
 var grenadesText;
@@ -25,7 +26,7 @@ function createBossBar(bossHealth)
 {
     var bar = game.add.bitmapData(bossHealth, 100);
     bar.ctx.beginPath();
-    bar.ctx.rect(0,0,180,30);
+    bar.ctx.rect(0,0,200,30);
     bar.ctx.fillStyle = '#F00';
     bar.ctx.fill();
 

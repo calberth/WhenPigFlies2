@@ -20,7 +20,7 @@ var loadState = {
         game.load.image('ground', 'assets/platform.png');
         game.load.image('stone-ground', 'assets/stoneplatform.png');
         game.load.image('star', 'assets/star.png');
-        game.load.image('cloud', 'images/cloud1flipped.png');
+        // game.load.image('cloud', 'images/cloud1flipped.png');
         game.load.image('garlic', 'assets/garlic.png');
         game.load.image('garlicGrenade', 'assets/garlic_bomb.png');
         game.load.image('bat', 'assets/bat.png');
@@ -65,6 +65,7 @@ var loadState = {
         game.load.image('sack', 'assets/sack.png');
 
         // clouds
+        game.load.image('cloud', 'images/cloud4.png');
         game.load.image('sinkingCloud', 'assets/pinkcloud.png');
         game.load.image('solidCloud', 'assets/bluecloud.png');
         game.load.image('stormCloud', 'assets/graycloud.png');

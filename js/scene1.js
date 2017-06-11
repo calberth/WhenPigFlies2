@@ -52,11 +52,9 @@ function addScene1Objects()
     rooster = game.add.sprite(-200, 150, 'rooster');
     rooster.scale.setTo(0.8, 0.8);
     
-    //game.camera.flash(0x000000, 2000, true);
-    //Phaser.Camera.flash(0xff0000, 500);
-    //game.camera.flash(0xff0000, 500);
-    //game.camera.onFlashComplete.add(this.flashComplete,this);
-    //startScene();
+
+    game.camera.flash(0xff0000, 500);
+
     
     var fade = game.add.sprite(0, 0, 'fade-black');
     game.add.tween(fade).to({alpha: 0}, 2000, "Linear", true);
