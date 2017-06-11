@@ -1,8 +1,7 @@
 var healthBar;
 var staminaBar;
 var healthDec = 10;
-var healthText;
-var staminaText;
+var icons;
 
 var bossHealthbar;
 var bossHealthText;
@@ -36,14 +35,26 @@ function createBossBar(bossHealth)
 
 function createHealthBar(health)
 {
+    var bbar = game.add.bitmapData(health, 40);
+    bbar.ctx.beginPath();
+    bbar.ctx.rect(0,0,180,30);
+    bbar.ctx.fillStyle = '#464646';
+    bbar.ctx.fill();
+
     var bar = game.add.bitmapData(health, 40);
     bar.ctx.beginPath();
-    bar.ctx.rect(0,0,180,30);
-    bar.ctx.fillStyle = '#00685e';
+    bar.ctx.rect(0,0,92,22);
+    bar.ctx.fillStyle = '#e60000';
     bar.ctx.fill();
 
-    healthBar = game.add.sprite(150,16, bar);
-    healthText = game.add.text(16, 16, 'Health:', { fontSize: '32px', fill: '#F00' });
+    icons = game.add.group();
+    var heartIcon = icons.create(16, 16, 'heart');
+    heartIcon.scale.setTo(.015, .015);
+
+    var backBar = game.add.sprite(60, 16, bbar);
+
+
+    healthBar = game.add.sprite(64, 20, bar);
 }
 
 function updateHealthBar(health)
@@ -53,14 +64,24 @@ function updateHealthBar(health)
 
 function createStaminaBar(stamina)
 {
-    var bar = game.add.bitmapData(stamina, 40);
+    var bbar = game.add.bitmapData(health, 40);
+    bbar.ctx.beginPath();
+    bbar.ctx.rect(0,0,180,30);
+    bbar.ctx.fillStyle = '#464646';
+    bbar.ctx.fill();
+
+    var bar = game.add.bitmapData(health, 40);
     bar.ctx.beginPath();
-    bar.ctx.rect(0,0,180,30);
-    bar.ctx.fillStyle = '#ff6600';
+    bar.ctx.rect(0,0,92,22);
+    bar.ctx.fillStyle = '#cbe4ef';
     bar.ctx.fill();
 
-    staminaBar = game.add.sprite(150,50, bar);
-    staminaText = game.add.text(16, 50, 'Stamina:', { fontSize: '32px', fill: '#F00' });
+    var wingIcon = icons.create(8, 50, 'wings');
+    wingIcon.scale.setTo(.4, .4);
+
+    var backBar = game.add.sprite(60, 54, bbar);
+
+    staminaBar = game.add.sprite(64, 58, bar);
 }
 
 function updateStaminaBar(stamina)
