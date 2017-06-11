@@ -6,7 +6,7 @@ var pig, bird;
 var scene1State = {
     create: function() {
          
-        initializeLevel(false, false, false, false);
+        initializeLevel(false, false, false, false, false);
         addScene1Objects();
         
     },

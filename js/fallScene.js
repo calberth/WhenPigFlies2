@@ -1,11 +1,9 @@
-var loseState = {
 
-    create: function() {	
-		
-    	var scene = game.add.sprite(0,0,'sky');
+var fallSceneState = {
+    create: function() {
 
-        var winLabel = game.add.text(80, 80, 'YOU DIED',
-    								{font: '50px Arial', fill: '#000000' });
+        initializeLevel(false, false, false, false, false);
+        addfallSceneObjects();
 
         var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
     },
@@ -13,14 +11,7 @@ var loseState = {
     // The restart function calls the menu state    
     restart: function () {
         health = stamina = 100;
-        if (state <= 4)
-        {
-            //state = 3;
-            //game.state.start('frame3'); 
-            state = 2;
-            game.state.start('frame2'); 
-        }
-        else if (state <= 8)
+        if (state <= 8)
         {
             state = 5;
             game.state.start('frame5'); 
@@ -34,10 +25,17 @@ var loseState = {
         {
             state = 13;
             game.state.start('frame13');        
-        }
-        else
-        {
-            game.state.start('bossLevel');  
-        }   
-    }, 	
+        }  
+    },  
+
+    update: function() {
+
+    }
+}
+
+function addfallSceneObjects()
+{
+    var scene = background.create(0, 0, 'sky-morning');
+
+    var roos = game.add.sprite(-200, 150, 'rooster');
 }

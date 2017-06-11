@@ -3,7 +3,7 @@ var bolt;
 
 var frame6State = {
     create: function() {
-        initializeLevel(false, true, false, true);
+        initializeLevel(false, true, false, true, false);
         addlevel1S2Objects();
     },
 

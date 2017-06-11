@@ -8,7 +8,7 @@ var bombText;
 var frame1State = {
 
     create: function() {
-        initializeLevel(false, true, false, false);
+        initializeLevel(false, true, false, false, false);
         addtutorial1Objects();
     },
 

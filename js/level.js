@@ -1,5 +1,5 @@
 
-function initializeLevel(left, right, up, down)
+function initializeLevel(left, right, up, down, bottomDeath)
 {
 
     background = game.add.group();
@@ -9,6 +9,9 @@ function initializeLevel(left, right, up, down)
 
     boundaries = game.add.group();
     boundaries.enableBody = true;
+
+    blasts = game.add.group();
+    
 
     if (left)
     {
@@ -37,6 +40,13 @@ function initializeLevel(left, right, up, down)
         lowerBound.scale.setTo(9,1);
         lowerBound.visible = false;
     }
+
+    if (bottomDeath)
+    {
+        deathBound = boundaries.create(0, 674, 'upBound');
+        deathBound.scale.setTo(9,1);
+        deathBound.visible = false;
+    }
     
 
     bats = game.add.group();
@@ -53,9 +63,12 @@ function initializeLevel(left, right, up, down)
     garlics = game.add.group();
     garlics.enableBody = true;
 
+    grenades = game.add.group();
+    grenades.enableBody = true;
+
     createHealthBar(health);
     createStaminaBar(health);
-    //createGarlicGrenadesBar();
+    createGarlicGrenadesBar();
 
     player = game.add.sprite(positionx, positiony, texture);
 
@@ -88,10 +101,13 @@ function checkCollisions()
     game.physics.arcade.collide(player, leftBound, previousScreen);
     game.physics.arcade.collide(player, upperBound, upScreen);
     game.physics.arcade.collide(player, lowerBound, downScreen);
+    game.physics.arcade.collide(player, deathBound, fallingDeathScreen);
 
     game.physics.arcade.collide(player, lightning, hitWave, null, this);
 
-    //updateGGBar();
+    updateGGBar();
+    game.physics.arcade.collide(grenades, bats, explode, null, this);
+    game.physics.arcade.collide(grenades, diveBats, explode, null, this);
 }
 
 
@@ -163,6 +179,11 @@ function downScreen()
         state--;
         game.state.start('frame'+state);
     }
+}
+
+function fallingDeathScreen()
+{
+    game.state.start('fallScene');
 }
 
 function collectBat(garlics, bat)
