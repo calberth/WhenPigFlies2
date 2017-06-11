@@ -85,6 +85,7 @@ var loadState = {
         game.load.spritesheet('bird', 'assets/bird/birdSpriteSheet.png', 190, 232, 2);
         game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
         game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
+        game.load.spritesheet('batculaSheet', 'assets/batculaSheet.png', 547, 204, 4);
     
     },
     

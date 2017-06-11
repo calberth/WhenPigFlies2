@@ -116,7 +116,7 @@ function enterEvilActors() {
     
     //var boss = game.add.sprite(800, 200, 'boss');
     
-    var boss = this.game.add.sprite(800, 200, 'boss');
+    var boss = this.game.add.sprite(800, 200, 'batculaSheet');
     this.game.time.events.loop(2000, function() {  
         this.game.add.tween(boss).to({x: this.game.world.randomX, 
                                          y: this.game.world.randomY}, 
