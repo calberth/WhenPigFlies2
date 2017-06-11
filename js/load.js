@@ -21,6 +21,9 @@ var loadState = {
         game.load.image('L3background', 'assets/level3background.png');
         game.load.image('stone', 'assets/stoneBackground.png');
 
+        game.load.image('heart', 'assets/heart.png');
+        game.load.image('wings', 'assets/wings-icon.png')
+
         game.load.image('ground', 'assets/platform.png');
         game.load.image('stone-ground', 'assets/stoneplatform.png');
         game.load.image('star', 'assets/star.png');
@@ -85,7 +88,7 @@ var loadState = {
         game.load.spritesheet('bird', 'assets/bird/birdSpriteSheet.png', 190, 232, 2);
         game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
         game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
-        game.load.spritesheet('batculaSheet', 'assets/batculaSheet.png', 547, 204, 4);
+        game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
     
     },
     

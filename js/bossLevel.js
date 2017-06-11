@@ -5,7 +5,7 @@ var bossIsDead;
 
 var bossLevelState = {
     create: function() {
-        initializeLevel(false, false, false, false);
+        initializeLevel(false, false, false, false, false);
         addBossLevelObjects();
     },
 

@@ -2,7 +2,7 @@ var returningt2 = false;
 
 var frame2State = {
     create: function() {
-        initializeLevel(true, true, true, false);
+        initializeLevel(true, true, true, false, false);
         addtutorial2Objects();
     },
 
@@ -32,24 +32,20 @@ function addtutorial2Objects()
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    // var ledge = platforms.create(400, 400, 'cloud');
+    field = background.create(0, 519, 'garlicField');
 
-    // ledge.body.immovable = true;
-
-    var field = game.add.sprite(0, 519, 'garlicField');
     //field.body.immovable = true;
-
     if (!returningt2) {
-        truck = game.add.sprite(game.world.width - 500, 395, 'truck');
+        truck = background.create(game.world.width - 500, 395, 'truck');
     }
     else {
-        truck = game.add.sprite(100, 395, 'truck');
+        truck = background.create(100, 395, 'truck');
     }
     truck.scale.setTo(.65, .65);
     game.physics.arcade.enable(truck);
     truck.body.velocity.x = 0;
-
-    var barn = game.add.sprite(0, 250, 'barn');
+    
+    var barn = background.create(0, 250, 'barn');
     barn.scale.setTo(1.2, 1.2);
 
     player.bringToTop();

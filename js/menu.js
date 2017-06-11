@@ -8,6 +8,7 @@
         var leftBound;
         var upperBound;
         var lowerBound;
+        var deathBound;
 
         var cursors;
         var space;
@@ -76,7 +77,8 @@ var menuState = {
         texture = 'pigR1';
 
         state = 3;
-        game.state.start('frame3'); 
+        //game.state.start('frame3'); 
+        game.state.start('scene1');
  
     },    
 };

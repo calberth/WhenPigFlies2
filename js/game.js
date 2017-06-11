@@ -8,7 +8,6 @@ game.state.add('scene1', scene1State);
 game.state.add('frame1', frame1State);
 game.state.add('frame2', frame2State);
 game.state.add('frame3', frame3State);
-game.state.add('frame4', frame4State);
 game.state.add('frame5', frame5State);
 game.state.add('frame6', frame6State);
 game.state.add('frame7', frame7State);
@@ -22,6 +21,7 @@ game.state.add('frame14', frame14State);
 game.state.add('frame15', frame15State);
 game.state.add('frame16', frame16State);
 
+game.state.add('fallScene', fallSceneState);
 game.state.add('lose', loseState);
 game.state.add('bossLevel', bossLevelState);
 game.state.start('boot');
