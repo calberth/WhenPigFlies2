@@ -53,7 +53,7 @@ function addScene1Objects()
     rooster.scale.setTo(0.8, 0.8);
     
 
-    game.camera.flash(0xff0000, 500);
+
 
     
     var fade = game.add.sprite(0, 0, 'fade-black');

@@ -116,6 +116,6 @@ function checkBattle()
 }
 
 function decreaseHealth(number) {
-    health -= .5;
+    health -= number;
     game.camera.flash(0xaa0000, 500);
 }

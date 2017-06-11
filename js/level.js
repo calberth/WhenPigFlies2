@@ -73,22 +73,26 @@ function checkCollisions()
     game.physics.arcade.collide(platforms);
 
     // checks garlic collision with enemies
-    game.physics.arcade.overlap(garlics, bats, collectBat, null, this);
+    game.physics.arcade.collide(garlics, bats, collectBat, null, this);
+    game.physics.arcade.collide(garlics, diveBats, killDBat, null, this);
 
     // checks soundwave collision with player
-    game.physics.arcade.overlap(player, soundwaves, hitEnemy, null, this);
-    game.physics.arcade.overlap(player, bats, hitEnemy, null, this);
+    game.physics.arcade.collide(player, soundwaves, hitWave, null, this);
+    game.physics.arcade.collide(player, bats, hitEnemy, null, this);
 
-    game.physics.arcade.overlap(player, diveBats, hitEnemy, null, this); //Divebat and bat are difference groups
-    game.physics.arcade.overlap(garlics, diveBats, killDBat, null, this);
+    game.physics.arcade.collide(player, diveBats, hitEnemy, null, this); //Divebat and bat are difference groups
+    
 
     // check boundaries and advance player if necessary
-    game.physics.arcade.overlap(player, rightBound, nextScreen);
-    game.physics.arcade.overlap(player, leftBound, previousScreen);
-    game.physics.arcade.overlap(player, upperBound, upScreen);
-    game.physics.arcade.overlap(player, lowerBound, downScreen);
+    game.physics.arcade.collide(player, rightBound, nextScreen);
+    game.physics.arcade.collide(player, leftBound, previousScreen);
+    game.physics.arcade.collide(player, upperBound, upScreen);
+    game.physics.arcade.collide(player, lowerBound, downScreen);
 
-    game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
+    //game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
+    game.physics.arcade.collide(player, sack, collectSack, null, this);
+
+    game.physics.arcade.collide(player, lightning, hitWave, null, this);
 
     //updateGGBar();
 }
@@ -169,7 +173,10 @@ function collectBat(garlics, bat)
     bats.remove(bat);
 }
 
-
+function hitWave(player, wave) {
+    wave.kill();
+    hitEnemy(player, wave);
+}
 
 function collectLightning(player, lightning) {
     if (health > 0) {
@@ -179,6 +186,6 @@ function collectLightning(player, lightning) {
 
 
 function hitEnemy(player, enemy) {
-    decreaseHealth(.5);
+    decreaseHealth(10);
 }
 
