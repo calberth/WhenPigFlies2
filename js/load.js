@@ -69,7 +69,7 @@ var loadState = {
         game.load.image('garlicField', 'assets/garlicfield.png');
         game.load.image('truck', 'assets/truck.png');
         game.load.image('barn', 'assets/barn.png');
-        game.load.image('barnInterior', 'assets/barninterior.png');
+        game.load.image('barnInterior', 'assets/barninterior2.jpg');
         game.load.image('barnGround', 'assets/barnplatform.png');
         game.load.image('sack', 'assets/sack.png');
 
