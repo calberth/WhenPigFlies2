@@ -22,6 +22,7 @@ var frame5State = {
 function addlevel1S1Objects()
 {
     var scene = background.create(0,0,'L1background');
+
     var text = game.add.text(425, 16, 'Level1 S1', { fontSize: '32px', fill: '#000' });
 
     cloudTimer = 0;

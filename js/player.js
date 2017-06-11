@@ -108,8 +108,11 @@ function movePlayer()
 
 function checkBattle()
 {
-    space.onDown.add(dropGarlic, this);
-    control.onDown.add(throwGrenade, this);
+    if (hasGarlic)
+    {
+        space.onDown.add(dropGarlic, this);
+        control.onDown.add(throwGrenade, this);
+    }
 }
 
 function decreaseHealth(number) {

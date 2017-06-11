@@ -85,10 +85,14 @@ function checkCollisions()
     game.physics.arcade.collide(player, upperBound, upScreen);
     game.physics.arcade.collide(player, lowerBound, downScreen);
 
+<<<<<<< HEAD
     //game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
     game.physics.arcade.collide(player, sack, collectSack, null, this);
 
     game.physics.arcade.collide(player, lightning, hitWave, null, this);
+=======
+    game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
+>>>>>>> d9e13d4d6b0383c565424b7cc024530ab818603c
 
     //updateGGBar();
 }
@@ -174,16 +178,12 @@ function hitWave(player, wave) {
     hitEnemy(player, wave);
 }
 
-function collectGarlic(player, garlic) {
-    //hasGarlic = true;
-    garlic.kill();
-    //garlics.remove(garlic);
+function collectLightning(player, lightning) {
+    if (health > 0) {
+        health -= 0.5;
+    }
 }
 
-function collectSack(player, sack) {
-    sack.kill();
-    hasGarlic = true;
-}
 
 function hitEnemy(player, enemy) {
     decreaseHealth(10);

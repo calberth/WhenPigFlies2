@@ -1,3 +1,5 @@
+var state = -1;
+
 var loadState = {
 	
 	// The preload function is another standard Phaser function that we
