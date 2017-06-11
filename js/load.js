@@ -22,7 +22,9 @@ var loadState = {
         game.load.image('stone', 'assets/stoneBackground.png');
 
         game.load.image('heart', 'assets/heart.png');
-        game.load.image('wings', 'assets/wings-icon.png')
+        game.load.image('wings', 'assets/wings-icon.png');
+
+        game.load.image('play', 'assets/play.png');
 
         game.load.image('ground', 'assets/platform.png');
         game.load.image('stone-ground', 'assets/stoneplatform.png');
