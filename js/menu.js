@@ -37,7 +37,6 @@
         var animL = 0;
 
         var texture;
-        var state;
 
         var hasGarlic = false;
         var accessories = '';
@@ -74,9 +73,10 @@ var menuState = {
     start: function () {
         positionx = 32;
         positiony = 540; 
-        texture = 'pigR1';  
+        texture = 'pigR1';
+
         state = 3;
-        //game.state.start('frame3'); 
         game.state.start('frame3'); 
+ 
     },    
 };
