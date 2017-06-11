@@ -46,7 +46,7 @@ function movePlayer()
         }
 
         //  Allow the player to fly!
-        if (cursors.up.isDown)
+        else if (cursors.up.isDown)
         {
             
             if (stamina > 0)
