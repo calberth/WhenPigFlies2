@@ -85,14 +85,10 @@ function checkCollisions()
     game.physics.arcade.collide(player, upperBound, upScreen);
     game.physics.arcade.collide(player, lowerBound, downScreen);
 
-<<<<<<< HEAD
     //game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
     game.physics.arcade.collide(player, sack, collectSack, null, this);
 
     game.physics.arcade.collide(player, lightning, hitWave, null, this);
-=======
-    game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
->>>>>>> d9e13d4d6b0383c565424b7cc024530ab818603c
 
     //updateGGBar();
 }
