@@ -14,24 +14,28 @@ function initializeLevel(left, right, up, down)
     {
         leftBound = boundaries.create(-5, 0, 'levelBound');
         leftBound.scale.setTo(1,5);
+        leftBound.visible = false;
     }
 
     if (right)
     {
         rightBound = boundaries.create(1199, 0, 'levelBound');
         rightBound.scale.setTo(1,5); 
+        rightBound.visible = false;
     }
 
     if (up)
     {
         upperBound = boundaries.create(0, -5, 'upBound');
         upperBound.scale.setTo(9,1);
+        upperBound.visible = false;
     }
 
     if (down)
     {
         lowerBound = boundaries.create(0, 674, 'upBound');
         lowerBound.scale.setTo(9,1);
+        lowerBound.visible = false;
     }
     
 

@@ -6,11 +6,15 @@ var loadState = {
 	// use to define and load our assets
     preload: function() {
 
-        var loadingLabel = game.add.text(80, 150, 'loading assets...', 
+        var loadingBar = game.add.sprite(170, 250, 'loading');
+        loadingBar.anchor.setTo(0.5,0.5);
+        this.load.setPreloadSprite(loadingBar);
+
+        var loadingLabel = game.add.text(80, 150, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
         //Backgrounds
-        game.load.image('sky', 'images/sky.png');
+        game.load.image('sky', 'assets/sky-morning.png');
         game.load.image('sky-morning', 'assets/sky-morning.png');
         game.load.image('L1background', 'assets/level1background.png');
         game.load.image('L2background', 'assets/level2background.png');

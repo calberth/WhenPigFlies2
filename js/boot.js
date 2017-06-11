@@ -1,6 +1,9 @@
 // Here we use the 'official name' (bootState) when defining the state
 var bootState = {
-    
+    preload: function()
+    {
+        game.load.image('loading', 'assets/pinkcloud.png');
+    },
     // The create function is a standard Phaser function, and is
     // automatically called
     create: function () {
