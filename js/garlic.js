@@ -33,10 +33,6 @@ function explode(grenade, bat) {
 	var blast = blasts.create(bat.x, bat.y, 'blast');	
 	blast.scale.setTo(.3, .3);
 
-	//kills all bats that are part of blast
-	//game.physics.arcade.overlap(blast, bats, collectBat, null, this);
-    //game.physics.arcade.overlap(blast, diveBats, killDBat, null, this);
-
 }
 
 function updateBlastAnim() {
