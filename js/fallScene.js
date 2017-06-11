@@ -5,14 +5,7 @@ var fallSceneState = {
         initializeLevel(false, false, false, false, false);
         addfallSceneObjects();
 
-        var startLabel = game.add.text(80, game.world.height-80,
-                                       'press the "W" key to restart',
-                                       {font: '25px Arial', fill: '#000000' });
-
-        var wkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
-        
-        // When the player presses the W key, we call the restart function
-        wkey.onDown.addOnce(this.restart, this);
+        var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
     },
     
     // The restart function calls the menu state    

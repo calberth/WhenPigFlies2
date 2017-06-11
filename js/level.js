@@ -10,6 +10,9 @@ function initializeLevel(left, right, up, down, bottomDeath)
     boundaries = game.add.group();
     boundaries.enableBody = true;
 
+    blasts = game.add.group();
+    
+
     if (left)
     {
         leftBound = boundaries.create(-5, 0, 'levelBound');
@@ -60,9 +63,12 @@ function initializeLevel(left, right, up, down, bottomDeath)
     garlics = game.add.group();
     garlics.enableBody = true;
 
+    grenades = game.add.group();
+    grenades.enableBody = true;
+
     createHealthBar(health);
     createStaminaBar(health);
-    //createGarlicGrenadesBar();
+    createGarlicGrenadesBar();
 
     player = game.add.sprite(positionx, positiony, texture);
 
@@ -97,13 +103,13 @@ function checkCollisions()
     game.physics.arcade.collide(player, lowerBound, downScreen);
     game.physics.arcade.collide(player, deathBound, fallingDeathScreen);
 
-    //game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
-    game.physics.arcade.collide(player, sack, collectSack, null, this);
-
     game.physics.arcade.collide(player, lightning, hitWave, null, this);
 
-    //updateGGBar();
+    updateGGBar();
+    game.physics.arcade.collide(grenades, bats, explode, null, this);
+    game.physics.arcade.collide(grenades, diveBats, explode, null, this);
 }
+
 
 function checkLose()
 {
@@ -189,12 +195,6 @@ function collectBat(garlics, bat)
 function hitWave(player, wave) {
     wave.kill();
     hitEnemy(player, wave);
-}
-
-function collectLightning(player, lightning) {
-    if (health > 0) {
-        health -= 0.5;
-    }
 }
 
 
