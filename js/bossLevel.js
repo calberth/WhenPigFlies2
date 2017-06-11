@@ -1,6 +1,6 @@
 var boss;
 var bossAnim;
-var bossHealth;
+
 var bossIsDead;
 
 var bossLevelState = {
@@ -16,7 +16,7 @@ var bossLevelState = {
         checkBattle();
         updateHealthBar(health);
         updateStaminaBar(stamina);
-        updateGGBar(grenadesLeft);
+        //updateGGBar(grenadesLeft);
         checkLose();
 
         bossLevelUpdate();
@@ -84,7 +84,6 @@ function hitBoss(garlic, boss) {
 	if (bossHealth > 0)
 		bossHealth -= .5;
 }
-
 
 
 function bossLevelUpdate()

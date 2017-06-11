@@ -14,24 +14,28 @@ function initializeLevel(left, right, up, down)
     {
         leftBound = boundaries.create(-5, 0, 'levelBound');
         leftBound.scale.setTo(1,5);
+        leftBound.visible = false;
     }
 
     if (right)
     {
         rightBound = boundaries.create(1199, 0, 'levelBound');
         rightBound.scale.setTo(1,5); 
+        rightBound.visible = false;
     }
 
     if (up)
     {
         upperBound = boundaries.create(0, -5, 'upBound');
         upperBound.scale.setTo(9,1);
+        upperBound.visible = false;
     }
 
     if (down)
     {
         lowerBound = boundaries.create(0, 674, 'upBound');
         lowerBound.scale.setTo(9,1);
+        lowerBound.visible = false;
     }
     
 
@@ -69,25 +73,26 @@ function checkCollisions()
     game.physics.arcade.collide(platforms);
 
     // checks garlic collision with enemies
-    game.physics.arcade.overlap(garlics, bats, collectBat, null, this);
+    game.physics.arcade.collide(garlics, bats, collectBat, null, this);
+    game.physics.arcade.collide(garlics, diveBats, killDBat, null, this);
 
     // checks soundwave collision with player
-    game.physics.arcade.overlap(player, soundwaves, collectWave, null, this);
-    game.physics.arcade.overlap(player, bats, hitBat, null, this);
+    game.physics.arcade.collide(player, soundwaves, hitWave, null, this);
+    game.physics.arcade.collide(player, bats, hitEnemy, null, this);
 
-    game.physics.arcade.overlap(player, diveBats, hitDiveBat, null, this); //Divebat and bat are difference groups
-    game.physics.arcade.overlap(garlics, diveBats, killDBat, null, this);
+    game.physics.arcade.collide(player, diveBats, hitEnemy, null, this); //Divebat and bat are difference groups
+    
 
     // check boundaries and advance player if necessary
-    game.physics.arcade.overlap(player, rightBound, nextScreen);
-    game.physics.arcade.overlap(player, leftBound, previousScreen);
-    game.physics.arcade.overlap(player, upperBound, upScreen);
-    game.physics.arcade.overlap(player, lowerBound, downScreen);
+    game.physics.arcade.collide(player, rightBound, nextScreen);
+    game.physics.arcade.collide(player, leftBound, previousScreen);
+    game.physics.arcade.collide(player, upperBound, upScreen);
+    game.physics.arcade.collide(player, lowerBound, downScreen);
 
     //game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
-    game.physics.arcade.overlap(player, sack, collectSack, null, this);
+    game.physics.arcade.collide(player, sack, collectSack, null, this);
 
-    game.physics.arcade.overlap(player, lightning, collectLightning, null, this);
+    game.physics.arcade.collide(player, lightning, hitWave, null, this);
 
     //updateGGBar();
 }
@@ -168,23 +173,9 @@ function collectBat(garlics, bat)
     bats.remove(bat);
 }
 
-function collectWave(player, soundwaves)
-{
-    if (health > 0)
-    {
-        health -= 0.5;
-    }
-}
-
-function collectGarlic(player, garlic) {
-    //hasGarlic = true;
-    garlic.kill();
-    //garlics.remove(garlic);
-}
-
-function collectSack(player, sack) {
-    sack.kill();
-    hasGarlic = true;
+function hitWave(player, wave) {
+    wave.kill();
+    hitEnemy(player, wave);
 }
 
 function collectLightning(player, lightning) {
@@ -194,15 +185,7 @@ function collectLightning(player, lightning) {
 }
 
 
-function hitBat(player, bat) {
-    if (health > 0)
-    {
-        health -= 0.5;
-    }
-} 
-function hitDiveBat(player, bat) {
-    if (health > 0)
-    {
-        health -= 0.5;
-    }
+function hitEnemy(player, enemy) {
+    decreaseHealth(10);
 }
+

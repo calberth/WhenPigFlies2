@@ -7,8 +7,6 @@ function movePlayer()
 
     if (cursors.left.isDown) {
             player.body.velocity.x = -150;
-
-            //player.direction = Direction.left;
             
             if (hasGarlic == false) {
                 if (player.body.velocity.y < -1) {
@@ -87,7 +85,7 @@ function movePlayer()
             
             if (stamina > 0)
             {
-                player.body.velocity.y += -10;
+                player.body.velocity.y += -15;
                 stamina -= 0.5;
             }
             //animL++;
@@ -110,6 +108,14 @@ function movePlayer()
 
 function checkBattle()
 {
-    space.onDown.add(dropGarlic, this);
-    control.onDown.add(throwGrenade, this);
+    if (hasGarlic)
+    {
+        space.onDown.add(dropGarlic, this);
+        control.onDown.add(throwGrenade, this);
+    }
+}
+
+function decreaseHealth(number) {
+    health -= number;
+    game.camera.flash(0xaa0000, 500);
 }

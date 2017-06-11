@@ -1,14 +1,20 @@
+var state = -1;
+
 var loadState = {
 	
 	// The preload function is another standard Phaser function that we
 	// use to define and load our assets
     preload: function() {
 
-        var loadingLabel = game.add.text(80, 150, 'loading assets...', 
+        var loadingBar = game.add.sprite(170, 250, 'loading');
+        loadingBar.anchor.setTo(0.5,0.5);
+        this.load.setPreloadSprite(loadingBar);
+
+        var loadingLabel = game.add.text(80, 150, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
         //Backgrounds
-        game.load.image('sky', 'images/sky.png');
+        game.load.image('sky', 'assets/sky-morning.png');
         game.load.image('sky-morning', 'assets/sky-morning.png');
         game.load.image('L1background', 'assets/level1background.png');
         game.load.image('L2background', 'assets/level2background.png');
@@ -18,7 +24,7 @@ var loadState = {
         game.load.image('ground', 'assets/platform.png');
         game.load.image('stone-ground', 'assets/stoneplatform.png');
         game.load.image('star', 'assets/star.png');
-        game.load.image('cloud', 'images/cloud1flipped.png');
+        // game.load.image('cloud', 'images/cloud1flipped.png');
         game.load.image('garlic', 'assets/garlic.png');
         game.load.image('garlicGrenade', 'assets/garlic_bomb.png');
         game.load.image('bat', 'assets/bat.png');
@@ -63,6 +69,7 @@ var loadState = {
         game.load.image('sack', 'assets/sack.png');
 
         // clouds
+        game.load.image('cloud', 'images/cloud4.png');
         game.load.image('sinkingCloud', 'assets/pinkcloud.png');
         game.load.image('solidCloud', 'assets/bluecloud.png');
         game.load.image('stormCloud', 'assets/graycloud.png');

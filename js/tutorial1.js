@@ -1,6 +1,9 @@
 var collectibles;
 var sack;
 var singleGarlic;
+var sackCollected = false;
+var getSackText;
+var bombText;
 
 var frame1State = {
 
@@ -52,9 +55,11 @@ function addtutorial1Objects()
     singleGarlic.enableBody = true;
     var garlic = singleGarlic.create(500, 180, 'garlic');
 
+    getSackText = game.add.text(460, 100, 'You need something to hold that garlic', { fontSize: '32px', fill: '#fff' });
+    getSackText.visible = false;
 
-    //var garlic = garlics.create(500, 180, 'garlic');
-    //garlic.body.collideWorldBounds = true;
+    bombText = game.add.text(460, 100, 'To drop a garlic bomb press [space]', { fontSize: '32px', fill: '#fff' });
+    bombText.visible = false;
 
     player.bringToTop();
 }
@@ -62,11 +67,30 @@ function addtutorial1Objects()
 function tutorial1Update()
 {
     game.physics.arcade.overlap(player, singleGarlic, colSingleGarlic, null, this);
+    game.physics.arcade.overlap(player, sack, collectSack, null, this);
+    if (hasGarlic && sackCollected)
+    {
+        bombText.visible = true; 
+    }
 }
 
 function colSingleGarlic(player, singleGarlic)
 {
-    singleGarlic.kill();
-    var text = game.add.text(460, 100, 'To drop a garlic bomb press [space]', { fontSize: '32px', fill: '#fff' });
+    
+    if (sackCollected == false)
+    {
+        getSackText.visible = true;
+    }
+    else
+    {
+        singleGarlic.kill();
+        hasGarlic = true;
+    }
 
+}
+
+function collectSack(player, sack) {
+    getSackText.visible = false;
+    sack.kill();
+    sackCollected = true; 
 }
