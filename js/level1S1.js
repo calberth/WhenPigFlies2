@@ -2,7 +2,7 @@ var cloudTimer;
 
 var frame5State = {
     create: function() {
-        initializeLevel(false, false, true, true);
+        initializeLevel(false, false, true, true, false);
         addlevel1S1Objects();
     },
 

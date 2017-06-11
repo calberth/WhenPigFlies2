@@ -2,7 +2,7 @@ var traversingCloud;
 
 var frame10State = {
     create: function() {
-        initializeLevel(true, false, true, false);
+        initializeLevel(true, false, true, false, true);
         addlevel2S2Objects();
     },
 

@@ -2,7 +2,7 @@ var returningt2 = false;
 
 var frame2State = {
     create: function() {
-        initializeLevel(true, true, true, false);
+        initializeLevel(true, true, true, false, false);
         addtutorial2Objects();
     },
 

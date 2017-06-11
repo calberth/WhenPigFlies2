@@ -1,5 +1,5 @@
 
-function initializeLevel(left, right, up, down)
+function initializeLevel(left, right, up, down, bottomDeath)
 {
 
     background = game.add.group();
@@ -36,6 +36,13 @@ function initializeLevel(left, right, up, down)
         lowerBound = boundaries.create(0, 674, 'upBound');
         lowerBound.scale.setTo(9,1);
         lowerBound.visible = false;
+    }
+
+    if (bottomDeath)
+    {
+        deathBound = boundaries.create(0, 674, 'upBound');
+        deathBound.scale.setTo(9,1);
+        deathBound.visible = false;
     }
     
 
@@ -88,6 +95,7 @@ function checkCollisions()
     game.physics.arcade.collide(player, leftBound, previousScreen);
     game.physics.arcade.collide(player, upperBound, upScreen);
     game.physics.arcade.collide(player, lowerBound, downScreen);
+    game.physics.arcade.collide(player, deathBound, fallingDeathScreen);
 
     //game.physics.arcade.overlap(player, garlics, collectGarlic, null, this);
     game.physics.arcade.collide(player, sack, collectSack, null, this);
@@ -165,6 +173,11 @@ function downScreen()
         state--;
         game.state.start('frame'+state);
     }
+}
+
+function fallingDeathScreen()
+{
+    game.state.start('fallScene');
 }
 
 function collectBat(garlics, bat)

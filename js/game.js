@@ -21,6 +21,7 @@ game.state.add('frame14', frame14State);
 game.state.add('frame15', frame15State);
 game.state.add('frame16', frame16State);
 
+game.state.add('fallScene', fallSceneState);
 game.state.add('lose', loseState);
 game.state.add('bossLevel', bossLevelState);
 game.state.start('boot');

@@ -3,7 +3,7 @@ var t3truckpass = false;
 
 var frame3State = {
     create: function() {
-        initializeLevel(true, false, false, false);
+        initializeLevel(true, false, false, false, false);
         addtutorial3Objects();
     },
 

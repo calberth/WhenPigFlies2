@@ -8,6 +8,7 @@
         var leftBound;
         var upperBound;
         var lowerBound;
+        var deathBound;
 
         var cursors;
         var space;

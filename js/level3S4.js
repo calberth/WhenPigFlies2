@@ -1,7 +1,7 @@
 
 var frame16State = {
     create: function() {
-        initializeLevel(true, true, false, false);
+        initializeLevel(true, true, false, false, true);
         addlevel3S4Objects();
         var ekey = game.input.keyboard.addKey(Phaser.Keyboard.E);
         ekey.onDown.addOnce(this.start, this);
