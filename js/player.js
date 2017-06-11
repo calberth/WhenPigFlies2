@@ -1,4 +1,4 @@
-
+var facing = "";
 
 function movePlayer()
 {
@@ -8,32 +8,15 @@ function movePlayer()
     if (cursors.left.isDown) {
             player.body.velocity.x = -150;
             
-            if (hasGarlic == false) {
-                if (player.body.velocity.y < -1) {
-                    if (animL % 10 == 0)
-                        player.loadTexture('pigFL1');
-                    else if (animL % 5 == 0)
-                        player.loadTexture('pigFL2');
-                }
-                else {//if (hitPlatform) {
-                    if (animL % 10 == 0)
-                        player.loadTexture('pigL1');
-                    else if (animL % 5 == 0)
-                        player.loadTexture('pigL2');
-                }
+            if (player.body.velocity.y < -1) {
+                flyLeft(hasGarlic);
             }
-            else {
-                if (player.body.velocity.y < -1) {
-                    if (animL % 10 == 0)
-                        player.loadTexture('pigGFL1');
-                    else if (animL % 5 == 0)
-                        player.loadTexture('pigGFL2');
+            else { //if (hitPlatform) {
+                if (player.body.position.y < 500) {
+                    flyLeft(hasGarlic);
                 }
-                else {//if (hitPlatform) {
-                    if (animL % 10 == 0)
-                        player.loadTexture('pigGL1');
-                    else if (animL % 5 == 0)
-                        player.loadTexture('pigGL2');
+                else {
+                    walkLeft(hasGarlic);
                 }
             }
             anim = 10;
@@ -46,32 +29,15 @@ function movePlayer()
             player.body.velocity.x = 150;
             //player.direction = Direction.right;
             
-            if (hasGarlic == false) {
-                if (player.body.velocity.y < -1) {
-                    if (anim % 10 == 0)
-                        player.loadTexture('pigFR1');
-                    else if (anim % 5 == 0)
-                        player.loadTexture('pigFR2');
-                }
-                else {//if (hitPlatform) {
-                    if (anim % 10 == 0)
-                        player.loadTexture('pigR1');
-                    else if (anim % 5 == 0)
-                        player.loadTexture('pigR2');
-                }
+            if (player.body.velocity.y < -1) {
+                flyRight(hasGarlic);
             }
-            else {
-                if (player.body.velocity.y < -1) {
-                    if (anim % 10 == 0)
-                        player.loadTexture('pigGFR1');
-                    else if (anim % 5 == 0)
-                        player.loadTexture('pigGFR2');
+            else { //if (hitPlatform) {
+                if (player.body.position.y < 500) {
+                    flyRight(hasGarlic);
                 }
-                else {//if (hitPlatform) {
-                    if (anim % 10 == 0)
-                        player.loadTexture('pigGR1');
-                    else if (anim % 5 == 0)
-                        player.loadTexture('pigGR2');
+                else {
+                    walkRight(hasGarlic);
                 }
             }
             animL = 10;
@@ -88,7 +54,15 @@ function movePlayer()
                 player.body.velocity.y += -15;
                 stamina -= 0.5;
             }
-            //animL++;
+
+            if (facing == ("right")) {
+                flyRight(hasGarlic);
+            }
+            else if (facing == ("left")) {
+                flyLeft(hasGarlic);
+            }
+            anim = 10;
+            animL++;
             
         }
         else
@@ -104,6 +78,70 @@ function movePlayer()
 
         }
 
+}
+
+function walkRight(wearingGarlic) {
+    facing = "right";
+    if (wearingGarlic) {
+        if (anim % 10 == 0)
+            player.loadTexture('pigGR1');
+        else if (anim % 5 == 0)
+            player.loadTexture('pigGR2');
+    }
+    else {
+        if (anim % 10 == 0)
+            player.loadTexture('pigR1');
+        else if (anim % 5 == 0)
+            player.loadTexture('pigR2');
+    }
+}
+
+function flyRight(wearingGarlic) {
+    facing = "right";
+    if (wearingGarlic) {
+        if (anim % 10 == 0)
+            player.loadTexture('pigGFR1');
+        else if (anim % 5 == 0)
+            player.loadTexture('pigGFR2');
+    }
+    else {
+        if (anim % 10 == 0)
+            player.loadTexture('pigFR1');
+        else if (anim % 5 == 0)
+            player.loadTexture('pigFR2');
+    }
+}
+
+function walkLeft(wearingGarlic) {
+    facing = "left";
+    if (wearingGarlic) {
+        if (animL % 10 == 0)
+            player.loadTexture('pigGL1');
+        else if (animL % 5 == 0)
+            player.loadTexture('pigGL2');
+    }
+    else {
+        if (animL % 10 == 0)
+            player.loadTexture('pigL1');
+        else if (animL % 5 == 0)
+            player.loadTexture('pigL2');
+    }
+}
+
+function flyLeft(wearingGarlic) {
+    facing = "left";
+    if (wearingGarlic) {
+        if (animL % 10 == 0)
+            player.loadTexture('pigGFL1');
+        else if (animL % 5 == 0)
+            player.loadTexture('pigGFL2');
+    }
+    else {
+        if (animL % 10 == 0)
+            player.loadTexture('pigFL1');
+        else if (animL % 5 == 0)
+            player.loadTexture('pigFL2');
+    }
 }
 
 function checkBattle()
