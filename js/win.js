@@ -65,11 +65,13 @@ function addLoseScreenObjects() {
     var winLabel = game.add.text(80, 80, 'YOU WON',
                                     {font: '50px Arial', fill: '#000000' });
 
+    var winText = game.add.sprite(770, 225, 'winText');
 
-    var winPig = game.add.sprite(540, game.world.height - 280, 'pigGFL1');
+
+    var winPig = game.add.sprite(540, game.world.height - 280, 'winPig');
     winPig.anchor.setTo(0.8, 0.8);
     winPig.angle = 30;
-    winPig.scale.setTo(4, 4);
+    winPig.scale.setTo(1.5, 1.5);
 
     var winBird = game.add.sprite(620, 320, 'winBird');
     winBird.anchor.setTo(0.25, 0.25);
