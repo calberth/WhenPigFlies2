@@ -112,7 +112,8 @@ function movePlayer()
     
     else
     {
-            if (stamina < 100)
+            //if (stamina < 100)
+            if (stamina < 97.75)
             {
                 stamina += 0.25;
             }
