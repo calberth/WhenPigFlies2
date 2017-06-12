@@ -87,6 +87,6 @@ var menuState = {
         state = 3;
         //hasGarlic = true;
         game.state.start('frame3');
-        game.state.start('scene1');
+        //game.state.start('scene1');
     },    
 };
