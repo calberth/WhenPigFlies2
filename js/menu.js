@@ -42,7 +42,8 @@
         var texture;
 
         var hasGarlic = false;
-        var accessories = '';
+        var sackCollected = false;
+        //var accessories = '';
 
         var blasts;
         var blastNum = 0;

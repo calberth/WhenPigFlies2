@@ -86,7 +86,9 @@ function checkCollisions()
 {
     //  Collide the player and the platforms
     //var hitPlatform = game.physics.arcade.collide(player, platforms);
-    if (!cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown && !cursors.down.isDown)
+    //if (!cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown && !cursors.down.isDown)
+    if (!cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown)
+    //if (!cursors.right.isDown && !cursors.left.isDown && !cursors.down.isDown)
     {
         var onGround = game.physics.arcade.collide(player, platforms);
         if (onGround)
