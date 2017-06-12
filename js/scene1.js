@@ -247,10 +247,11 @@ function enterEvilActors() {
                         game.add.tween(bat2).to({x: batX2+400, y: batY2}, 2000, Phaser.Easing.Quadratic.Out, true);
                         game.add.tween(bat3).to({x: batX3+400, y: batY3}, 2000, Phaser.Easing.Quadratic.Out, true);
                         game.add.tween(bat4).to({x: batX4+400, y: batY4}, 2000, Phaser.Easing.Quadratic.Out, true);
-                        twn = game.add.tween(capturedBird).to({x: batX3+200, y: batY3}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        twn = game.add.tween(capturedBird).to({x: batX3+400, y: batY3}, 2000, Phaser.Easing.Quadratic.Out, true);
                         
                         var pBubble4 = game.add.sprite(endPigBubbleX+100, endPigBubbleY-70, 'pigS4');
                         game.time.events.add(Phaser.Timer.SECOND * 7, function() {
+                            dracula.stop();
                             game.state.start('frame3');
                         });
                         

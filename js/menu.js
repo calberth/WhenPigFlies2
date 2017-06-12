@@ -9,6 +9,7 @@
         var upperBound;
         var lowerBound;
         var deathBound;
+        var music;
 
         var cursors;
         var space;
@@ -76,6 +77,7 @@ var menuState = {
         //                             { font: '25px Arial', fill: '#000000' });
         
         var playButton = this.game.add.button(475, 510, 'play', this.start, this);
+        music = game.add.audio('adventure-music');
     },
     
     // The start function calls the play state    

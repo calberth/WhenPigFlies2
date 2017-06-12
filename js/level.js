@@ -22,7 +22,7 @@ function levelUpdate() {
 
 function initializeLevel(left, right, up, down, bottomDeath)
 {
-
+    
     background = game.add.group();
 
     platforms = game.add.group();
@@ -110,6 +110,10 @@ function initializeLevel(left, right, up, down, bottomDeath)
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
     explosion = game.add.audio('explosion');
+    if(music.isPlaying == false) {
+        music.loopFull();
+    }
+    
 }
 
 

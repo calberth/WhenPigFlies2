@@ -126,7 +126,7 @@ var loadState = {
         game.load.image('cloud7', 'images/cloud7.png');
         game.load.audio('dracula', 'assets/audio/dracula.mp3');
         game.load.image('capturedBird', 'assets/intro/bird-net.png');
-        
+        game.load.audio('adventure-music', 'assets/audio/adventure-fantasy.wav');
         
 
         // Falling cut scene
