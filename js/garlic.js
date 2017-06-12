@@ -21,9 +21,9 @@ function throwGrenade() {
 
 		game.physics.arcade.enable(garlic);
 	    garlic.enableBody = true;
-	    garlic.body.gravity.y = 200;
+	    garlic.body.gravity.y = 300;
 	    garlic.body.bounce.y = 1;
-	    garlic.body.velocity.y = -250;
+	    garlic.body.velocity.y = -200;
 	    garlic.body.velocity.x = player.body.velocity.x;
 	}
 }
@@ -38,7 +38,14 @@ function explode(grenade, bat) {
 	
 	explosion.play();
 
+}
 
+function nonBatExplode(grenade) {
+	var blast = blasts.create(grenade.x, grenade.y, 'blast');	
+	grenade.kill();
+	blast.scale.setTo(.3, .3);
+	
+	explosion.play();
 }
 
 function updateBlastAnim() {

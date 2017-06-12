@@ -77,9 +77,11 @@ function checkBossHealth() {
     }
 }
 
-function grenadeBodd(boss, grenade) {
+function grenadeBoss(boss, grenade) {
+    nonBatExplode(grenade);
     grenade.kill();
     grenades.remove(grenade);
+
 
     if (bossHealth > 0)
         bossHealth -= 20;

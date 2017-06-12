@@ -178,23 +178,6 @@ function checkCollisions()
 
 }
 
-/*function customSep(player, platforms)
-{
-    //var nameLabel = game.add.text(80, 80, 'Player y velocity' + player.body.velocity.y,
-                                    //{ font: '50px Arial', fill: '#000000' });
-
-    if (!locked)// && player.body.velocity.y > 0)
-    {
-        var nameLabel = game.add.text(80, 80, 'IN',
-                                    { font: '50px Arial', fill: '#000000' });
-        locked = true;
-        lockedTo = platforms;
-        platforms.playerLocked = true;
-
-        player.body.velocity.y = 0;
-    }
-}*/
-
 function checkLose()
 {
     if (health <= 0)

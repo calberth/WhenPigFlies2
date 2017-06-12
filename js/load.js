@@ -105,6 +105,8 @@ var loadState = {
         game.load.audio('loseAudio', 'assets/audio/lose.wav');
         game.load.image('loseText', 'assets/deadPig1.png');
         game.load.image('deadPig', 'assets/deadPig.png');
+
+        game.load.image('apple', 'assets/apple.png');
     
     },
     
