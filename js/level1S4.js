@@ -26,9 +26,6 @@ function addlevel1S4Objects()
 
 
     cloudTimer = 0;
-    //Allows us to re-initialize pickups here
-    applesPickedUp = false;
-    grenadesPickedUp = false;
 
 }
 
