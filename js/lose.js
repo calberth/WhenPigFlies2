@@ -5,6 +5,8 @@ var loseState = {
     create: function() {	
         setLoseBackground();
         addLoseScreenObjects();
+
+        var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
     },
     
     // The restart function calls the menu state    
@@ -75,13 +77,14 @@ function addLoseScreenObjects() {
     var ground = game.add.sprite(0, game.world.height - 300, 'ground');
     ground.scale.setTo(4, 10);
 
-    var winLabel = game.add.text(80, 80, 'YOU DIED',
-                                    {font: '50px Arial', fill: '#000000' });
+    // var winLabel = game.add.text(80, 80, 'YOU DIED',
+    //                                 {font: '50px Arial', fill: '#000000' });
 
-    var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
 
-    var deadPig = game.add.sprite(game.world.width / 2, game.world.height - 270, 'pigFR1');
+    var deadPig = game.add.sprite(game.world.width / 2, game.world.height - 270, 'deadPig');
     deadPig.anchor.setTo(0.5, 0.5);
     deadPig.angle = 190;
     deadPig.scale.setTo(2, 2);
+
+    var text = game.add.sprite(game.world.width / 2 - 50, game.world.height - 525, 'loseText');
 }

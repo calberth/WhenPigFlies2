@@ -100,6 +100,8 @@ var loadState = {
 
         // Lose screen
         game.load.audio('loseAudio', 'assets/audio/lose.wav');
+        game.load.image('loseText', 'assets/deadPig1.png');
+        game.load.image('deadPig', 'assets/deadPig.png');
     
     },
     
