@@ -44,6 +44,8 @@ function addlevel3S1Objects()
             initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
         }
     }
+
+    addGrenade(290*3+30, game.world.height - 450);
 }
 
 function level3S1Update()

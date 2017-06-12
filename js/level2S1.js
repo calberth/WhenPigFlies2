@@ -29,6 +29,8 @@ function addlevel2S1Objects()
 
     ledge.body.immovable = true;
 
+    addApple(400, 400);
+
     //initNewSolidCloud(game.world.width / 2 - 100, game.world.height - 480, 0); // bat cloud
     for (var i = 0; i < 5; i++) {
         initNewSolidCloud(i * 250, game.world.height - 670, 0);

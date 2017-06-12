@@ -24,15 +24,8 @@
         var garlics;
         var garlicTime = 0;
 
-        //var direction;
-
         var positionx;
         var positiony; 
-
-        /*var Direction = {
-          left : 0, 
-          right: 1
-        }; */
 
         var facing = "right";
 
@@ -43,7 +36,6 @@
 
         var hasGarlic = false;
         var sackCollected = false;
-        //var accessories = '';
 
         var blasts;
         var blastNum = 0;
@@ -84,10 +76,10 @@ var menuState = {
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';
-        state = 3;
-        //hasGarlic = true;
-        //game.state.start('frame3');
-        game.state.start('bossLevel');
+        state = 2;
+        hasGarlic = true;
+        game.state.start('frame2');
+        //game.state.start('bossLevel');
         //game.state.start('scene1');
     },    
 };
