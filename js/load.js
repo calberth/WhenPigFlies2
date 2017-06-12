@@ -21,6 +21,9 @@ var loadState = {
                                          {font: '30px Courier', fill: '#ffffff'});   
         
         game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+        // Start Screen
+        game.load.image('startScreen', 'assets/StartScreen.png');
+
         //Backgrounds
         game.load.image('sky', 'assets/sky-morning.png');
         game.load.image('sky-morning', 'assets/sky-morning.png');
@@ -110,6 +113,8 @@ var loadState = {
         game.load.audio('loseAudio', 'assets/audio/lose.wav');
         game.load.image('loseText', 'assets/deadPig1.png');
         game.load.image('deadPig', 'assets/deadPig.png');
+
+        game.load.image('apple', 'assets/apple.png');
     
     },
     

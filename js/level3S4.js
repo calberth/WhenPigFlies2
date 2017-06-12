@@ -36,7 +36,7 @@ function addlevel3S4Objects()
     diveBatsInit();
     addApple(400, 300);
 
-    var enterLabel = game.add.text(80, game.world.height-80, 'press the "e" key to enter',
+    var enterLabel = game.add.text(80, game.world.height-80, 'press "e" to enter the castle',
                                        {font: '25px Arial', fill: '#ffffff' });
     for (i = 0; i < 20; i++)
         makeDiveBat(i * 290 + 30, game.world.height - 225);

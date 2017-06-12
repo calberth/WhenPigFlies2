@@ -64,6 +64,7 @@ function updateBoss() {
     }
 
     game.physics.arcade.collide(boss, garlics, hitBoss, null, this);
+    game.physics.arcade.collide(boss, grenades, grenadeBoss, null, this);
     updateBossBar(bossHealth);
     checkBossHealth();
 }
@@ -74,6 +75,17 @@ function checkBossHealth() {
         bossIsDead = true;
         //TODO change to win state
     }
+}
+
+function grenadeBoss(boss, grenade) {
+    nonBatExplode(grenade);
+    grenade.kill();
+    grenades.remove(grenade);
+
+
+    if (bossHealth > 0)
+        bossHealth -= 20;
+
 }
 
 function hitBoss(boss, garlic) {

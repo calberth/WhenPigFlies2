@@ -38,7 +38,8 @@ function addlevel1S3Objects()
             initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
         }
     }
-    addApple(3 * 290 + 30, game.world.height - 450);
+
+    addApple(320, game.world.height - 400);
     cloudTimer = 0;
 }
 
