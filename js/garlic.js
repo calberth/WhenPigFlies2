@@ -1,5 +1,6 @@
 var grenades;
 var blasts;
+var sittingGrenades;
 
 function dropGarlic() {
 	if (garlics.children.length < 5) {
@@ -60,4 +61,22 @@ function killGarlic(bound, garlic) {
 	console.log("garlic killed");
 	garlic.kill();
 	garlics.remove(garlic);
+}
+
+function addGrenade(x, y) {
+	if (grenadesPickedUp == false) {
+		sittingGrenades.create(x, y, 'garlicGrenade');
+		grenadesPickedUp = true;
+	}
+}
+
+function checkSittingGrenades() {
+	game.physics.arcade.collide(player, sittingGrenades, pickupGrenade, null, this);
+}
+
+function pickupGrenade(player, grenade) {
+	grenade.kill();
+	sittingGrenades.remove(grenade);
+
+	grenadesLeft++;
 }

@@ -31,12 +31,14 @@ function addlevel1S3Objects()
             bat.animations.add('flying');
             bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
 
+
             initNewSinkingCloud(i * 290 + 30, game.world.height - 450, 0, 100); // upper
         }
         else {
             initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
         }
     }
+    addApple(3 * 290 + 30, game.world.height - 450);
     cloudTimer = 0;
 }
 

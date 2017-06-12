@@ -49,6 +49,10 @@
         var blastNum = 0;
         var explosion; 
 
+        var applesPickedUp = false;
+        var grenadesPickedUp = false;
+
+
 
 var menuState = {
   

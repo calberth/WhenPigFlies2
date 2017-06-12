@@ -14,8 +14,10 @@ function levelUpdate() {
 
     if (soundwaves.children.length > 0)
         checkSoundwaves();
-    if (blasts.children.length > 0)
-        updateBlastAnim() 
+    //if (blasts.children.length > 0)
+        updateBlastAnim();
+    if (sittingGrenades.children.length > 0)
+        checkSittingGrenades();
 }
 
 function initializeLevel(left, right, up, down, bottomDeath)
@@ -32,6 +34,11 @@ function initializeLevel(left, right, up, down, bottomDeath)
     blasts = game.add.group();
     apples = game.add.group();
     apples.enableBody = true;
+
+    sittingGrenades = game.add.group();
+    sittingGrenades.enableBody = true;
+
+    
     
 
     if (left)
@@ -167,6 +174,7 @@ function checkCollisions()
     game.physics.arcade.collide(leftBound, garlics, killGarlic, null, this);
     game.physics.arcade.collide(lowerBound, garlics, killGarlic, null, this);
     //game.physics.arcade.collide(upperBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(platforms, garlics, killGarlic, null, this);
 
 }
 
