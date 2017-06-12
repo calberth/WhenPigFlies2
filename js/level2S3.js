@@ -22,7 +22,7 @@ function addlevel2S3Objects()
 {
     var scene = background.create(0,0,'L2background');
 
-    var text = game.add.text(425, 16, 'Level2 S3', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level2 S3', { fontSize: '32px', fill: '#000' });
 
     diveBatsInit();
     for (var i = 0; i < 3; i++) {

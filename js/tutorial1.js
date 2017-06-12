@@ -26,7 +26,7 @@ function addtutorial1Objects()
     var scene = background.create(0,0,'barnInterior');
     scene.scale.setTo(1.27,1.27);
 
-    var text = game.add.text(425, 16, 'Tutorial1', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Tutorial1', { fontSize: '32px', fill: '#000' });
 
     var ground = platforms.create(0, game.world.height - 64, 'barnGround');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)

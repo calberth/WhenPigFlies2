@@ -33,9 +33,7 @@ function movePlayer()
                 }
             }
             anim = 10;
-            animL++;
-
-            
+            animL++;  
     }
 
     else if (cursors.right.isDown) {
@@ -70,28 +68,27 @@ function movePlayer()
             }
             animL = 10;
             anim++;
-            
     }
 
         //  Allow the player to fly!
     if (cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown)
     {
             
-            if (stamina > 0)
-            {
-                player.body.velocity.y += -15;
-                stamina -= 1;
-            }
-            if (facing == ("left")) {
-                flyLeft(hasGarlic);
-                animL++; 
-                anim = 10;
-            }
-            else if (facing == ("right")) {
-                flyRight(hasGarlic);
-                anim++;
-                animL = 10;
-            }    
+        if (stamina > 0)
+        {
+            player.body.velocity.y += -15;
+            stamina -= 1;
+        }
+        if (facing == ("left")) {
+            flyLeft(hasGarlic);
+            animL++; 
+            anim = 10;
+        }
+        else if (facing == ("right")) {
+            flyRight(hasGarlic);
+            anim++;
+            animL = 10;
+        }    
     }
     
     else
@@ -103,7 +100,7 @@ function movePlayer()
     }
 
     if (cursors.down.isDown) {
-            player.body.velocity.y += 10;
+        player.body.velocity.y += 10;
 
     }
 
