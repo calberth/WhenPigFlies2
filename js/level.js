@@ -158,6 +158,11 @@ function checkCollisions()
     game.physics.arcade.collide(grenades, bats, explode, null, this);
     game.physics.arcade.collide(grenades, diveBats, explode, null, this);
 
+    game.physics.arcade.collide(rightBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(leftBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(lowerBound, garlics, killGarlic, null, this);
+    //game.physics.arcade.collide(upperBound, garlics, killGarlic, null, this);
+
 }
 
 /*function customSep(player, platforms)
