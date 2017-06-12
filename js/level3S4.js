@@ -9,12 +9,7 @@ var frame16State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         level3S4Update();
     },
@@ -39,6 +34,7 @@ function addlevel3S4Objects()
     ledge.body.immovable = true;
 
     diveBatsInit();
+    addApple(400, 300);
 
     var enterLabel = game.add.text(80, game.world.height-80, 'press the "e" key to enter',
                                        {font: '25px Arial', fill: '#ffffff' });

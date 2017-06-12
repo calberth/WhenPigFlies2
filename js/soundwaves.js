@@ -35,7 +35,7 @@ function createSoundwavesUp(bats, up) {
 			}
     		soundwave.body.gravity.y = game.rnd.integerInRange(5, 100); 
     	}
-	}
+	}v
 }
 
 //TODO use velocity values to determine rotation

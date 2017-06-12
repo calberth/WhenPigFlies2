@@ -74,10 +74,8 @@ var menuState = {
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';
-        state = 14;
-        //state = 3;
-        //game.state.start('frame3'); 
+        state = 3;
         hasGarlic = true;
-        game.state.start('frame14');
+        game.state.start('frame3');
     },    
 };
