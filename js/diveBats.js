@@ -7,7 +7,9 @@ function diveBatsInit() {
 }
 
 function makeDiveBat(x, y) {
-	var newBat = diveBats.create(x, y, 'bat');
+	var newBat = diveBats.create(x, y, 'batSheet');
+	newBat.animations.add('flying');
+    newBat.animations.play('flying', game.rnd.integerInRange(6, 10), true);
 	newBat.body.gravity.y = 50;
 	newBat.body.velocity.x = 50;
 	newBat.body.collideWorldBounds = true;

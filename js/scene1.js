@@ -100,19 +100,19 @@ function enterEvilActors() {
     var group = game.add.group();
     
     // Couldn't figure out how to make the group thing work soooooo
-    var bat = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet2');
+    var bat = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat.animations.add('flying');
     bat.animations.play('flying', 10, true);
     
-    var bat2 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet2');
+    var bat2 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat2.animations.add('flying');
     bat2.animations.play('flying', 9, true);
     
-    var bat3 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet2');
+    var bat3 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat3.animations.add('flying');
     bat3.animations.play('flying', 8, true);
     
-    var bat4 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet2');
+    var bat4 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat4.animations.add('flying');
     bat4.animations.play('flying', 8, true);
     

@@ -54,12 +54,29 @@ function initPig() {
     game.physics.arcade.enable(player);
     player.enableBody = true;
     player.anchor.setTo(0.25, 0.5);
-    player.body.gravity.y = 80;
+    player.body.gravity.y = 300;
+}
+
+function setFallBackground() {
+    var bg;
+    if (state <= 8)
+    {
+        bg = 'L1background';
+    }
+    else if (state <= 12)
+    {
+        bg = 'L2background';
+    }
+    else if (state <= 16)
+    {
+        bg = 'L3background';      
+    }  
+    var scene = background.create(0, 0, bg);
 }
 
 function addfallSceneObjects()
 {
-    var scene = background.create(0, 0, 'sky-morning');
+    setFallBackground();
 
     var roos = game.add.sprite(-200, 150, 'rooster');
 
