@@ -1,5 +1,5 @@
 var rooster, tweenRooster, roosterLeave;
-var roosterSound, happyMusic;
+var roosterSound, happyMusic, dracula;
 var sfx;
 var pig, bird, boss;
 var endBirdBubbleX, endBirdBubbleY, endPigBubbleX, endPigBubbleY;
@@ -86,27 +86,29 @@ function startScene() {
 }
 
 function enterActors() {
-    var bird = game.add.sprite(20, 500, 'bird');
+    var birdY = 450;
+    var pigY = 550;
+    bird = game.add.sprite(20, birdY, 'bird');
     var flying = bird.animations.add('flying');
-    bird.scale.setTo(0.4, 0.4);
+    bird.scale.setTo(0.3, 0.3);
     bird.animations.play('flying', 10, true);
     var startingPigX = 75;
     var startingBirdX = 20;
     var threeSecondX = 83;
     
     
-    var pig = game.add.sprite(startingPigX, 600, 'pigR1');
+    pig = game.add.sprite(startingPigX, pigY, 'pigR1');
     
     
     //Add pig bubble 1 
-    var pBubble1 = game.add.sprite(startingPigX + 50, 450, 'pigS1');
+    var pBubble1 = game.add.sprite(startingPigX + 50, pigY-150, 'pigS1');
     //pig1
     tweeen = game.add.tween(pBubble1).to({x: startingPigX+ 40 + 83}, 3000, null, true);
     game.add.tween(pig).to({x: startingPigX + 83}, 3000, null, true);
     game.add.tween(bird).to({x: startingBirdX + 83}, 3000, null, true);
     tweeen.onComplete.add(function () {
         // ADD BIRD DIALOG 1
-        var bBubble = game.add.sprite(bird.x + 50, 350, 'birdS1');
+        var bBubble = game.add.sprite(bird.x + 50, birdY-150, 'birdS1');
         pBubble1.visible = false;
         game.add.tween(bird).to({x: bird.x + 193}, 7000, null, true);
         game.add.tween(pig).to({x: pig.x + 193}, 7000, null, true);
@@ -114,7 +116,7 @@ function enterActors() {
         tweeen2.onComplete.add(function () {
             // ADD PIG DIALOG 2
             bBubble.visible = false;
-            var pBubble2 = game.add.sprite(pig.x + 50, 500, 'pigS2');
+            var pBubble2 = game.add.sprite(pig.x + 50, pigY-100, 'pigS2');
             
             game.add.tween(bird).to({x: bird.x + 83}, 3000, null, true);
             game.add.tween(pig).to({x: pig.x + 83}, 3000, null, true);
@@ -122,7 +124,7 @@ function enterActors() {
             tweeen3 = game.add.tween(pBubble2).to({x: pBubble2.x + 83}, 3000, null, true);
             tweeen3.onComplete.add(function () {
                 pBubble2.visible = false;
-                var bBubble2 = game.add.sprite(bird.x + 50, 400, 'birdS2');
+                var bBubble2 = game.add.sprite(bird.x + 50, birdY-100, 'birdS2');
                 game.add.tween(bird).to({x: bird.x + 83}, 3000, null, true);
                 game.add.tween(pig).to({x: pig.x + 83}, 3000, null, true);
                 tweeen4 = game.add.tween(bBubble2).to({x: bBubble2.x + 83}, 3000, null, true);
@@ -169,6 +171,7 @@ function roosterActions() {
 function enterEvilActors() {
     var group = game.add.group();
     happyMusic.stop();
+    dracula.play();
     batX1 = game.rnd.integerInRange(900, 1100);
     batY1 = game.rnd.integerInRange(100, 300);
     batX2 = game.rnd.integerInRange(900, 1100);
@@ -179,19 +182,19 @@ function enterEvilActors() {
     batY4 = game.rnd.integerInRange(100, 300);
     
     // Couldn't figure out how to make the group thing work soooooo
-    var bat = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
+    var bat = game.add.sprite(batX1+200, batY1, 'batSheet');
     bat.animations.add('flying');
     bat.animations.play('flying', 10, true);
     
-    var bat2 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
+    var bat2 = game.add.sprite(batX2+200, batY2, 'batSheet');
     bat2.animations.add('flying');
     bat2.animations.play('flying', 9, true);
     
-    var bat3 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
+    var bat3 = game.add.sprite(batX3+200, batY3, 'batSheet');
     bat3.animations.add('flying');
     bat3.animations.play('flying', 8, true);
     
-    var bat4 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
+    var bat4 = game.add.sprite(batX4+200, batY4, 'batSheet');
     bat4.animations.add('flying');
     bat4.animations.play('flying', 8, true);
     
@@ -232,7 +235,34 @@ function enterEvilActors() {
             game.time.events.add(Phaser.Timer.SECOND * 7, function() {
                 bossBubble2.visible = false;
                 var bossBubble3 = game.add.sprite(bossBubble2.x+30, bossBubble2.y, 'batculaS3');
+                game.time.events.add(Phaser.Timer.SECOND * 3, function() {
+                    bossBubble3.visibile = false;
+                    var bossBubble4 = game.add.sprite(bossBubble3.x+30, bossBubble3.y, 'batculaS4');
+                    tweeeen = game.add.tween(bat).to({x: bird.x-50, y: bird.y-160}, 2000, Phaser.Easing.Quadratic.Out, true);
+                    game.add.tween(bat2).to({x: bird.x-50, y: bird.y-160+20}, 2000, Phaser.Easing.Quadratic.Out, true);
+                    game.add.tween(bat3).to({x: bird.x-60, y: bird.y+10-160}, 2000, Phaser.Easing.Quadratic.Out, true);
+                    game.add.tween(bat4).to({x: bird.x-60, y: bird.y-10-160}, 2000, Phaser.Easing.Quadratic.Out, true);
+                    bossBubble3.visible = false;
+                    tweeeen.onComplete.add(function() {
+                        var capturedBird = game.add.sprite(bird.x, bird.y-70, 'capturedBird');
+                        bird.visible = false;
+                        
+                        bossBubble4.visible = false;
+                        game.add.tween(boss).to({x: boss.x + 400, y: boss.y}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        game.add.tween(bat).to({x: batX1+400, y: batY1}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        game.add.tween(bat2).to({x: batX2+400, y: batY2}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        game.add.tween(bat3).to({x: batX3+400, y: batY3}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        game.add.tween(bat4).to({x: batX4+400, y: batY4}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        twn = game.add.tween(capturedBird).to({x: batX3+200, y: batY3}, 2000, Phaser.Easing.Quadratic.Out, true);
+                        
+                        var pBubble4 = game.add.sprite(endPigBubbleX+100, endPigBubbleY-70, 'pigS4');
+                        game.time.events.add(Phaser.Timer.SECOND * 7, function() {
+                            game.state.start('frame3');
+                        });
+                        
+                    });
                 
+                });
                 
             });
         });
@@ -266,5 +296,6 @@ function backgroundClouds() {
 function setUpAudio() {
     roosterSound = game.add.audio('rooster-crow');
     happyMusic = game.add.audio('happy-music');
+    dracula = game.add.audio('dracula');
     
 }

@@ -111,6 +111,7 @@ var loadState = {
         game.load.image('pigS1', 'assets/intro/pig1.png');
         game.load.image('pigS2', 'assets/intro/pig2.png');
         game.load.image('pigS3', 'assets/intro/pig3.png');
+        game.load.image('pigS4', 'assets/intro/pig4.png');
         game.load.image('batculaS1', 'assets/intro/batcula1.png');
         game.load.image('batculaS2', 'assets/intro/batcula2.png');
         game.load.image('batculaS3', 'assets/intro/batcula3.png');
@@ -122,6 +123,9 @@ var loadState = {
         game.load.image('cloud5', 'images/cloud5.png');
         game.load.image('cloud6', 'images/cloud6.png');
         game.load.image('cloud7', 'images/cloud7.png');
+        game.load.audio('dracula', 'assets/audio/dracula.mp3');
+        game.load.image('capturedBird', 'assets/intro/bird-net.png');
+        
         
 
         // Falling cut scene

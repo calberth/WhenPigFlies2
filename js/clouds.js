@@ -15,8 +15,6 @@ function initNewSolidCloud(x, y, xVelocity) {
 function initNewBackgroundCloud(x, y, xVelocity) {
     var cloudImg;
     cloudNum = game.rnd.integerInRange(1, 7);
-    console.log("Cloud number: " + cloudNum);
-
     switch(cloudNum) {
         case 1:
             cloudImg = 'cloud1';
