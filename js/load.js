@@ -96,6 +96,9 @@ var loadState = {
 
         // Falling cut scene
         game.load.audio('falling', 'assets/audio/falling.wav');
+
+        // Lose screen
+        game.load.audio('loseAudio', 'assets/audio/lose.wav');
     
     },
     

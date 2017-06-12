@@ -1,13 +1,10 @@
+var loseFrameCount = 0;
+
 var loseState = {
 
     create: function() {	
-		
-    	var scene = game.add.sprite(0,0,'sky');
-
-        var winLabel = game.add.text(80, 80, 'YOU DIED',
-    								{font: '50px Arial', fill: '#000000' });
-
-        var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
+        setLoseBackground();
+        addLoseScreenObjects();
     },
     
     // The restart function calls the menu state    
@@ -39,5 +36,52 @@ var loseState = {
         {
             game.state.start('bossLevel');  
         }   
-    }, 	
+    },
+
+    update: function() {
+        fadeIn();
+        loseFrameCount++;
+    }	
+}
+
+function fadeIn() {
+    if (loseFrameCount % 10 == 0) {
+        loseAudio.volume += .01;
+    }
+}
+
+function setLoseBackground() {
+    var loseBG;
+    if (state <= 8)
+    {
+        loseBG = 'L1background';
+    }
+    else if (state <= 12)
+    {
+        loseBG = 'L2background';
+    }
+    else if (state <= 16)
+    {
+        loseBG = 'L3background';      
+    }
+    var scene = game.add.sprite(0,0, loseBG);
+}
+
+function addLoseScreenObjects() {
+    loseAudio = game.add.audio('loseAudio');
+    loseAudio.play();
+    loseAudio.volume = .03;
+
+    var ground = game.add.sprite(0, game.world.height - 300, 'ground');
+    ground.scale.setTo(4, 10);
+
+    var winLabel = game.add.text(80, 80, 'YOU DIED',
+                                    {font: '50px Arial', fill: '#000000' });
+
+    var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
+
+    var deadPig = game.add.sprite(game.world.width / 2, game.world.height - 270, 'pigFR1');
+    deadPig.anchor.setTo(0.5, 0.5);
+    deadPig.angle = 190;
+    deadPig.scale.setTo(2, 2);
 }
