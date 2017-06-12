@@ -1,7 +1,7 @@
 
 var frame13State = {
     create: function() {
-        initializeLevel(false, true, false, false, true);
+        initializeLevel(true, true, false, false, true);
         addlevel3S1Objects();
     },
 
@@ -33,7 +33,10 @@ function addlevel3S1Objects()
     for (var i = 0; i < 4; i++){
         i
         if (i == 1 || i == 3) {
-            bat = bats.create(i * 290 + 130, game.world.height - 125, 'bat');
+            bat = bats.create(i * 290 + 130, game.world.height - 125, 'batSheet');
+            bat.animations.add('flying');
+            bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
+
             makeDiveBat(i * 290 + 30, game.world.height - 225)
             initNewSinkingCloud(i * 290 + 30, game.world.height - 450, 0, 100); // upper
         }
@@ -51,7 +54,10 @@ function level3S1Update()
     cloudTimer++;
     
     if (cloudTimer % 110 == 0)
-    createSoundwaves(bats);
+    {
+        createSoundwaves(bats, false);
+    }
+    
 
 	updateDiveBats();
 

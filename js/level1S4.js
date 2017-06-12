@@ -43,7 +43,9 @@ function level1S4Update()
     if (cloudTimer % 100 == 0) { 
         initNewSolidCloud(game.world.width, game.world.height - 50, -180); // <<<< lower level with bats 
         if (cloudTimer % 200 == 0) {
-            bat = bats.create(game.world.width + 50, game.world.height - 75, 'bat'); // +25 y-offset from cloud
+            bat = bats.create(game.world.width + 50, game.world.height - 140, 'batSheet'); // +25 y-offset from cloud
+            bat.animations.add('flying');
+            bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
             bat.body.velocity.x = -180;
         }
     }
@@ -51,7 +53,7 @@ function level1S4Update()
     for (var i = 0; i < bats.children.length; i++) {
         if (player.body.x >= bats.children[i].x - 150 && player.body.x <= bats.children[i].x + 150) {
             if (cloudTimer % 25 == 0) {
-                createSoundwaves(bats);
+                createSoundwaves(bats, false);
             }
         }
     }
