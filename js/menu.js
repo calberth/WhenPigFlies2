@@ -78,6 +78,6 @@ var menuState = {
         state = 3;
         //game.state.start('frame3'); 
         hasGarlic = true;
-        game.state.start('bossLevel');
+        game.state.start('frame3');
     },    
 };

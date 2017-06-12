@@ -1,6 +1,18 @@
 locked = false;
 lockedTo = null;
 
+function levelUpdate() {
+    checkCollisions();
+    movePlayer();
+    checkBattle();
+    updateHealthBar(health);
+    updateStaminaBar(stamina);
+    checkLose();
+
+    //if (apples.children.length > 0)
+    checkAppleCollisions();
+}
+
 function initializeLevel(left, right, up, down, bottomDeath)
 {
 
@@ -13,6 +25,8 @@ function initializeLevel(left, right, up, down, bottomDeath)
     boundaries.enableBody = true;
 
     blasts = game.add.group();
+    apples = game.add.group();
+    apples.enableBody = true;
     
 
     if (left)

@@ -19,6 +19,7 @@ var bossLevelState = {
         updateStaminaBar(stamina);
         checkLose();
 
+        updateBlastAnim();
         bossLevelUpdate();
     }
 }
@@ -39,8 +40,10 @@ function addBossLevelObjects()
     diveBatsInit();
     makeDiveBat(300, 600);
     boss = game.add.sprite(800, 200, 'boss');
+ 
     game.physics.arcade.enable(boss);
     boss.body.velocity.y = -100;
+    boss.body.collideWorldBounds = true;
     bossAnim = 0;
 
     explosion = game.add.audio('explosion');
@@ -87,7 +90,7 @@ function hitBoss(boss, garlic) {
 function bossLevelUpdate()
 {
     updateDiveBats();    
-    updateBlastAnim();
+    
     checkSoundwaves();
 
     if (bossIsDead == false)
