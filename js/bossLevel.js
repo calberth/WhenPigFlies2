@@ -7,17 +7,12 @@ var bossLevelState = {
     create: function() {
         initializeLevel(true, false, false, false, false);
         addBossLevelObjects();
-        grenadesLeft = 5; //For testing GG
+        grenadesLeft += 5; //For testing GG
     },
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         updateBlastAnim();
         bossLevelUpdate();
@@ -85,6 +80,7 @@ function hitBoss(boss, garlic) {
     if (bossHealth > 0)
         bossHealth -= 5;
 }
+
 
 
 function bossLevelUpdate()

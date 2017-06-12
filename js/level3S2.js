@@ -7,12 +7,7 @@ var frame14State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         level3S2Update();
     }

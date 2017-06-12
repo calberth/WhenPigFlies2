@@ -9,7 +9,7 @@ function levelUpdate() {
     updateStaminaBar(stamina);
     checkLose();
 
-    //if (apples.children.length > 0)
+    if (apples.children.length > 0)
     checkAppleCollisions();
 }
 
@@ -162,6 +162,7 @@ function checkCollisions()
     game.physics.arcade.collide(leftBound, garlics, killGarlic, null, this);
     game.physics.arcade.collide(lowerBound, garlics, killGarlic, null, this);
     //game.physics.arcade.collide(upperBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(platforms, garlics, killGarlic, null, this);
 
 }
 

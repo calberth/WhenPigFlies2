@@ -8,12 +8,7 @@ var frame10State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         level2S2Update();
     }

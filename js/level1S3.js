@@ -7,13 +7,7 @@ var frame7State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
-
+        levelUpdate();
         level1S3Update();
     }
 }

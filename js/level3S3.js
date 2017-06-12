@@ -7,12 +7,7 @@ var frame15State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         level3S3Update();
     }
@@ -53,4 +48,5 @@ function level3S3Update()
     }
     
     cloudTimer++;
+    checkSoundwaves();
 }
