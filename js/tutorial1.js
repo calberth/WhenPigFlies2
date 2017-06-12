@@ -3,6 +3,7 @@ var sack;
 var singleGarlic;
 var getSackText;
 var bombText;
+var timerText;
 
 var frame1State = {
 
@@ -52,14 +53,31 @@ function addtutorial1Objects()
         singleGarlic.enableBody = true;
         var garlic = singleGarlic.create(game.world.width - 340, 220, 'garlic');
     }
-    
-    getSackText = game.add.text(460, 100, 'You need something to hold that garlic', { fontSize: '32px', fill: '#fff' });
+
+    //game.time.events.add(Phaser.Timer.SECOND, createText);
+
+    getSackText = game.add.text(460, 100, 'You need something to hold that garlic', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     getSackText.visible = false;
 
-    bombText = game.add.text(460, 100, 'To drop a garlic bomb press [space]', { fontSize: '32px', fill: '#fff' });
+    bombText = game.add.text(300, 200, 'To drop a garlic bomb press [space]', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     bombText.visible = false;
+    
+    timerText = game.add.text(450, 20, 'Try going outside', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    timerText.visible = false;
 
     player.bringToTop();
+}
+
+function createText()
+{
+    getSackText = game.add.text(460, 100, 'You need something to hold that garlic', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    getSackText.visible = false;
+
+    bombText = game.add.text(300, 200, 'To drop a garlic bomb press [space]', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    bombText.visible = false;
+    
+    timerText = game.add.text(450, 20, 'Try going outside', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    timerText.visible = false;
 }
 
 function tutorial1Update()
@@ -69,6 +87,15 @@ function tutorial1Update()
     if (hasGarlic && sackCollected)
     {
         bombText.visible = true; 
+        incTimer = true;
+    }
+    if (incTimer == true)
+    {
+        timer++;
+    }
+    if (timer >= 2000)
+    {
+        timerText.visible = true;    
     }
 }
 

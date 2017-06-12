@@ -9,8 +9,15 @@ function levelUpdate() {
     updateStaminaBar(stamina);
     checkLose();
 
-    //if (apples.children.length > 0)
-    checkAppleCollisions();
+    if (apples.children.length > 0)
+        checkAppleCollisions();
+
+    if (soundwaves.children.length > 0)
+        checkSoundwaves();
+    //if (blasts.children.length > 0)
+        updateBlastAnim();
+    if (sittingGrenades.children.length > 0)
+        checkSittingGrenades();
 }
 
 function initializeLevel(left, right, up, down, bottomDeath)
@@ -25,9 +32,15 @@ function initializeLevel(left, right, up, down, bottomDeath)
     boundaries.enableBody = true;
 
     blasts = game.add.group();
+    blasts.enableBody = true;
+
     apples = game.add.group();
     apples.enableBody = true;
-    
+
+    sittingGrenades = game.add.group();
+    sittingGrenades.enableBody = true;
+
+      
 
     if (left)
     {
@@ -41,6 +54,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         rightBound = boundaries.create(1199, 0, 'levelBound');
         rightBound.scale.setTo(1,5); 
         rightBound.visible = false;
+        rightBound.body.immovable = true;
     }
 
     if (up)
@@ -48,6 +62,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         upperBound = boundaries.create(0, -5, 'upBound');
         upperBound.scale.setTo(9,1);
         upperBound.visible = false;
+        upperBound.body.immovable = true;
     }
 
     if (down)
@@ -55,6 +70,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         lowerBound = boundaries.create(0, 674, 'upBound');
         lowerBound.scale.setTo(9,1);
         lowerBound.visible = false;
+        lowerBound.body.immovable = true;
     }
 
     if (bottomDeath)
@@ -62,6 +78,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         deathBound = boundaries.create(0, 674, 'upBound');
         deathBound.scale.setTo(9,1);
         deathBound.visible = false;
+        deathBound.body.immovable = true;
     }
     
 
@@ -162,25 +179,9 @@ function checkCollisions()
     game.physics.arcade.collide(leftBound, garlics, killGarlic, null, this);
     game.physics.arcade.collide(lowerBound, garlics, killGarlic, null, this);
     //game.physics.arcade.collide(upperBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(platforms, garlics, killGarlic, null, this);
 
 }
-
-/*function customSep(player, platforms)
-{
-    //var nameLabel = game.add.text(80, 80, 'Player y velocity' + player.body.velocity.y,
-                                    //{ font: '50px Arial', fill: '#000000' });
-
-    if (!locked)// && player.body.velocity.y > 0)
-    {
-        var nameLabel = game.add.text(80, 80, 'IN',
-                                    { font: '50px Arial', fill: '#000000' });
-        locked = true;
-        lockedTo = platforms;
-        platforms.playerLocked = true;
-
-        player.body.velocity.y = 0;
-    }
-}*/
 
 function checkLose()
 {

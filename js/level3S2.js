@@ -32,8 +32,11 @@ function addlevel3S2Objects()
     for (var i = 0; i < 4; i++){
         i
         if (i == 1 || i == 3) {
-            bat = bats.create(i * 290 + 130, game.world.height - 125, 'bat');
-            makeDiveBat(i * 290 + 30, game.world.height - 225)
+            bat = bats.create(i * 290 + 130, game.world.height - 125, 'batSheet');
+            bat.animations.add('flying');
+            bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
+
+            makeDiveBat(i * 290 + 30, game.world.height - 225);
             initNewSinkingCloud(i * 290 + 30, game.world.height - 450, 0, 100); // upper
         }
         else {
@@ -50,7 +53,9 @@ function level3S2Update()
     cloudTimer++;
     
     if (cloudTimer % 110 == 0)
-    createSoundwaves(bats);
+    {
+        createSoundwaves(bats, false);
+    }
 
 	updateDiveBats();
 }

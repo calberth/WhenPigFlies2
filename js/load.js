@@ -1,5 +1,12 @@
 var state = -1;
 
+WebFontConfig = {
+            
+            google: {
+                families: ['Lato']
+            }
+        };
+
 var loadState = {
 	
 	// The preload function is another standard Phaser function that we
@@ -13,6 +20,10 @@ var loadState = {
         var loadingLabel = game.add.text(game.world.centerX-150, game.world.centerY-100, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
+        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+        // Start Screen
+        game.load.image('startScreen', 'assets/StartScreen.png');
+
         //Backgrounds
         game.load.image('sky', 'assets/sky-morning.png');
         game.load.image('sky-morning', 'assets/sky-morning.png');
@@ -34,6 +45,7 @@ var loadState = {
         game.load.image('garlicGrenade', 'assets/garlic_bomb.png');
         game.load.image('bat', 'assets/bat.png');
         game.load.image('soundwave', 'assets/soundwave.png');
+        game.load.image('soundwave-mirrored', 'assets/soundwave-mirrored.png');
         game.load.image('soundwaveL', 'assets/soundwaveL.png');
         
         game.load.image('pigFR1', 'assets/flying-up.png');
@@ -90,8 +102,8 @@ var loadState = {
         game.load.audio('explosion', 'assets/audio/blast.mp3');
         //game.load.image('bird', 'assets/bird/flying1.png');
         game.load.spritesheet('bird', 'assets/bird/birdSpriteSheet.png', 190, 232, 2);
-        game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
-        game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
+        //game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
+        game.load.spritesheet('batSheet', 'assets/batSheet2.png', 190, 110, 7);
         game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
         game.load.image('birdS1', 'assets/intro/bird1.png');
         game.load.image('birdS2', 'assets/intro/bird2.png');
@@ -114,12 +126,21 @@ var loadState = {
 
         // Falling cut scene
         game.load.audio('falling', 'assets/audio/falling.wav');
+
+        // Lose screen
+        game.load.audio('loseAudio', 'assets/audio/lose.wav');
+        game.load.image('loseText', 'assets/deadPig1.png');
+        game.load.image('deadPig', 'assets/deadPig.png');
+
+        game.load.image('apple', 'assets/apple.png');
+
+        // Win Screen
+        game.load.image('winBird', 'assets/bird/freeBird.png');
     
     },
     
     create: function() {
         // Call the menu state
-        
         game.state.start('menu');
-    }    
+    }, 
 };

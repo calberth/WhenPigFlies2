@@ -35,6 +35,9 @@ function addtutorial3Objects() {
         truck.body.velocity.x = 0;
     }
 
+    timerText = game.add.text(450, 20, 'Look for some clouds to hop on', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    timerText.visible = false;
+
     player.bringToTop();
     grenadesLeft++;
 }
@@ -49,5 +52,13 @@ function tutorial3Update()
         else {
             t3truckpass = true;
         }
+    }
+    if (incTimer == true)
+    {
+        timer++;
+    }
+    if (timer >= 2000)
+    {
+        timerText.visible = true;
     }
 }

@@ -18,6 +18,7 @@ var bossLevelState = {
         updateHealthBar(health);
         updateStaminaBar(stamina);
         checkLose();
+        checkWin();
 
         updateBlastAnim();
         bossLevelUpdate();
@@ -47,7 +48,6 @@ function addBossLevelObjects()
     bossAnim = 0;
 
     explosion = game.add.audio('explosion');
-
 }
 
 function updateBoss() {
@@ -75,8 +75,15 @@ function updateBoss() {
     }
 
     game.physics.arcade.collide(boss, garlics, hitBoss, null, this);
+    game.physics.arcade.collide(boss, grenades, grenadeBoss, null, this);
     updateBossBar(bossHealth);
     checkBossHealth();
+}
+
+function checkWin() {
+    if (bossIsDead) {
+        game.state.start('win');
+    }
 }
 
 function checkBossHealth() {
@@ -85,6 +92,17 @@ function checkBossHealth() {
         bossIsDead = true;
         //TODO change to win state
     }
+}
+
+function grenadeBoss(boss, grenade) {
+    nonBatExplode(grenade);
+    grenade.kill();
+    grenades.remove(grenade);
+
+
+    if (bossHealth > 0)
+        bossHealth -= 20;
+
 }
 
 function hitBoss(boss, garlic) {

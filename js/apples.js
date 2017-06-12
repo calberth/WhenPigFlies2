@@ -1,17 +1,24 @@
 var apples;
 
 function addApple(x, y) {
-    var apple = apples.create(x, y, 'apple');
-    apple.scale.setTo(.05, .05);
+
+    if (applesPickedUp == false) {
+        var apple = apples.create(x, y, 'apple');
+        apple.scale.setTo(.05, .05);
+        console.log("apple Length: " + apples.children.length);
+    }
 }
 
 function checkAppleCollisions() {
+    console.log("checkin collisinos\n");
     game.physics.arcade.collide(player, apples, hitApple, null, this);
 }
 
 function hitApple(player, apple) {
     apple.kill();
     apples.remove(apple);
+
+    applesPickedUp = true;
 
     if (health <= 90) {
         health += 10;

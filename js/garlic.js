@@ -1,5 +1,6 @@
 var grenades;
 var blasts;
+var sittingGrenades;
 
 function dropGarlic() {
 	if (garlics.children.length < 5) {
@@ -20,9 +21,9 @@ function throwGrenade() {
 
 		game.physics.arcade.enable(garlic);
 	    garlic.enableBody = true;
-	    garlic.body.gravity.y = 200;
+	    garlic.body.gravity.y = 300;
 	    garlic.body.bounce.y = 1;
-	    garlic.body.velocity.y = -250;
+	    garlic.body.velocity.y = -200;
 	    garlic.body.velocity.x = player.body.velocity.x;
 	}
 }
@@ -37,7 +38,14 @@ function explode(grenade, bat) {
 	
 	explosion.play();
 
+}
 
+function nonBatExplode(grenade) {
+	var blast = blasts.create(grenade.x, grenade.y, 'blast');	
+	grenade.kill();
+	blast.scale.setTo(.3, .3);
+	
+	explosion.play();
 }
 
 function updateBlastAnim() {
@@ -56,8 +64,26 @@ function updateBlastAnim() {
 	}
 }
 
-function killGarlic(bound, garlic) {
+function killGarlic(bound, garlicv) {
 	console.log("garlic killed");
-	garlic.kill();
-	garlics.remove(garlic);
+	garlicv.kill();
+	garlics.remove(garlicv);
+}
+
+function addGrenade(x, y) {
+	if (grenadesPickedUp == false) {
+		sittingGrenades.create(x, y, 'garlicGrenade');
+		grenadesPickedUp = true;
+	}
+}
+
+function checkSittingGrenades() {
+	game.physics.arcade.collide(player, sittingGrenades, pickupGrenade, null, this);
+}
+
+function pickupGrenade(player, grenade) {
+	grenade.kill();
+	sittingGrenades.remove(grenade);
+
+	grenadesLeft++;
 }

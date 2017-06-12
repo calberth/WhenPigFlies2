@@ -26,7 +26,9 @@ function addlevel2S4Objects()
 
     for (var i = 0; i < 5; i++) {
         initNewSolidCloud(i * 250, game.world.height - 50, 0);
-        bat = bats.create(i * 290 + 100, game.world.height - 75, 'bat')
+        bat = bats.create(i * 290 + 100, game.world.height - 100, 'batSheet');
+        bat.animations.add('flying');
+        bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
     }
 
     diveBatsInit();
@@ -46,7 +48,7 @@ function level2S4Update()
     for (var i = 0; i < bats.children.length; i++) {  // lower 
         if (player.body.x >= bats.children[i].x - 200 && player.body.x <= bats.children[i].x + 200) {
             if (cloudTimer % 150 == 0) {
-                createSoundwaves(bats);
+                createSoundwaves(bats, false);
             }
         }
     }

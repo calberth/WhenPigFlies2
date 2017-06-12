@@ -95,8 +95,6 @@ function enterActors() {
     var threeSecondX = 83;
     
     
-    
-    
     var pig = game.add.sprite(startingPigX, 600, 'pigR1');
     
     
@@ -181,19 +179,19 @@ function enterEvilActors() {
     batY4 = game.rnd.integerInRange(100, 300);
     
     // Couldn't figure out how to make the group thing work soooooo
-    var bat = game.add.sprite(batX1+200, batY1, 'batSheet2');
+    var bat = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat.animations.add('flying');
     bat.animations.play('flying', 10, true);
     
-    var bat2 = game.add.sprite(batX2+200, batY2, 'batSheet2');
+    var bat2 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat2.animations.add('flying');
     bat2.animations.play('flying', 9, true);
     
-    var bat3 = game.add.sprite(batX3+200, batY3, 'batSheet2');
+    var bat3 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat3.animations.add('flying');
     bat3.animations.play('flying', 8, true);
     
-    var bat4 = game.add.sprite(batX4+200, batY4, 'batSheet2');
+    var bat4 = game.add.sprite(game.rnd.integerInRange(900, 1100), game.rnd.integerInRange(100, 300), 'batSheet');
     bat4.animations.add('flying');
     bat4.animations.play('flying', 8, true);
     
@@ -230,10 +228,10 @@ function enterEvilActors() {
         var bBubble3 = game.add.sprite(endBirdBubbleX + 20, endBirdBubbleY - 30, 'birdS3');
         game.time.events.add(Phaser.Timer.SECOND * 9, function() {
             bBubble3.visible = false;
-            var bossBubble2 = game.add.sprite(bossBubble1.x, bossBubble1.y, 'batculaS2');
+            var bossBubble2 = game.add.sprite(bossBubble1.x-10, bossBubble1.y, 'batculaS2');
             game.time.events.add(Phaser.Timer.SECOND * 7, function() {
                 bossBubble2.visible = false;
-                var bossBubble3 = game.add.sprite(bossBubble2.x, bossBubble2.y, 'batculaS3');
+                var bossBubble3 = game.add.sprite(bossBubble2.x+30, bossBubble2.y, 'batculaS3');
                 
                 
             });

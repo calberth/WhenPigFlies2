@@ -46,10 +46,15 @@ function addtutorial2Objects()
     player.bringToTop();
     returningt2 = true;
 
+    timerText = game.add.text(450, 20, 'Try flying upward', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    timerText.visible = false;
+
     if (hasGarlic) {
         initNewSolidCloud(290, game.world.height - 450, 0);
         initNewSolidCloud(590, game.world.height - 250, 0);
     }
+
+    addGrenade(290, game.world.height - 420, 0);
 }
 
 function tutorial2Update()
@@ -60,6 +65,14 @@ function tutorial2Update()
     }
     else {
         truck.body.velocity.x = 0;
+    }
+    if (incTimer == true)
+    {
+        timer++;
+    }
+    if (timer >= 2000)
+    {
+        timerText.visible = true;
     }
     
 }
