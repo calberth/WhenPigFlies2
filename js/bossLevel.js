@@ -18,6 +18,7 @@ var bossLevelState = {
         updateHealthBar(health);
         updateStaminaBar(stamina);
         checkLose();
+        checkWin();
 
         updateBlastAnim();
         bossLevelUpdate();
@@ -50,6 +51,16 @@ function addBossLevelObjects()
 }
 
 function updateBoss() {
+    // THIS IS THE BOSS ANIMATION FROM THE INTRO 
+    // PLEASE USE IT OR ERICA WILL CRY
+    /*boss.animations.add('flyingBoss');
+    boss.animations.play('flyingBoss', 7, true);
+    this.game.time.events.loop(2000, function() {  
+        this.game.add.tween(boss).to({x: this.game.world.randomX, 
+                                         y: this.game.world.randomY}, 
+                                        1750, Phaser.Easing.Quadratic.InOut, true);
+    }, this);*/
+    
     bossAnim++;
     if (bossAnim % 150 == 0) {
         makeDiveBat(boss.x, boss.y);
@@ -67,6 +78,12 @@ function updateBoss() {
     game.physics.arcade.collide(boss, grenades, grenadeBoss, null, this);
     updateBossBar(bossHealth);
     checkBossHealth();
+}
+
+function checkWin() {
+    if (bossIsDead) {
+        game.state.start('win');
+    }
 }
 
 function checkBossHealth() {

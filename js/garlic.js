@@ -64,10 +64,10 @@ function updateBlastAnim() {
 	}
 }
 
-function killGarlic(bound, garlic) {
+function killGarlic(bound, garlicv) {
 	console.log("garlic killed");
-	garlic.kill();
-	garlics.remove(garlic);
+	garlicv.kill();
+	garlics.remove(garlicv);
 }
 
 function addGrenade(x, y) {
