@@ -1,14 +1,16 @@
 var apples;
 
 function addApple(x, y) {
-    console.log("attempt to add apple\n");
+
     if (applesPickedUp == false) {
         var apple = apples.create(x, y, 'apple');
         apple.scale.setTo(.05, .05);
+        console.log("apple Length: " + apples.children.length);
     }
 }
 
 function checkAppleCollisions() {
+    console.log("checkin collisinos\n");
     game.physics.arcade.collide(player, apples, hitApple, null, this);
 }
 

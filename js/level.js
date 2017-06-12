@@ -32,14 +32,15 @@ function initializeLevel(left, right, up, down, bottomDeath)
     boundaries.enableBody = true;
 
     blasts = game.add.group();
+    blasts.enableBody = true;
+
     apples = game.add.group();
     apples.enableBody = true;
 
     sittingGrenades = game.add.group();
     sittingGrenades.enableBody = true;
 
-    
-    
+      
 
     if (left)
     {
@@ -53,6 +54,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         rightBound = boundaries.create(1199, 0, 'levelBound');
         rightBound.scale.setTo(1,5); 
         rightBound.visible = false;
+        rightBound.body.immovable = true;
     }
 
     if (up)
@@ -60,6 +62,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         upperBound = boundaries.create(0, -5, 'upBound');
         upperBound.scale.setTo(9,1);
         upperBound.visible = false;
+        upperBound.body.immovable = true;
     }
 
     if (down)
@@ -67,6 +70,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         lowerBound = boundaries.create(0, 674, 'upBound');
         lowerBound.scale.setTo(9,1);
         lowerBound.visible = false;
+        lowerBound.body.immovable = true;
     }
 
     if (bottomDeath)
@@ -74,6 +78,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
         deathBound = boundaries.create(0, 674, 'upBound');
         deathBound.scale.setTo(9,1);
         deathBound.visible = false;
+        deathBound.body.immovable = true;
     }
     
 

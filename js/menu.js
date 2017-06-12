@@ -55,6 +55,8 @@
         var timer = 0;
         var incTimer = false;
 
+        var apples;
+
 
 var menuState = {
   
@@ -82,8 +84,8 @@ var menuState = {
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';
-        state = 1;
+        state = 3;
         hasGarlic = true;
-        game.state.start('win');
+        game.state.start('frame3');
     },    
 };

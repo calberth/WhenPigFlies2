@@ -32,7 +32,7 @@ function addlevel1S2Objects()
     lightning = game.add.group();
     lightning.enableBody = true;
 
-    bolt = lightning.create(500, game.world.height - 570, 'lightning');
+    bolt = lightning.create(500, game.world.height - 600, 'lightning');
     bolt.body.collideWorldBounds = true;
     game.physics.arcade.enable(bolt);
     bolt.enableBody = true;
@@ -65,7 +65,7 @@ function shootLightning() {
     for (var i = 0; i < lightning.children.length; i++){
         lightning.children[i].kill();
     }
-    bolt = lightning.create(game.rnd.integerInRange(100, 900), game.world.height - 570, 'lightning');
+    bolt = lightning.create(game.rnd.integerInRange(100, 900), game.world.height - 600, 'lightning');
     bolt.body.collideWorldBounds = true;
     game.physics.arcade.enable(bolt);
     bolt.enableBody = true;

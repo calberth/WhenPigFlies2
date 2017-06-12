@@ -7,12 +7,7 @@ var frame7State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         level1S3Update();
     }
@@ -38,6 +33,14 @@ function addlevel1S3Objects()
             initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
         }
     }
+    lightning = game.add.group();
+    lightning.enableBody = true;
+
+    bolt = lightning.create(500, game.world.height - 600, 'lightning');
+    bolt.body.collideWorldBounds = true;
+    game.physics.arcade.enable(bolt);
+    bolt.enableBody = true;
+    bolt.scale.setTo(.25, .25);
 
     addApple(320, game.world.height - 400);
     cloudTimer = 0;
@@ -51,6 +54,13 @@ function level1S3Update()
                 createSoundwaves(bats, false);
             }
         }
+    }
+    // upper level
+    if (cloudTimer % 200 == 0) {
+        initNewStormCloud(0, game.world.height - 670, 50); // upper
+    }
+    if (cloudTimer % 25 == 0) {
+        shootLightning();
     }
     cloudTimer++;
     

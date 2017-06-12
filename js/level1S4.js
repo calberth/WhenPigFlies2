@@ -60,6 +60,7 @@ function level1S4Update()
             }
         }
     }
+    addGrenade(game.world.width, game.world.height - 20);
     cloudTimer++;
     
 }
