@@ -49,6 +49,10 @@
         var blastNum = 0;
         var explosion; 
 
+        var applesPickedUp = false;
+        var grenadesPickedUp = false;
+
+
 
 var menuState = {
   
@@ -76,6 +80,6 @@ var menuState = {
         texture = 'pigR1';
         state = 3;
         hasGarlic = true;
-        game.state.start('fallScene');
+        game.state.start('frame3');
     },    
 };

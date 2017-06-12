@@ -50,6 +50,8 @@ function addtutorial2Objects()
         initNewSolidCloud(290, game.world.height - 450, 0);
         initNewSolidCloud(590, game.world.height - 250, 0);
     }
+
+    addGrenade(290, game.world.height - 420, 0);
 }
 
 function tutorial2Update()

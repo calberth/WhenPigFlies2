@@ -15,7 +15,9 @@ function levelUpdate() {
     if (soundwaves.children.length > 0)
         checkSoundwaves();
     if (blasts.children.length > 0)
-        updateBlastAnim() 
+        updateBlastAnim();
+    if (sittingGrenades.children.length > 0)
+        checkSittingGrenades();
 }
 
 function initializeLevel(left, right, up, down, bottomDeath)
@@ -32,6 +34,12 @@ function initializeLevel(left, right, up, down, bottomDeath)
     blasts = game.add.group();
     apples = game.add.group();
     apples.enableBody = true;
+
+    sittingGrenades = game.add.group();
+    sittingGrenades.enableBody = true;
+
+    applesPickedUp = false;
+    grenadesPickedUp = false;
     
 
     if (left)

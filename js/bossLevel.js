@@ -47,7 +47,6 @@ function addBossLevelObjects()
     bossAnim = 0;
 
     explosion = game.add.audio('explosion');
-
 }
 
 function updateBoss() {
