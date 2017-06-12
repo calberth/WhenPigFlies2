@@ -78,6 +78,7 @@ function initializeLevel(left, right, up, down, bottomDeath)
     //player.body.bounce.y = 0.2;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
+    explosion = game.add.audio('explosion');
 }
 
 
@@ -246,14 +247,8 @@ function hitWave(player, wave) {
     hitEnemy(player, wave);
 }
 
-function collectLightning(player, lightning) {
-    if (health > 0) {
-        health -= 0.5;
-    }
-}
-
 
 function hitEnemy(player, enemy) {
-    decreaseHealth(10);
+    decreaseHealth(5);
 }
 

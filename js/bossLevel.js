@@ -5,7 +5,7 @@ var bossIsDead;
 
 var bossLevelState = {
     create: function() {
-        initializeLevel(false, false, false, false, false);
+        initializeLevel(true, false, false, false, false);
         addBossLevelObjects();
         grenadesLeft = 5; //For testing GG
     },
@@ -17,7 +17,6 @@ var bossLevelState = {
         checkBattle();
         updateHealthBar(health);
         updateStaminaBar(stamina);
-        //updateGGBar(grenadesLeft);
         checkLose();
 
         bossLevelUpdate();
@@ -37,11 +36,6 @@ function addBossLevelObjects()
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    var ledge = platforms.create(400, 400, 'cloud');
-    var ledge2 = platforms.create(500, 400, 'cloud');
-
-    ledge.body.immovable = true;
-
     diveBatsInit();
     makeDiveBat(300, 600);
     boss = game.add.sprite(800, 200, 'boss');
@@ -49,11 +43,13 @@ function addBossLevelObjects()
     boss.body.velocity.y = -100;
     bossAnim = 0;
 
+    explosion = game.add.audio('explosion');
+
 }
 
 function updateBoss() {
     bossAnim++;
-    if (bossAnim % 100 == 0) {
+    if (bossAnim % 150 == 0) {
         makeDiveBat(boss.x, boss.y);
     }
 
@@ -61,25 +57,26 @@ function updateBoss() {
         boss.body.velocity.y = -100;
     if (boss.y < 50)
         boss.body.velocity.y = 100;
-    if (bossAnim % 50 == 0 && !bossIsDead) {
+    if (bossAnim % 80 == 0) {
         createOneSoundwave(boss.x, boss.y, -400, 0, 0);
     }
 
-    game.physics.arcade.collide(garlics, boss, hitBoss, null, this);
+    game.physics.arcade.collide(boss, garlics, hitBoss, null, this);
     updateBossBar(bossHealth);
-    //checkBossHealth();
+    checkBossHealth();
 }
 
 function checkBossHealth() {
     if (bossHealth <= 0) {
         boss.kill();
         bossIsDead = true;
+        //TODO change to win state
     }
 }
 
-function hitBoss(garlic, boss) {
+function hitBoss(boss, garlic) {
     garlic.kill();
-    //garlics.remove(garlic);
+    garlics.remove(garlic);
 
     //This occurs due to constant overlap calls over many frames. 
     if (bossHealth > 0)
@@ -89,8 +86,10 @@ function hitBoss(garlic, boss) {
 
 function bossLevelUpdate()
 {
-    updateDiveBats();
-    updateBoss();
+    updateDiveBats();    
     updateBlastAnim();
+    checkSoundwaves();
 
+    if (bossIsDead == false)
+        updateBoss();
 }

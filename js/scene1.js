@@ -85,7 +85,10 @@ function enterActors() {
 }
 
 function roosterActions() {
-    //roosterSound.play();
+    roosterSound.play();
+    roosterSound.onStop.add(function() {
+        happyMusic.play();
+    }, this);
     roosterLeave = game.add.tween(rooster).to({x: -200, y: 150}, 3000, Phaser.Easing.Quadratic.Out);
     roosterLeave.onComplete.add(enterActors, this);
     roosterLeave.delay(3000, -1);
@@ -116,7 +119,10 @@ function enterEvilActors() {
     
     //var boss = game.add.sprite(800, 200, 'boss');
     
-    var boss = this.game.add.sprite(800, 200, 'boss');
+    var boss = this.game.add.sprite(800, 200, 'batculaSheet');
+    boss.scale.setTo(0.5, 0.5);
+    boss.animations.add('flyingBoss');
+    boss.animations.play('flyingBoss', 7, true);
     this.game.time.events.loop(2000, function() {  
         this.game.add.tween(boss).to({x: this.game.world.randomX, 
                                          y: this.game.world.randomY}, 

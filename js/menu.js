@@ -44,6 +44,10 @@
         var hasGarlic = false;
         var accessories = '';
 
+        var blasts;
+        var blastNum = 0;
+        var explosion; 
+
 
 var menuState = {
   
@@ -71,7 +75,8 @@ var menuState = {
         texture = 'pigR1';
 
         state = 3;
-        game.state.start('frame3'); 
-
+        //game.state.start('frame3'); 
+        hasGarlic = true;
+        game.state.start('bossLevel');
     },    
 };

@@ -30,6 +30,16 @@ function createOneSoundwave(xPos, yPos, xVel, yVel, rotation) {
 		var soundwave = soundwaves.create(xPos, yPos, 'soundwaveL');
 	else 
 		var soundwave = soundwaves.create(xPos, yPos, 'soundwave');
+
 	soundwave.body.velocity.y = yVel;
 	soundwave.body.velocity.x = xVel;
+}
+
+function checkSoundwaves() {
+	game.physics.arcade.collide(leftBound, soundwaves, killWave, null, this);
+}
+
+function killWave(bound, wave) {
+	wave.kill();
+	soundwaves.remove(wave);
 }
