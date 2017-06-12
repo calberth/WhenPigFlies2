@@ -30,7 +30,6 @@ function addlevel1S4Objects()
     applesPickedUp = false;
     grenadesPickedUp = false;
 
-
 }
 
 function level1S4Update()

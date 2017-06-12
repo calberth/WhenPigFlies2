@@ -2,7 +2,7 @@ var apples;
 
 function addApple(x, y) {
 
-    if (applesPickedUp == false) {
+    if (applesPickedUp[state] == false) {
         var apple = apples.create(x, y, 'apple');
         apple.scale.setTo(.03, .03);
         console.log("apple Length: " + apples.children.length);
@@ -18,7 +18,7 @@ function hitApple(player, apple) {
     apple.kill();
     apples.remove(apple);
 
-    applesPickedUp = true;
+    applesPickedUp[state] = true;
 
     if (health <= 90) {
         health += 10;

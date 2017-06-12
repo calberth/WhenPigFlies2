@@ -33,6 +33,8 @@ function explode(grenade, bat) {
 	//grenade.kill();
 	//garlics.remove(grenade);
 	bat.kill();
+	bats.remove(bat);
+	diveBats.remove(bat);
 	var blast = blasts.create(bat.x, bat.y, 'blast');	
 	blast.scale.setTo(.3, .3);
 	
@@ -71,9 +73,8 @@ function killGarlic(bound, garlicv) {
 }
 
 function addGrenade(x, y) {
-	if (grenadesPickedUp == false) {
+	if (grenadesPickedUp[state] == false) {
 		sittingGrenades.create(x, y, 'garlicGrenade');
-		
 	}
 }
 
@@ -84,6 +85,6 @@ function checkSittingGrenades() {
 function pickupGrenade(player, grenade) {
 	grenade.kill();
 	sittingGrenades.remove(grenade);
-	grenadesPickedUp = true;
+	grenadesPickedUp[state] = true;
 	grenadesLeft++;
 }

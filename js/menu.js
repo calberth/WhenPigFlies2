@@ -41,13 +41,20 @@
         var blastNum = 0;
         var explosion; 
 
-        var applesPickedUp = false;
-        var grenadesPickedUp = false;
+        var applesPickedUp = [];
+        var grenadesPickedUp = [];
+
+        for (var i = 0; i < 18; i++) {  
+            applesPickedUp.push(false);
+            grenadesPickedUp.push(false);
+        }
 
         var timer = 0;
         var incTimer = false;
 
         var apples;
+
+
 
 
 var menuState = {
