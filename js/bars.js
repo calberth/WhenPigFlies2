@@ -7,35 +7,50 @@ var bossHealthbar;
 var bossHealthText;
 var bossHealth;
 
-var grenadesLeft;
+var grenadesLeft = 0;
 var grenadesText;
 
 function createGarlicGrenadesBar() {
-	grenadesText = game.add.text(16, 100, 'Grenades: 0', { fontSize: '32px', fill: '#F00' });
-	grenadesLeft = 0;
+
+    grenadesText = game.add.text(60, 93, grenadesLeft, { fontSize: '28px', fill: '#00992b' });
+	
+    var grenadeIcon = icons.create(18, 92, 'garlicGrenade');
+    grenadeIcon.scale.setTo(.8, .8);
 
 }
 
 function updateGGBar() {
-	grenadesText.text = 'Grenades: ' + grenadesLeft;
+    
+	grenadesText.kill();
+    grenadesText = game.add.text(60, 93, grenadesLeft, { fontSize: '28px', fill: '#00992b' });
+
 }
 
 
 function createBossBar(bossHealth)
 {
+    var bbar = game.add.bitmapData(100, 100);
+    bbar.ctx.beginPath();
+    bbar.ctx.rect(0,0,180,30);
+    bbar.ctx.fillStyle = '#464646';
+    bbar.ctx.fill();
+
     var bar = game.add.bitmapData(bossHealth, 100);
     bar.ctx.beginPath();
-    bar.ctx.rect(0,0,200,30);
-    bar.ctx.fillStyle = '#F00';
+    bar.ctx.rect(0,0,92,22);
+    bar.ctx.fillStyle = '#e60000';
     bar.ctx.fill();
 
-    bossHealthBar = game.add.sprite(650,16, bar);
-    bossHealthText = game.add.text(460, 16, 'Count Batcula:', { fontSize: '32px', fill: '#000' });
+    var batculaIcon = icons.create(1000, 16, 'boss');
+    batculaIcon.scale.setTo(.25, .25);
+
+    var backBar = game.add.sprite(1090,16, bbar);
+    bossHealthBar = game.add.sprite(1094, 20, bar);
 }
 
 function createHealthBar(health)
 {
-    var bbar = game.add.bitmapData(health, 40);
+    var bbar = game.add.bitmapData(100, 40);
     bbar.ctx.beginPath();
     bbar.ctx.rect(0,0,180,30);
     bbar.ctx.fillStyle = '#464646';
@@ -64,13 +79,13 @@ function updateHealthBar(health)
 
 function createStaminaBar(stamina)
 {
-    var bbar = game.add.bitmapData(health, 40);
+    var bbar = game.add.bitmapData(100, 40);
     bbar.ctx.beginPath();
     bbar.ctx.rect(0,0,180,30);
     bbar.ctx.fillStyle = '#464646';
     bbar.ctx.fill();
 
-    var bar = game.add.bitmapData(health, 40);
+    var bar = game.add.bitmapData(stamina, 40);
     bar.ctx.beginPath();
     bar.ctx.rect(0,0,92,22);
     bar.ctx.fillStyle = '#cbe4ef';

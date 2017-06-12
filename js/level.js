@@ -1,3 +1,17 @@
+locked = false;
+lockedTo = null;
+
+function levelUpdate() {
+    checkCollisions();
+    movePlayer();
+    checkBattle();
+    updateHealthBar(health);
+    updateStaminaBar(stamina);
+    checkLose();
+
+    //if (apples.children.length > 0)
+    checkAppleCollisions();
+}
 
 function initializeLevel(left, right, up, down, bottomDeath)
 {
@@ -11,6 +25,8 @@ function initializeLevel(left, right, up, down, bottomDeath)
     boundaries.enableBody = true;
 
     blasts = game.add.group();
+    apples = game.add.group();
+    apples.enableBody = true;
     
 
     if (left)
@@ -76,14 +92,47 @@ function initializeLevel(left, right, up, down, bottomDeath)
     //player.body.bounce.y = 0.2;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
+    explosion = game.add.audio('explosion');
 }
 
 
 function checkCollisions()
 {
     //  Collide the player and the platforms
-    var hitPlatform = game.physics.arcade.collide(player, platforms);
-    game.physics.arcade.collide(platforms);
+    //var hitPlatform = game.physics.arcade.collide(player, platforms);
+    //if (!cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown && !cursors.down.isDown)
+    if (!cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown)
+    //if (!cursors.right.isDown && !cursors.left.isDown && !cursors.down.isDown)
+    {
+        var onGround = game.physics.arcade.collide(player, platforms);
+        if (onGround)
+        {
+            if (hasGarlic)
+            {
+                if (facing == "right")
+                {
+                    player.loadTexture('pigGR1');
+                }
+                else
+                {
+                    player.loadTexture('pigGL1');
+                }
+            }
+            else
+            {
+                if (facing == "right")
+                {
+                    player.loadTexture('pigR1');
+                }
+                else
+                {
+                    player.loadTexture('pigL1');
+                }
+            }
+        }
+    }
+    
+    //game.physics.arcade.overlap(player, platforms, customSep, null, this);
 
     // checks garlic collision with enemies
     game.physics.arcade.collide(garlics, bats, collectBat, null, this);
@@ -108,8 +157,30 @@ function checkCollisions()
     updateGGBar();
     game.physics.arcade.collide(grenades, bats, explode, null, this);
     game.physics.arcade.collide(grenades, diveBats, explode, null, this);
+
+    game.physics.arcade.collide(rightBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(leftBound, garlics, killGarlic, null, this);
+    game.physics.arcade.collide(lowerBound, garlics, killGarlic, null, this);
+    //game.physics.arcade.collide(upperBound, garlics, killGarlic, null, this);
+
 }
 
+/*function customSep(player, platforms)
+{
+    //var nameLabel = game.add.text(80, 80, 'Player y velocity' + player.body.velocity.y,
+                                    //{ font: '50px Arial', fill: '#000000' });
+
+    if (!locked)// && player.body.velocity.y > 0)
+    {
+        var nameLabel = game.add.text(80, 80, 'IN',
+                                    { font: '50px Arial', fill: '#000000' });
+        locked = true;
+        lockedTo = platforms;
+        platforms.playerLocked = true;
+
+        player.body.velocity.y = 0;
+    }
+}*/
 
 function checkLose()
 {
@@ -199,6 +270,6 @@ function hitWave(player, wave) {
 
 
 function hitEnemy(player, enemy) {
-    decreaseHealth(10);
+    decreaseHealth(5);
 }
 

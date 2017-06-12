@@ -6,11 +6,11 @@ var loadState = {
 	// use to define and load our assets
     preload: function() {
 
-        var loadingBar = game.add.sprite(170, 250, 'loading');
+        var loadingBar = game.add.sprite(game.world.centerX-50, game.world.centerY, 'loading');
         loadingBar.anchor.setTo(0.5,0.5);
         this.load.setPreloadSprite(loadingBar);
 
-        var loadingLabel = game.add.text(80, 150, 'loading...', 
+        var loadingLabel = game.add.text(game.world.centerX-150, game.world.centerY-100, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
         //Backgrounds
@@ -93,6 +93,9 @@ var loadState = {
         game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
         game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
         game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
+
+        // Falling cut scene
+        game.load.audio('falling', 'assets/audio/falling.wav');
     
     },
     

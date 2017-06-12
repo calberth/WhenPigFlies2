@@ -1,11 +1,17 @@
+var fallFrameCount = 0;
+var saveYVelocity;
+var fallingSound;
+
 
 var fallSceneState = {
     create: function() {
 
+        positionx = game.world.width / 2;
+        positiony = 0;
         initializeLevel(false, false, false, false, false);
         addfallSceneObjects();
 
-        var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
+        // var playButton = this.game.add.button(475, 550, 'play', this.restart, this);
     },
     
     // The restart function calls the menu state    
@@ -29,8 +35,26 @@ var fallSceneState = {
     },  
 
     update: function() {
-
+        tumble();
+        fallFrameCount++;
     }
+}
+
+function tumble() {
+    player.angle += 5;
+
+    if (player.body.position.y > 550) {
+        fallingSound.stop();
+        player.angle = 180;
+        game.state.start('lose')
+    }
+}
+
+function initPig() {
+    game.physics.arcade.enable(player);
+    player.enableBody = true;
+    player.anchor.setTo(0.25, 0.5);
+    player.body.gravity.y = 80;
 }
 
 function addfallSceneObjects()
@@ -38,4 +62,10 @@ function addfallSceneObjects()
     var scene = background.create(0, 0, 'sky-morning');
 
     var roos = game.add.sprite(-200, 150, 'rooster');
+
+    fallingSound = game.add.audio('falling');
+
+    fallingSound.play();
+
+    initPig();
 }

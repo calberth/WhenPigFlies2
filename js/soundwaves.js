@@ -17,10 +17,10 @@ function createSoundwavesUp(bats) {
 	for (var i = 0; i < bats.children.length; i++) {
 		var rand = Math.random() * 10;
 		if (rand >=5) { //50% chance of bat firing
-			var soundwave = soundwaves.create(bats.children[i].x, bats.children[i].y - 30, 'soundwave');
+			var soundwave = soundwaes.create(bats.children[i].x, bats.children[i].y - 30, 'soundwave');
     		soundwave.body.gravity.y = game.rnd.integerInRange(5, 100); 
     	}
-	}
+	}v
 }
 
 //TODO use velocity values to determine rotation
@@ -30,6 +30,16 @@ function createOneSoundwave(xPos, yPos, xVel, yVel, rotation) {
 		var soundwave = soundwaves.create(xPos, yPos, 'soundwaveL');
 	else 
 		var soundwave = soundwaves.create(xPos, yPos, 'soundwave');
+
 	soundwave.body.velocity.y = yVel;
 	soundwave.body.velocity.x = xVel;
+}
+
+function checkSoundwaves() {
+	game.physics.arcade.collide(leftBound, soundwaves, killWave, null, this);
+}
+
+function killWave(bound, wave) {
+	wave.kill();
+	soundwaves.remove(wave);
 }

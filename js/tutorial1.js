@@ -1,7 +1,6 @@
 var collectibles;
 var sack;
 var singleGarlic;
-var sackCollected = false;
 var getSackText;
 var bombText;
 
@@ -13,12 +12,8 @@ var frame1State = {
     },
 
     update: function() {
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        
+        levelUpdate();
 
         tutorial1Update();
     }
@@ -41,16 +36,23 @@ function addtutorial1Objects()
     collectibles = game.add.group();
     collectibles.enableBody = true;
 
-    sack = collectibles.create(345, 180, 'sack');
-    sack.body.collideWorldBounds = true;
-    game.physics.arcade.enable(sack);
-    sack.enableBody = true;
-    sack.scale.setTo(.05, .05);
+    if (!sackCollected)
+    {
+        sack = collectibles.create(345, 180, 'sack');
+        sack.body.collideWorldBounds = true;
+        game.physics.arcade.enable(sack);
+        sack.enableBody = true;
+        sack.scale.setTo(.05, .05);
+    }
+    
 
-    singleGarlic = game.add.group();
-    singleGarlic.enableBody = true;
-    var garlic = singleGarlic.create(game.world.width - 340, 220, 'garlic');
-
+    if (!hasGarlic)
+    {
+        singleGarlic = game.add.group();
+        singleGarlic.enableBody = true;
+        var garlic = singleGarlic.create(game.world.width - 340, 220, 'garlic');
+    }
+    
     getSackText = game.add.text(460, 100, 'You need something to hold that garlic', { fontSize: '32px', fill: '#fff' });
     getSackText.visible = false;
 

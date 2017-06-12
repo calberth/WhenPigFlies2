@@ -1,4 +1,4 @@
-var facing = "";
+
 
 function movePlayer()
 {
@@ -8,75 +8,121 @@ function movePlayer()
     if (cursors.left.isDown) {
             player.body.velocity.x = -150;
             
-            if (player.body.velocity.y < -1) {
+            //if (player.body.velocity.y < -1) {
+                //flyLeft(hasGarlic);
+            //}
+            if (cursors.up.isDown)
+            {
+                if (stamina > 0)
+                {
+                    player.body.velocity.y += -15;
+                    stamina -= 0.5;
+                }
                 flyLeft(hasGarlic);
+                //game.physics.arcade.collide(player, platforms);
             }
             else { //if (hitPlatform) {
-                if (player.body.position.y < 500) {
-                    flyLeft(hasGarlic);
+                //if (player.body.position.y < 500) {
+                if (game.physics.arcade.collide(player, platforms)) {   
+                    //flyLeft(hasGarlic);
+                    walkLeft(hasGarlic);
                 }
                 else {
-                    walkLeft(hasGarlic);
+                    //walkLeft(hasGarlic);
+                    //flyLeft(hasGarlic);
+                    if (hasGarlic)
+                    {
+                        player.loadTexture('pigGFL1');
+                    }
+                    else
+                    {
+                        player.loadTexture('pigFL1');
+                    }
                 }
             }
             anim = 10;
             animL++;
-            
-        }
 
-        else if (cursors.right.isDown) {
+            
+    }
+
+    else if (cursors.right.isDown) {
             //  Move to the right
             player.body.velocity.x = 150;
             //player.direction = Direction.right;
             
-            if (player.body.velocity.y < -1) {
+            //if (player.body.velocity.y < -1) {
+                //flyRight(hasGarlic);
+            //}
+            if (cursors.up.isDown)
+            {
+                if (stamina > 0)
+                {
+                    player.body.velocity.y += -15;
+                    stamina -= 0.5;
+                }
                 flyRight(hasGarlic);
+                //game.physics.arcade.collide(player, platforms);
             }
             else { //if (hitPlatform) {
-                if (player.body.position.y < 500) {
-                    flyRight(hasGarlic);
+                //if (player.body.position.y < 500) {
+                if (game.physics.arcade.collide(player, platforms)) {   
+                    //flyRight(hasGarlic);
+                    walkRight(hasGarlic);
                 }
                 else {
-                    walkRight(hasGarlic);
+                    if (hasGarlic)
+                    {
+                        player.loadTexture('pigGFR1');
+                    }
+                    else
+                    {
+                        player.loadTexture('pigFR1');
+                    }
+                    //walkRight(hasGarlic);
+                    //flyRight(hasGarlic);
+
                 }
             }
             animL = 10;
             anim++;
             
-        }
+    }
 
         //  Allow the player to fly!
-        else if (cursors.up.isDown)
-        {
+    if (cursors.up.isDown && !cursors.right.isDown && !cursors.left.isDown)
+    {
             
             if (stamina > 0)
             {
                 player.body.velocity.y += -15;
                 stamina -= 0.5;
             }
-
-            if (facing == ("right")) {
-                flyRight(hasGarlic);
-            }
-            else if (facing == ("left")) {
+            if (facing == ("left")) {
                 flyLeft(hasGarlic);
+                animL++; 
+                anim = 10;
             }
-            anim = 10;
-            animL++;
-            
-        }
-        else
-        {
-            if (stamina < 100)
+            else if (facing == ("right")) {
+                flyRight(hasGarlic);
+                anim++;
+                animL = 10;
+            }    
+    }
+    
+    else
+    {
+            //if (stamina < 100)
+            if (stamina < 97.75)
             {
                 stamina += 0.25;
             }
-        }
+    }
 
-        if (cursors.down.isDown) {
+    if (cursors.down.isDown) {
             player.body.velocity.y += 10;
 
-        }
+    }
 
 }
 

@@ -9,13 +9,7 @@ var frame3State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
-
+        levelUpdate();      
         tutorial3Update();
     }
 }
@@ -23,7 +17,7 @@ var frame3State = {
 function addtutorial3Objects() {
     var scene = background.create(0,0,'sky');
 
-        var text = game.add.text(425, 16, 'Tutorial3', { fontSize: '32px', fill: '#000' });
+    var text = game.add.text(425, 16, 'Tutorial3', { fontSize: '32px', fill: '#000' });
 
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
