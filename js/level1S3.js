@@ -17,7 +17,7 @@ function addlevel1S3Objects()
 {
     var scene = background.create(0,0,'L1background');
 
-    var text = game.add.text(425, 16, 'Level1 S3', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level1 S3', { fontSize: '32px', fill: '#000' });
 
     for (var i = 0; i < 4; i++){
         initNewSolidCloud(i * 290 + 30, game.world.height - 100, 0); // lower
@@ -42,7 +42,8 @@ function addlevel1S3Objects()
     bolt.enableBody = true;
     bolt.scale.setTo(.25, .25);
 
-    addApple(320, game.world.height - 400);
+    addApple(320, game.world.height - 470);
+    addGrenade(3*290+30, game.world.height - 100);
     cloudTimer = 0;
 }
 

@@ -105,6 +105,7 @@ var loadState = {
         //game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
         game.load.spritesheet('batSheet', 'assets/batSheet2.png', 190, 110, 7);
         game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
+        game.load.image('castle', 'assets/castle.png');
         game.load.image('birdS1', 'assets/intro/bird1.png');
         game.load.image('birdS2', 'assets/intro/bird2.png');
         game.load.image('birdS3', 'assets/intro/bird3.png');
@@ -140,6 +141,11 @@ var loadState = {
 
         // Win Screen
         game.load.image('winBird', 'assets/bird/freeBird.png');
+
+        game.load.image('winText', 'assets/winText1.png');
+        game.load.image('winPig', 'images/pigSprites/flying-down-mirrored-large.png');
+
+        game.load.image('endWin', 'assets/endWin.png');
     
     },
     

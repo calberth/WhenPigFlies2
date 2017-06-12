@@ -8,12 +8,7 @@ var frame5State = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         level1S1Update();
     }
@@ -23,7 +18,7 @@ function addlevel1S1Objects()
 {
     var scene = background.create(0,0,'L1background');
 
-    var text = game.add.text(425, 16, 'Level1 S1', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level1 S1', { fontSize: '32px', fill: '#000' });
 
     cloudTimer = 0;
     for (var i = 0; i < 4; i++){
@@ -34,6 +29,7 @@ function addlevel1S1Objects()
             initNewSolidCloud(i * 290, game.world.height - 500, 0);
         }
     }
+    addGrenade(3*290+20, game.world.height - 515);
 }
 
 function level1S1Update()

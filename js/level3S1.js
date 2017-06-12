@@ -22,7 +22,7 @@ function addlevel3S1Objects()
 {
     var scene = background.create(0,0,'L3background');
 
-    var text = game.add.text(425, 16, 'Level3 S1', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level3 S1', { fontSize: '32px', fill: '#000' });
 
     var ledge = platforms.create(400, 400, 'cloud');
 
@@ -44,6 +44,8 @@ function addlevel3S1Objects()
             initNewSolidCloud(i * 290 + 30, game.world.height - 450, 0); // upper
         }
     }
+
+    addGrenade(290*3+30, game.world.height - 450);
 }
 
 function level3S1Update()

@@ -22,14 +22,13 @@ function addlevel1S4Objects()
 {
     var scene = background.create(0,0,'L1background');
 
-    var text = game.add.text(425, 16, 'Level1 S4', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level1 S4', { fontSize: '32px', fill: '#000' });
 
 
     cloudTimer = 0;
     //Allows us to re-initialize pickups here
     applesPickedUp = false;
     grenadesPickedUp = false;
-
 
 }
 

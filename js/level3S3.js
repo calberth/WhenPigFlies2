@@ -22,7 +22,7 @@ function addlevel3S3Objects()
 {
     var scene = background.create(0,0,'L3background');
 
-    var text = game.add.text(425, 16, 'Level3 S3', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level3 S3', { fontSize: '32px', fill: '#000' });
 
     var ledge = platforms.create(400, 400, 'cloud');
 
@@ -42,6 +42,9 @@ function addlevel3S3Objects()
             initNewSinkingCloud(i * 190 + 30, game.world.height - 350, 0, 100); // upper
         }
     }
+
+    addGrenade(2*190+50, game.world.height - 450);
+    addGrenade(3*290+30, game.world.height - 350);
 }
 
 function level3S3Update()

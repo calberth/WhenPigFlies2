@@ -17,7 +17,7 @@ var frame3State = {
 function addtutorial3Objects() {
     var scene = background.create(0,0,'sky');
 
-    var text = game.add.text(425, 16, 'Tutorial3', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Tutorial3', { fontSize: '32px', fill: '#000' });
 
     var ground = platforms.create(0, game.world.height - 64, 'ground');
     //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
@@ -33,13 +33,17 @@ function addtutorial3Objects() {
         truck.scale.setTo(.65, .65);
         game.physics.arcade.enable(truck);
         truck.body.velocity.x = 0;
+        var Text = game.add.text(450, 620, 'Use arrow keys to move in all directions', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     }
 
     timerText = game.add.text(450, 20, 'Look for some clouds to hop on', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     timerText.visible = false;
 
     player.bringToTop();
-    grenadesLeft++;
+
+    if (grenadesLeft == 0)
+        grenadesLeft = 1;
+
 }
 
 function tutorial3Update()

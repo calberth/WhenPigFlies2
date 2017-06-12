@@ -23,7 +23,7 @@ function addlevel2S2Objects()
 {
     var scene = background.create(0,0,'L2background');
 
-    var text = game.add.text(425, 16, 'Level2 S2', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level2 S2', { fontSize: '32px', fill: '#000' });
 
     // var ledge = platforms.create(900, 200, 'cloud');
 
@@ -44,6 +44,9 @@ function addlevel2S2Objects()
 
     diveBatsInit();
     makeDiveBat(game.world.width - 570, game.world.height - 360);
+
+    addGrenade(4*250+100, game.world.height - 480);
+    addGrenade(290, game.world.height - 480);
 }
 
 function level2S2Update()

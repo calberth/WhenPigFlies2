@@ -24,15 +24,8 @@
         var garlics;
         var garlicTime = 0;
 
-        //var direction;
-
         var positionx;
         var positiony; 
-
-        /*var Direction = {
-          left : 0, 
-          right: 1
-        }; */
 
         var facing = "right";
 
@@ -43,19 +36,25 @@
 
         var hasGarlic = false;
         var sackCollected = false;
-        //var accessories = '';
 
         var blasts;
         var blastNum = 0;
         var explosion; 
 
-        var applesPickedUp = false;
-        var grenadesPickedUp = false;
+        var applesPickedUp = [];
+        var grenadesPickedUp = [];
+
+        for (var i = 0; i < 18; i++) {  
+            applesPickedUp.push(false);
+            grenadesPickedUp.push(false);
+        }
 
         var timer = 0;
         var incTimer = false;
 
         var apples;
+
+
 
 
 var menuState = {
@@ -84,8 +83,10 @@ var menuState = {
         positionx = 32;
         positiony = 540; 
         texture = 'pigR1';
-        state = 3;
+        state = 2;
         hasGarlic = true;
-        game.state.start('scene1');
+        game.state.start('frame2');
+        //game.state.start('bossLevel');
+        //game.state.start('scene1');
     },    
 };

@@ -22,7 +22,7 @@ function addlevel2S4Objects()
 {
     var scene = background.create(0,0,'L2background');
 
-    var text = game.add.text(425, 16, 'Level2 S4', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level2 S4', { fontSize: '32px', fill: '#000' });
 
     for (var i = 0; i < 5; i++) {
         initNewSolidCloud(i * 250, game.world.height - 50, 0);
@@ -30,6 +30,9 @@ function addlevel2S4Objects()
         bat.animations.add('flying');
         bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
     }
+
+    addApple(320, game.world.height - 50);
+    addGrenade(4*290, game.world.height - 50, 0);
 
     diveBatsInit();
     for (var i = 0; i < 3; i++) {

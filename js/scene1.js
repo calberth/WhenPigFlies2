@@ -13,13 +13,9 @@ var scene1State = {
         
         cursors = game.input.keyboard.createCursorKeys();
         space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-       control = game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
+        control = game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
         //initializeLevel(false, false, false, false, false);
         addScene1Objects();
-        
-        
-
-        
         
     },
 
@@ -200,8 +196,6 @@ function enterEvilActors() {
     
     
     //var boss = game.add.sprite(800, 200, 'boss');
-    
-    
     
     boss = this.game.add.sprite(1400, 200, 'batculaSheet');
     
