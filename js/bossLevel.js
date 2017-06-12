@@ -3,6 +3,9 @@ var bossAnim;
 
 var bossIsDead;
 
+// DELETE ME
+var bossTimer = 0;
+
 var bossLevelState = {
     create: function() {
         initializeLevel(true, false, false, false, false);
@@ -12,16 +15,25 @@ var bossLevelState = {
 
     update: function() {
 
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
-        checkWin();
+        levelUpdate();
 
-        updateBlastAnim();
         bossLevelUpdate();
+
+        // DELETE ME
+        if (bossTimer >= 10) {
+            bossIsDead = true;
+            //var text = game.add.text(425, 16, 'YOU WON!!!!', { fontSize: '32px', fill: '#000' });
+        }
+        bossTimer++;
+    }
+}
+
+function checkWin() {
+    if (bossIsDead == true) {
+        // DELETE ME 
+        //var text = game.add.text(425, 16, 'YOU WON!!!!', { fontSize: '32px', fill: '#000' });
+        var end = game.add.text(0, 0, 'endWin');
+        //game.state.start('win');
     }
 }
 
@@ -83,19 +95,14 @@ function updateBoss() {
     game.physics.arcade.collide(boss, grenades, grenadeBoss, null, this);
     updateBossBar(bossHealth);
     checkBossHealth();
-}
-
-function checkWin() {
-    if (bossIsDead) {
-        game.state.start('win');
-    }
-}
+} 
 
 function checkBossHealth() {
     if (bossHealth <= 0) {
         boss.kill();
         bossIsDead = true;
         //TODO change to win state
+        // var text = game.add.text(425, 16, 'YOU WON!!!!', { fontSize: '32px', fill: '#000' });
     }
 }
 

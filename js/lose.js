@@ -48,7 +48,7 @@ var loseState = {
 }
 
 function fadeIn() {
-    if (loseFrameCount % 10 == 0) {
+    if (loseFrameCount % 10 == 0 && bossIsDead == false) {
         loseAudio.volume += .01;
     }
 }
@@ -73,7 +73,7 @@ function setLoseBackground() {
 function addLoseScreenObjects() {
     loseAudio = game.add.audio('loseAudio');
     loseAudio.play();
-    loseAudio.volume = .03;
+    loseAudio.volume = 0;
 
     var ground = game.add.sprite(0, game.world.height - 300, 'ground');
     ground.scale.setTo(4, 10);
