@@ -15,7 +15,7 @@ var frame3State = {
         updateHealthBar(health);
         updateStaminaBar(stamina);
         checkLose();
-
+        
         tutorial3Update();
     }
 }

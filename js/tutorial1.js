@@ -13,6 +13,7 @@ var frame1State = {
     },
 
     update: function() {
+        
         checkCollisions();
         movePlayer();
         checkBattle();

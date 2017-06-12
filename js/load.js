@@ -6,11 +6,11 @@ var loadState = {
 	// use to define and load our assets
     preload: function() {
 
-        var loadingBar = game.add.sprite(170, 250, 'loading');
+        var loadingBar = game.add.sprite(game.world.centerX-50, game.world.centerY, 'loading');
         loadingBar.anchor.setTo(0.5,0.5);
         this.load.setPreloadSprite(loadingBar);
 
-        var loadingLabel = game.add.text(80, 150, 'loading...', 
+        var loadingLabel = game.add.text(game.world.centerX-150, game.world.centerY-100, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
         //Backgrounds

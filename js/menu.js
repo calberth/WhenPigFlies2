@@ -24,15 +24,17 @@
         var garlics;
         var garlicTime = 0;
 
-        var direction;
+        //var direction;
 
         var positionx;
         var positiony; 
 
-        var Direction = {
+        /*var Direction = {
           left : 0, 
           right: 1
-        };
+        }; */
+
+        var facing = "right";
 
         var anim = 0;
         var animL = 0;
