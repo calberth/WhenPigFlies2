@@ -8,28 +8,20 @@ function movePlayer()
     if (cursors.left.isDown) {
             player.body.velocity.x = -150;
             
-            //if (player.body.velocity.y < -1) {
-                //flyLeft(hasGarlic);
-            //}
             if (cursors.up.isDown)
             {
                 if (stamina > 0)
                 {
                     player.body.velocity.y += -15;
-                    stamina -= 0.5;
+                    stamina -= 1;
                 }
                 flyLeft(hasGarlic);
-                //game.physics.arcade.collide(player, platforms);
             }
-            else { //if (hitPlatform) {
-                //if (player.body.position.y < 500) {
+            else { 
                 if (game.physics.arcade.collide(player, platforms)) {   
-                    //flyLeft(hasGarlic);
                     walkLeft(hasGarlic);
                 }
                 else {
-                    //walkLeft(hasGarlic);
-                    //flyLeft(hasGarlic);
                     if (hasGarlic)
                     {
                         player.loadTexture('pigGFL1');
@@ -49,25 +41,20 @@ function movePlayer()
     else if (cursors.right.isDown) {
             //  Move to the right
             player.body.velocity.x = 150;
-            //player.direction = Direction.right;
-            
-            //if (player.body.velocity.y < -1) {
-                //flyRight(hasGarlic);
-            //}
+
             if (cursors.up.isDown)
             {
                 if (stamina > 0)
                 {
                     player.body.velocity.y += -15;
-                    stamina -= 0.5;
+                    stamina -= 1;
                 }
                 flyRight(hasGarlic);
-                //game.physics.arcade.collide(player, platforms);
+
             }
-            else { //if (hitPlatform) {
-                //if (player.body.position.y < 500) {
+            else { 
                 if (game.physics.arcade.collide(player, platforms)) {   
-                    //flyRight(hasGarlic);
+
                     walkRight(hasGarlic);
                 }
                 else {
@@ -79,9 +66,6 @@ function movePlayer()
                     {
                         player.loadTexture('pigFR1');
                     }
-                    //walkRight(hasGarlic);
-                    //flyRight(hasGarlic);
-
                 }
             }
             animL = 10;
@@ -96,7 +80,7 @@ function movePlayer()
             if (stamina > 0)
             {
                 player.body.velocity.y += -15;
-                stamina -= 0.5;
+                stamina -= 1;
             }
             if (facing == ("left")) {
                 flyLeft(hasGarlic);
@@ -112,11 +96,10 @@ function movePlayer()
     
     else
     {
-            //if (stamina < 100)
-            if (stamina < 97.75)
-            {
-                stamina += 0.25;
-            }
+        if (stamina <= 99.75)
+        {
+            stamina += 0.25;
+        }
     }
 
     if (cursors.down.isDown) {
