@@ -18,6 +18,7 @@ var bossLevelState = {
         updateHealthBar(health);
         updateStaminaBar(stamina);
         checkLose();
+        checkWin();
 
         updateBlastAnim();
         bossLevelUpdate();
@@ -67,6 +68,12 @@ function updateBoss() {
     game.physics.arcade.collide(boss, grenades, grenadeBoss, null, this);
     updateBossBar(bossHealth);
     checkBossHealth();
+}
+
+function checkWin() {
+    if (bossIsDead) {
+        game.state.start('win');
+    }
 }
 
 function checkBossHealth() {

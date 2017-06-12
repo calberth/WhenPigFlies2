@@ -84,6 +84,6 @@ var menuState = {
         texture = 'pigR1';
         state = 1;
         hasGarlic = true;
-        game.state.start('frame1');
+        game.state.start('win');
     },    
 };

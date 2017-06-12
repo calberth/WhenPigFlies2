@@ -115,6 +115,9 @@ var loadState = {
         game.load.image('deadPig', 'assets/deadPig.png');
 
         game.load.image('apple', 'assets/apple.png');
+
+        // Win Screen
+        game.load.image('winBird', 'assets/bird/freeBird.png');
     
     },
     
