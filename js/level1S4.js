@@ -7,7 +7,13 @@ var frame8State = {
 
     update: function() {
 
-        levelUpdate();
+        checkCollisions();
+        movePlayer();
+        checkBattle();
+        updateHealthBar(health);
+        updateStaminaBar(stamina);
+        checkLose();
+
         level1S4Update();
     }
 }

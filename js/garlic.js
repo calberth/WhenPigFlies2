@@ -36,6 +36,8 @@ function explode(grenade, bat) {
 	blast.scale.setTo(.3, .3);
 	
 	explosion.play();
+
+
 }
 
 function updateBlastAnim() {
@@ -55,6 +57,7 @@ function updateBlastAnim() {
 }
 
 function killGarlic(bound, garlic) {
+	console.log("garlic killed");
 	garlic.kill();
 	garlics.remove(garlic);
 }
