@@ -34,6 +34,7 @@ var loadState = {
         game.load.image('garlicGrenade', 'assets/garlic_bomb.png');
         game.load.image('bat', 'assets/bat.png');
         game.load.image('soundwave', 'assets/soundwave.png');
+        game.load.image('soundwave-mirrored', 'assets/soundwave-mirrored.png');
         game.load.image('soundwaveL', 'assets/soundwaveL.png');
         
         game.load.image('pigFR1', 'assets/flying-up.png');
@@ -90,8 +91,8 @@ var loadState = {
         game.load.audio('explosion', 'assets/audio/blast.mp3');
         //game.load.image('bird', 'assets/bird/flying1.png');
         game.load.spritesheet('bird', 'assets/bird/birdSpriteSheet.png', 190, 232, 2);
-        game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
-        game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
+        //game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
+        game.load.spritesheet('batSheet', 'assets/batSheet2.png', 190, 110, 7);
         game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
 
         // Falling cut scene

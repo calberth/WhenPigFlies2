@@ -32,7 +32,10 @@ function addlevel3S3Objects()
     for (var i = 0; i < 8; i++){
        
         if (i == 1 || i == 3) {
-            bat = bats.create(i * 290 + 130, game.world.height - 125, 'bat');
+            bat = bats.create(i * 290 + 130, game.world.height - 125, 'batSheet');
+            bat.animations.add('flying');
+            bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
+
             initNewSinkingCloud(i * 290 + 30, game.world.height - 450, 0, 100); // upper
         }
         else {
@@ -48,8 +51,8 @@ function level3S3Update()
     }
     cloudTimer++;
     
-    if (cloudTimer % 25 == 0) {
-        createSoundwaves(bats);
+    if (cloudTimer % 110 == 0) {
+        createSoundwaves(bats, false);
     }
     
     cloudTimer++;
