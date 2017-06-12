@@ -52,7 +52,7 @@ function addtutorial2Objects()
     if (hasGarlic) {
         initNewSolidCloud(290, game.world.height - 450, 0);
         initNewSolidCloud(590, game.world.height - 250, 0);
-        addGrenade(290, game.world.height - 420, 0);
+        addGrenade(290, game.world.height - 220, 0);
         var bombText = game.add.text(300, game.world.height - 380, 'Pick up a grenade and press [control] to drop', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     }
 

@@ -138,6 +138,8 @@ var loadState = {
         // Win Screen
         game.load.image('winBird', 'assets/bird/freeBird.png');
 
+        game.load.image('winText', 'assets/winText1.png');
+        game.load.image('winPig', 'images/pigSprites/flying-down-mirrored-large.png');
     
     },
     

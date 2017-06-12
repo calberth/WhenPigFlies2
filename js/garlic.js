@@ -73,7 +73,7 @@ function killGarlic(bound, garlicv) {
 function addGrenade(x, y) {
 	if (grenadesPickedUp == false) {
 		sittingGrenades.create(x, y, 'garlicGrenade');
-		grenadesPickedUp = true;
+		
 	}
 }
 
@@ -84,6 +84,6 @@ function checkSittingGrenades() {
 function pickupGrenade(player, grenade) {
 	grenade.kill();
 	sittingGrenades.remove(grenade);
-
+	grenadesPickedUp = true;
 	grenadesLeft++;
 }
