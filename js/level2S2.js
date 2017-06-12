@@ -44,6 +44,9 @@ function addlevel2S2Objects()
 
     diveBatsInit();
     makeDiveBat(game.world.width - 570, game.world.height - 360);
+
+    addGrenade(4*250+100, game.world.height - 480);
+    addGrenade(290, game.world.height - 480);
 }
 
 function level2S2Update()

@@ -31,6 +31,9 @@ function addlevel2S4Objects()
         bat.animations.play('flying', game.rnd.integerInRange(5, 10), true);
     }
 
+    addApple(320, game.world.height - 50);
+    addGrenade(4*290, game.world.height - 50, 0);
+
     diveBatsInit();
     for (var i = 0; i < 3; i++) {
         makeDiveBat(game.rnd.integerInRange(0, 670), game.rnd.integerInRange(0, 400));

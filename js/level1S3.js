@@ -42,7 +42,8 @@ function addlevel1S3Objects()
     bolt.enableBody = true;
     bolt.scale.setTo(.25, .25);
 
-    addApple(320, game.world.height - 400);
+    addApple(320, game.world.height - 470);
+    addGrenade(3*290+30, game.world.height - 100);
     cloudTimer = 0;
 }
 

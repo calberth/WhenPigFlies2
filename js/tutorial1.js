@@ -59,7 +59,7 @@ function addtutorial1Objects()
     getSackText = game.add.text(460, 100, 'You need something to hold that garlic', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     getSackText.visible = false;
 
-    bombText = game.add.text(300, 200, 'To drop a garlic bomb press [space]', { font: 'Lato', fontSize: '32px', fill: '#fff' });
+    bombText = game.add.text(360, 200, 'To drop garlic press [space]', { font: 'Lato', fontSize: '32px', fill: '#fff' });
     bombText.visible = false;
     
     timerText = game.add.text(450, 20, 'Try going outside', { font: 'Lato', fontSize: '32px', fill: '#fff' });

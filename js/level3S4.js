@@ -46,9 +46,12 @@ function addlevel3S4Objects()
     ledge.body.immovable = true;
     ledge = platforms.create(900, 550, 'cloud');
     ledge.body.immovable = true;
+    ledge = platforms.create(950, 100, 'cloud');
+    ledge.body.immovable = true;
 
     diveBatsInit();
-    addApple(200, 150);
+    addApple(200, 190);
+    addApple(1000, 90);
 
     var enterLabel = game.add.text(50, game.world.height-150, 'press "e" to enter the castle',
                                        {font: '25px Arial', fill: '#ffffff' });

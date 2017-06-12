@@ -26,6 +26,8 @@ function addlevel3S2Objects()
 
     var ledge = platforms.create(400, 400, 'cloud');
 
+    addApple(400, 400);
+
     ledge.body.immovable = true;
     diveBatsInit();
     
