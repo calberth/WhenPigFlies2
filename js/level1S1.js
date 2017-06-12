@@ -23,7 +23,7 @@ function addlevel1S1Objects()
 {
     var scene = background.create(0,0,'L1background');
 
-    var text = game.add.text(425, 16, 'Level1 S1', { fontSize: '32px', fill: '#000' });
+    //var text = game.add.text(425, 16, 'Level1 S1', { fontSize: '32px', fill: '#000' });
 
     cloudTimer = 0;
     for (var i = 0; i < 4; i++){
