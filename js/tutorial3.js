@@ -40,7 +40,10 @@ function addtutorial3Objects() {
     timerText.visible = false;
 
     player.bringToTop();
-    grenadesLeft++;
+
+    if (grenadesLeft == 0)
+        grenadesLeft = 1;
+
 }
 
 function tutorial3Update()

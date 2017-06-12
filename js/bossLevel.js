@@ -40,36 +40,41 @@ function addBossLevelObjects()
 
     diveBatsInit();
     makeDiveBat(300, 600);
-    boss = game.add.sprite(800, 200, 'boss');
+
+    boss = game.add.sprite(800, 200, 'batculaSheet');
+
+    boss.animations.add('flyingBoss');
+    boss.animations.play('flyingBoss', 7, true);
+    boss.scale.setTo(0.5, 0.5);
  
-    game.physics.arcade.enable(boss);
-    boss.body.velocity.y = -100;
-    boss.body.collideWorldBounds = true;
+    //game.physics.arcade.enable(boss);
+    //boss.body.velocity.y = -100;
+    //boss.body.collideWorldBounds = true;
     bossAnim = 0;
 
     explosion = game.add.audio('explosion');
-}
+    boss.animations.add('flyingBoss');
 
-function updateBoss() {
-    // THIS IS THE BOSS ANIMATION FROM THE INTRO 
-    // PLEASE USE IT OR ERICA WILL CRY
-    /*boss.animations.add('flyingBoss');
-    boss.animations.play('flyingBoss', 7, true);
     this.game.time.events.loop(2000, function() {  
         this.game.add.tween(boss).to({x: this.game.world.randomX, 
                                          y: this.game.world.randomY}, 
                                         1750, Phaser.Easing.Quadratic.InOut, true);
-    }, this);*/
-    
+    }, this);
+}
+
+function updateBoss() {
+   
+    boss.animations.play('flyingBoss', 7, true);  
+
     bossAnim++;
     if (bossAnim % 150 == 0) {
         makeDiveBat(boss.x, boss.y);
     }
 
-    if (boss.y >= 500) // if low, go high
+    /*if (boss.y >= 500) // if low, go high
         boss.body.velocity.y = -100;
     if (boss.y < 50)
-        boss.body.velocity.y = 100;
+        boss.body.velocity.y = 100;*/
     if (bossAnim % 80 == 0) {
         createOneSoundwave(boss.x, boss.y, -400, 0, 0);
     }

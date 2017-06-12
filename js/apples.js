@@ -4,7 +4,7 @@ function addApple(x, y) {
 
     if (applesPickedUp == false) {
         var apple = apples.create(x, y, 'apple');
-        apple.scale.setTo(.05, .05);
+        apple.scale.setTo(.03, .03);
         console.log("apple Length: " + apples.children.length);
     }
 }
