@@ -111,7 +111,6 @@ var loadState = {
         game.load.image('cloud6', 'images/cloud6.png');
         game.load.image('cloud7', 'images/cloud7.png');
         
-        
 
         // Falling cut scene
         game.load.audio('falling', 'assets/audio/falling.wav');
