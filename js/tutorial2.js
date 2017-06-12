@@ -8,12 +8,7 @@ var frame2State = {
 
     update: function() {
         
-        checkCollisions();
-        movePlayer();
-        checkBattle();
-        updateHealthBar(health);
-        updateStaminaBar(stamina);
-        checkLose();
+        levelUpdate();
 
         tutorial2Update();
     }
