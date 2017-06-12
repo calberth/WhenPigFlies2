@@ -13,6 +13,9 @@ var loadState = {
         var loadingLabel = game.add.text(game.world.centerX-150, game.world.centerY-100, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
+        // Start Screen
+        game.load.image('startScreen', 'assets/StartScreen.png');
+
         //Backgrounds
         game.load.image('sky', 'assets/sky-morning.png');
         game.load.image('sky-morning', 'assets/sky-morning.png');

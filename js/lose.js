@@ -12,6 +12,7 @@ var loseState = {
     // The restart function calls the menu state    
     restart: function () {
         health = stamina = 100;
+        loseAudio.stop();
         if (state <= 4)
         {
             //state = 3;
