@@ -79,8 +79,8 @@ function enterActors() {
     
     var pig = game.add.sprite(20, 600, 'pigR1');
     
-    game.add.tween(bird).to({x: 600}, 16000, null, true);
-    game.add.tween(pig).to({x: 600}, 16000, null, true);
+    game.add.tween(bird).to({x: 600}, 10000, null, true);
+    game.add.tween(pig).to({x: 600}, 10000, null, true);
     
 }
 
