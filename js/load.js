@@ -1,5 +1,12 @@
 var state = -1;
 
+WebFontConfig = {
+            
+            google: {
+                families: ['Lato']
+            }
+        };
+
 var loadState = {
 	
 	// The preload function is another standard Phaser function that we
@@ -13,6 +20,7 @@ var loadState = {
         var loadingLabel = game.add.text(game.world.centerX-150, game.world.centerY-100, 'loading...', 
                                          {font: '30px Courier', fill: '#ffffff'});   
         
+        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
         //Backgrounds
         game.load.image('sky', 'assets/sky-morning.png');
         game.load.image('sky-morning', 'assets/sky-morning.png');
@@ -106,7 +114,7 @@ var loadState = {
     },
     
     create: function() {
-        // Call the menu state
+
         game.state.start('menu');
-    }    
+    }, 
 };
