@@ -93,6 +93,25 @@ var loadState = {
         game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
         game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
         game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
+        game.load.image('birdS1', 'assets/intro/bird1.png');
+        game.load.image('birdS2', 'assets/intro/bird2.png');
+        game.load.image('birdS3', 'assets/intro/bird3.png');
+        game.load.image('pigS1', 'assets/intro/pig1.png');
+        game.load.image('pigS2', 'assets/intro/pig2.png');
+        game.load.image('pigS3', 'assets/intro/pig3.png');
+        game.load.image('batculaS1', 'assets/intro/batcula1.png');
+        game.load.image('batculaS2', 'assets/intro/batcula2.png');
+        game.load.image('batculaS3', 'assets/intro/batcula3.png');
+        game.load.image('batculaS4', 'assets/intro/batcula4.png');
+        game.load.image('cloud1', 'images/cloud1.png');
+        game.load.image('cloud2', 'images/cloud2.png');
+        game.load.image('cloud3', 'images/cloud3.png');
+        game.load.image('cloud4', 'images/cloud4.png');
+        game.load.image('cloud5', 'images/cloud5.png');
+        game.load.image('cloud6', 'images/cloud6.png');
+        game.load.image('cloud7', 'images/cloud7.png');
+        
+        
 
         // Falling cut scene
         game.load.audio('falling', 'assets/audio/falling.wav');
@@ -101,6 +120,7 @@ var loadState = {
     
     create: function() {
         // Call the menu state
+        
         game.state.start('menu');
     }    
 };
