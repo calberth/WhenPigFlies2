@@ -55,6 +55,8 @@
         var timer = 0;
         var incTimer = false;
 
+        var apples;
+
 
 var menuState = {
   

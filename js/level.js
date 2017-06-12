@@ -32,14 +32,15 @@ function initializeLevel(left, right, up, down, bottomDeath)
     boundaries.enableBody = true;
 
     blasts = game.add.group();
+    blasts.enableBody = true;
+
     apples = game.add.group();
     apples.enableBody = true;
 
     sittingGrenades = game.add.group();
     sittingGrenades.enableBody = true;
 
-    
-    
+      
 
     if (left)
     {
