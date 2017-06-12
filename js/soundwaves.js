@@ -35,7 +35,7 @@ function createSoundwavesUp(bats, up) {
 			}
     		soundwave.body.gravity.y = game.rnd.integerInRange(5, 100); 
     	}
-	}v
+	}
 }
 
 //TODO use velocity values to determine rotation
@@ -52,6 +52,9 @@ function createOneSoundwave(xPos, yPos, xVel, yVel, rotation) {
 
 function checkSoundwaves() {
 	game.physics.arcade.collide(leftBound, soundwaves, killWave, null, this);
+	game.physics.arcade.collide(rightBound, soundwaves, killWave, null, this);
+	game.physics.arcade.collide(lowerBound, soundwaves, killWave, null, this);
+	game.physics.arcade.collide(upperBound, soundwaves, killWave, null, this);
 }
 
 function killWave(bound, wave) {

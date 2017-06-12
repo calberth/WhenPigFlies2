@@ -9,8 +9,13 @@ function levelUpdate() {
     updateStaminaBar(stamina);
     checkLose();
 
-    //if (apples.children.length > 0)
-    checkAppleCollisions();
+    if (apples.children.length > 0)
+        checkAppleCollisions();
+
+    if (soundwaves.children.length > 0)
+        checkSoundwaves();
+    if (blasts.children.length > 0)
+        updateBlastAnim() 
 }
 
 function initializeLevel(left, right, up, down, bottomDeath)
