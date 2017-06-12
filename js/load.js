@@ -93,6 +93,9 @@ var loadState = {
         game.load.spritesheet('batSheet', 'assets/batSheet.png', 64, 25, 16);
         game.load.spritesheet('batSheet2', 'assets/batSheet2.png', 190, 110, 7);
         game.load.spritesheet('batculaSheet', 'assets/batcula-sheet.png', 547, 204, 4);
+
+        // Falling cut scene
+        game.load.audio('falling', 'assets/audio/falling.wav');
     
     },
     
