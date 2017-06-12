@@ -85,8 +85,8 @@ var menuState = {
         texture = 'pigR1';
         state = 2;
         hasGarlic = true;
-        game.state.start('frame2');
+        //game.state.start('frame2');
         //game.state.start('bossLevel');
-        //game.state.start('scene1');
+        game.state.start('scene1');
     },    
 };
