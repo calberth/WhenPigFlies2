@@ -7,17 +7,23 @@ var bossHealthbar;
 var bossHealthText;
 var bossHealth;
 
-var grenadesLeft;
+var grenadesLeft = 0;
 var grenadesText;
 
 function createGarlicGrenadesBar() {
-	grenadesText = game.add.text(16, 100, 'Grenades: 0', { fontSize: '32px', fill: '#F00' });
-	grenadesLeft = 0;
+
+    grenadesText = game.add.text(60, 93, grenadesLeft, { fontSize: '28px', fill: '#00992b' });
+	
+    var grenadeIcon = icons.create(18, 92, 'garlicGrenade');
+    grenadeIcon.scale.setTo(.8, .8);
 
 }
 
 function updateGGBar() {
-	grenadesText.text = 'Grenades: ' + grenadesLeft;
+    
+	grenadesText.kill();
+    grenadesText = game.add.text(60, 93, grenadesLeft, { fontSize: '28px', fill: '#00992b' });
+
 }
 
 
